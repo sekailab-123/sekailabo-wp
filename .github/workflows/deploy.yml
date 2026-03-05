@@ -16,10 +16,10 @@ jobs:
       - name: SSH経由でシンレンタルサーバーにデプロイ
         uses: appleboy/ssh-action@v1.0.3
         with:
-          host: ${{ secrets.SSH_HOST }}
-          username: ${{ secrets.SSH_USER }}
-          password: ${{ secrets.SSH_PASSWORD }}
-          port: 10022  # シンレンタルサーバーのSSHポート
+          host: sv3084.wpx.ne.jp
+          username: wpxe852659
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          port: 10022
           script: |
             cd ${{ secrets.THEME_PATH }}
             git pull origin main
