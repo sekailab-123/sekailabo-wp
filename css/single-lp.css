@@ -1,0 +1,324 @@
+/*------------------------------------------------------------------
+リセットCSS
+*-------------------------------------------------------------------*/
+
+html {
+    height: 100%;
+    width: 100%;
+    font-size: 62.5%;
+}
+
+body {
+    font-size: 1.4em;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
+
+p {
+    font-size: 1.6rem;
+    font-family: 'Noto Sans JP', sans-serif;
+}
+
+ul {
+    font-size: 1.6rem;
+    font-family: 'Noto Sans JP', sans-serif;
+    margin: 1.6em 0 1.5em 1.5em;
+    padding-left: 0;
+}
+
+li {
+    margin-bottom: 1.6em;
+}
+
+
+
+/*------------------------------------------------------------------
+ページ内容
+*-------------------------------------------------------------------*/
+
+.container_single {
+    width: 76%;
+    margin: 0 auto;
+    margin-top: 8%;
+}
+
+.topics_detail {
+    padding-bottom: 8%;
+}
+
+.topics_detail img {
+    display: block;
+    width: 100%;
+    height: auto;
+    margin: 4% 0;
+}
+
+.topics_detail h1 {
+    font-family: 'Sawarabi Gothic', sans-serif;
+    margin: 4em auto 1.8em;
+    border-top: 2px solid #004d36;
+    border-bottom: 2px solid #004d36;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    background-color: #fff;
+    font-size: 2.4rem;
+    padding: 0.8em 0.5em;
+    line-height: 1.5;
+    position: relative;
+}
+
+
+.topics_detail .body {
+    width: 91%;
+    margin: 0 auto 1em;
+    padding: 0 0 1em;
+}
+
+.topics_links {
+    margin: 0 0 0;
+    position: relative;
+    width: 100%;
+    height: 132px;
+}
+
+.topics_links .links_move {
+    position: absolute;
+    top: 18px;
+    left: 0;
+    font-size: 1.6rem;
+    font-weight: bold;
+    font-family: 'Noto Sans JP', sans-serif;
+    color: #004d36;
+    position: relative;
+    padding: 0 0 0 1.8em;
+    letter-spacing: 1px;
+    display: inline-block;
+}
+
+.topics_links .totopics a {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    width: 300px;
+    height: 52px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    background-color: #333333;
+    border-radius: 5px;
+    font-size: 1.8rem;
+    cursor: pointer;
+    transition: 0.15s;
+}
+
+.topics_detail h2 {
+    font-family: 'Sawarabi Gothic', sans-serif;
+    color: #004d36;
+    font-size: 2.2rem;
+    line-height: 1.5;
+    /* border-top: 1px dotted #999999; */
+    border-bottom: 1px dotted #999999;
+    padding: 0.3em 0 0.3em 0.5em;
+    position: relative;
+    margin: 2.2em 0 2.2em;
+}
+
+.topics_detail h4 {
+    font-family: 'Sawarabi Gothic', sans-serif;
+    color: #004d36;
+    font-size: 1.8rem;
+    /* border-bottom: 2px dotted #b2bfd4; */
+    padding: 0.5em 0.5em;
+    margin: 2.5em 0 1.5em;
+    font-weight: bold;
+    position: relative;
+}
+
+.topics_detail p {
+    letter-spacing: 0.02em;
+    line-height: 2.8rem;
+}
+
+.box_style {
+    margin: 0 0 30px;
+}
+
+.box_style_green {
+    background-image: linear-gradient(-45deg, #fff 25%, #246a55 25%, #246a55 50%, #fff 50%, #fff 75%, #246a55 75%, #246a55);
+    margin-top: 56px;
+    padding: 6px;
+    background-size: 4px 4px;
+    background-repeat: repeat;
+    font-size: 1.4rem;
+}
+
+.box_inner {
+    background-color: #fafff5;
+    padding: 15px;
+}
+
+.box_style_title {
+    margin: -8px 0 5px -27px;
+    color: #fff;
+    line-height: 1.4;
+}
+
+.box_style_title_inner {
+    background-color: #246a55;
+}
+
+.box_style_title span {
+    font-family: 'Sawarabi Gothic', sans-serif;
+    position: relative;
+    display: inline-block;
+    padding: 5px 10px;
+}
+
+.box_style_title span::before {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    height: 0;
+    width: 0;
+    border: 3px solid transparent;
+    border-top-color: #d6d6d6;
+    border-right-color: #d6d6d6;
+    content: "";
+}
+
+
+
+/*-----------------------------------------------------------------
+SP版 
+-----------------------------------------------------------------*/
+
+
+/*--------------------------------
+ページ内容
+---------------------------------*/
+
+@media screen and (max-width: 1290px) {
+    .topics_links {
+        margin: 0 auto;
+        width: 95%;
+    }
+}
+
+@media screen and (max-width: 750px) {
+
+    .container_single {
+        width: 80%;
+    }
+
+    .topics_detail {
+        margin: 0em 0 2em 0;
+        border-bottom: 1px solid #999999;
+    }
+
+    .topics_detail h1 {
+        border-top: 2px solid #004d36;
+        border-bottom: 2px solid #004d36;
+        display: flex;
+        justify-content: left;
+        align-items: center;
+        background-color: #fff;
+        font-size: 1.6rem;
+        padding: 0.8em 0.5em;
+        line-height: 1.5;
+        position: relative;
+    }
+
+    .topics_detail .time {
+        font-size: 1.2rem;
+        margin: 0 auto 1em;
+        width: 90%;
+    }
+
+    .topics_detail .thumb {
+        margin: 0 auto 1em;
+        width: 90%;
+    }
+
+    .topics_detail .body {
+        width: 90%;
+        margin: 0 auto 1em;
+        padding: 0 0 1em;
+    }
+
+    .topics_links {
+        margin: 0 auto;
+        position: relative;
+        width: 95%;
+        height: 80px;
+    }
+
+    .topics_links .links_move {
+        position: absolute;
+        top: 0;
+        left: 0;
+        font-size: 1.4rem;
+        font-weight: bold;
+        font-family: 'Noto Sans JP', sans-serif;
+        color: #004d36;
+        position: relative;
+        padding: 0 0 0 0;
+        letter-spacing: 1px;
+        display: inline-block;
+        color: #fff;
+    }
+
+    .topics_links .totopics a {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        margin: auto;
+        width: 160px;
+        height: 40px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: #fff;
+        background-color: #333333;
+        border-radius: 5px;
+        font-size: 1.4rem;
+        cursor: pointer;
+        transition: 0.15s;
+    }
+
+    .topics_detail h2 {
+        font-size: 1.8rem;
+        /* border-top: 1px dotted #999999; */
+        border-bottom: 1px dotted #999999;
+        padding: 0.5em 0 0.5em 0.5em;
+        position: relative;
+    }
+
+    .topics_detail h4 {
+        font-size: 1.6rem;
+        padding: 0.5em 0.5em;
+        margin: 0 0 1.0em;
+    }
+
+    .topics_detail p {
+        letter-spacing: 0em;
+        line-height: 3rem;
+        padding: 3% 0;
+    }
+
+}
+
+/* WordPress変更------------------------ */
+
+@media screen and (max-width: 900px) {
+    .wp-block-image img {
+        max-width: 100%;
+        object-fit: contain;
+    }
+}

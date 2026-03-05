@@ -1,0 +1,25 @@
+name: Deploy to sekailabo.com
+
+on:
+  push:
+    branches:
+      - main  # mainブランチにpushしたとき自動デプロイ
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: リポジトリをチェックアウト
+        uses: actions/checkout@v4
+
+      - name: SSH経由でシンレンタルサーバーにデプロイ
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USER }}
+          password: ${{ secrets.SSH_PASSWORD }}
+          port: 10022  # シンレンタルサーバーのSSHポート
+          script: |
+            cd ${{ secrets.THEME_PATH }}
+            git pull origin main
