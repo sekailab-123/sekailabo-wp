@@ -1,7 +1,7 @@
 <?php
 /*
- * Template Name: リンクツリー
- * Description: 名刺QRコード用リンクツリーページ
+ * リンクツリーページ本体
+ * template-linktree.php から読み込まれます。
  */
 ?>
 <!DOCTYPE html>
