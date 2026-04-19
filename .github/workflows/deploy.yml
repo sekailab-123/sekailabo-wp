@@ -17,7 +17,7 @@ jobs:
         uses: appleboy/ssh-action@v1.0.3
         with:
           host: sv3084.wpx.ne.jp
-          username: wpxe852659
+          username: sekailabo001
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           port: 10022
           script: |
