@@ -428,9 +428,7 @@ $has_mogs_logo = file_exists( $template_dir . $mogs_logo_relative_path );
               Gourmet influencer group<br />
               Instagram &amp; TikTok
             </p>
-            <p class="links-subtitle">
-              グルメインフルエンサーとして発信している各種リンクをまとめています。
-            </p>
+            <p class="links-subtitle">各種リンクをまとめています。</p>
           </div>
         </div>
       </header>
