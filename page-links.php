@@ -6,9 +6,23 @@
 
 $template_dir = get_template_directory();
 $template_uri = get_template_directory_uri();
-$sekailabo_logo_relative_path = '/img/sekailabo.png';
+$sekailabo_logo_relative_path = '/img/SEKAILABO.png';
+$sekailabo_logo_candidates = array(
+  '/img/SEKAILABO.png',
+  '/img/sekailabo.png',
+  "/img/SEKAILABO'.png",
+);
 $mogs_logo_relative_path = '/img/mogs.png';
-$has_sekailabo_logo = file_exists( $template_dir . $sekailabo_logo_relative_path );
+$has_sekailabo_logo = false;
+
+foreach ( $sekailabo_logo_candidates as $sekailabo_logo_candidate ) {
+  if ( file_exists( $template_dir . $sekailabo_logo_candidate ) ) {
+    $sekailabo_logo_relative_path = $sekailabo_logo_candidate;
+    $has_sekailabo_logo = true;
+    break;
+  }
+}
+
 $has_mogs_logo = file_exists( $template_dir . $mogs_logo_relative_path );
 ?>
 <!DOCTYPE html>
@@ -54,27 +68,42 @@ $has_mogs_logo = file_exists( $template_dir . $mogs_logo_relative_path );
       }
 
       body {
-        background-color: #202020;
-        color: #fff;
+        background:
+          radial-gradient(
+            circle at top,
+            rgba(221, 201, 173, 0.3),
+            transparent 34%
+          ),
+          linear-gradient(180deg, #f7f3ed 0%, #efebe3 48%, #e8e4dc 100%);
+        color: #1f1a17;
         font-family:
           "Noto Sans JP", YuGothic, "ヒラギノ角ゴ Pro W3", sans-serif;
         display: flex;
         justify-content: center;
         align-items: flex-start;
-        padding: 60px 20px 80px;
+        padding: 42px 20px 72px;
       }
 
       .links-wrapper {
         width: 100%;
-        max-width: 480px;
+        max-width: 520px;
         display: flex;
         flex-direction: column;
         align-items: center;
+        padding: 36px 28px 30px;
+        border: 1px solid rgba(72, 56, 41, 0.08);
+        border-radius: 32px;
+        background: rgba(255, 255, 255, 0.84);
+        box-shadow:
+          0 24px 60px rgba(82, 62, 41, 0.12),
+          inset 0 1px 0 rgba(255, 255, 255, 0.9);
+        backdrop-filter: blur(12px);
       }
 
       /* ロゴエリア */
       .links-header {
-        margin-bottom: 40px;
+        width: 100%;
+        margin-bottom: 30px;
         text-align: center;
       }
 
@@ -82,7 +111,7 @@ $has_mogs_logo = file_exists( $template_dir . $mogs_logo_relative_path );
         display: flex;
         flex-direction: column;
         align-items: center;
-        gap: 18px;
+        gap: 10px;
       }
 
       .links-brand-card {
@@ -90,77 +119,104 @@ $has_mogs_logo = file_exists( $template_dir . $mogs_logo_relative_path );
         display: flex;
         flex-direction: column;
         align-items: center;
-        gap: 12px;
+        gap: 10px;
+      }
+
+      .links-header-label {
+        font-family: "Montserrat", sans-serif;
+        font-size: 10px;
+        font-weight: 600;
+        letter-spacing: 0.28em;
+        color: #7a6b5d;
+        text-transform: uppercase;
       }
 
       .links-logo {
-        width: 160px;
+        width: 132px;
         height: auto;
         display: block;
         margin: 0 auto;
       }
 
       .links-logo-fallback {
-        min-width: 220px;
-        padding: 18px 24px;
-        border: 1px solid rgba(255, 255, 255, 0.16);
+        min-width: 180px;
+        padding: 12px 18px;
+        border: 1px solid rgba(72, 56, 41, 0.12);
+        border-radius: 999px;
         display: inline-flex;
         align-items: center;
         justify-content: center;
         font-family: "Montserrat", sans-serif;
-        font-size: 26px;
+        font-size: 18px;
         font-weight: 700;
         letter-spacing: 0.12em;
-        color: #f3efe7;
+        color: #5d4a3c;
         background: linear-gradient(
           145deg,
-          rgba(255, 255, 255, 0.06),
-          rgba(255, 255, 255, 0.02)
+          rgba(255, 255, 255, 0.95),
+          rgba(239, 235, 227, 0.94)
         );
       }
 
       .links-sub-logo {
-        width: 112px;
+        width: 156px;
         height: auto;
         display: block;
         margin: 0 auto;
       }
 
       .links-sub-logo-fallback {
-        width: 112px;
-        height: 112px;
-        border: 1px solid rgba(255, 255, 255, 0.16);
-        border-radius: 50%;
+        width: 156px;
+        height: 156px;
+        border: 1px solid rgba(72, 56, 41, 0.14);
+        border-radius: 28px;
         display: flex;
         align-items: center;
         justify-content: center;
         font-family: "Montserrat", sans-serif;
-        font-size: 22px;
+        font-size: 30px;
         font-weight: 700;
-        letter-spacing: 0.18em;
-        color: #f3efe7;
+        letter-spacing: 0.16em;
+        color: #5d4a3c;
         background: linear-gradient(
-          145deg,
-          rgba(255, 255, 255, 0.08),
-          rgba(255, 255, 255, 0.02)
+          150deg,
+          rgba(255, 255, 255, 0.98),
+          rgba(233, 226, 214, 0.96)
         );
         padding-left: 0.18em;
+        box-shadow: 0 14px 28px rgba(88, 67, 43, 0.08);
       }
 
       .links-tagline {
         font-family: "Montserrat", sans-serif;
-        font-size: 11px;
+        font-size: 10px;
         font-weight: 600;
-        letter-spacing: 0.25em;
-        color: #888;
+        letter-spacing: 0.24em;
+        color: #7d6f63;
         text-transform: uppercase;
       }
 
       .links-group-copy {
-        font-size: 12px;
-        line-height: 1.8;
-        color: #a6a6a6;
-        letter-spacing: 0.06em;
+        font-size: 13px;
+        line-height: 1.85;
+        color: #6b5c4f;
+        letter-spacing: 0.04em;
+      }
+
+      .links-title {
+        font-family: "Montserrat", sans-serif;
+        font-size: 26px;
+        font-weight: 700;
+        letter-spacing: 0.12em;
+        color: #2f251d;
+        text-transform: uppercase;
+      }
+
+      .links-subtitle {
+        max-width: 320px;
+        font-size: 13px;
+        line-height: 1.85;
+        color: #7a6b5d;
       }
 
       /* リンクボタン */
@@ -169,35 +225,46 @@ $has_mogs_logo = file_exists( $template_dir . $mogs_logo_relative_path );
         width: 100%;
         display: flex;
         flex-direction: column;
-        gap: 14px;
+        gap: 12px;
       }
 
       .links-list li a {
         display: flex;
         align-items: center;
         width: 100%;
-        padding: 16px 22px;
-        border: 1px solid rgba(255, 255, 255, 0.15);
-        border-radius: 8px;
-        background-color: rgba(255, 255, 255, 0.04);
-        color: #fff;
+        padding: 16px 18px;
+        border: 1px solid rgba(78, 60, 41, 0.1);
+        border-radius: 20px;
+        background: linear-gradient(
+          180deg,
+          rgba(255, 255, 255, 0.96),
+          rgba(246, 242, 236, 0.92)
+        );
+        color: #231b15;
         text-decoration: none;
         font-family: "Noto Sans JP", sans-serif;
         font-size: 14px;
         font-weight: 500;
-        letter-spacing: 0.05em;
+        letter-spacing: 0.03em;
         transition:
           background-color 0.2s ease,
           border-color 0.2s ease,
-          transform 0.1s ease;
+          transform 0.1s ease,
+          box-shadow 0.2s ease;
         position: relative;
+        box-shadow: 0 10px 24px rgba(88, 67, 43, 0.06);
       }
 
       .links-list li a:hover,
       .links-list li a:focus {
-        background-color: rgba(255, 255, 255, 0.1);
-        border-color: rgba(255, 255, 255, 0.4);
-        transform: translateY(-1px);
+        background: linear-gradient(
+          180deg,
+          rgba(255, 255, 255, 1),
+          rgba(246, 239, 229, 0.96)
+        );
+        border-color: rgba(109, 86, 61, 0.2);
+        transform: translateY(-2px);
+        box-shadow: 0 16px 32px rgba(88, 67, 43, 0.1);
         outline: none;
       }
 
@@ -208,8 +275,8 @@ $has_mogs_logo = file_exists( $template_dir . $mogs_logo_relative_path );
       .link-icon {
         width: 36px;
         height: 36px;
-        border-radius: 50%;
-        background-color: rgba(255, 255, 255, 0.08);
+        border-radius: 12px;
+        background-color: #f3eee7;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -241,24 +308,54 @@ $has_mogs_logo = file_exists( $template_dir . $mogs_logo_relative_path );
       .link-label-sub {
         display: block;
         font-size: 11px;
-        color: #888;
+        color: #8a7d72;
         margin-top: 2px;
         font-family: "Montserrat", sans-serif;
         letter-spacing: 0.08em;
       }
 
       .link-arrow {
-        color: #555;
+        color: #9c8e82;
         font-size: 12px;
         flex-shrink: 0;
       }
 
+      .links-company {
+        width: 100%;
+        margin-top: 28px;
+        padding-top: 22px;
+        border-top: 1px solid rgba(78, 60, 41, 0.1);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .links-company-copy {
+        font-family: "Montserrat", sans-serif;
+        font-size: 10px;
+        font-weight: 600;
+        letter-spacing: 0.24em;
+        color: #7d6f63;
+        text-transform: uppercase;
+      }
+
+      .links-company .links-logo {
+        width: 96px;
+      }
+
+      .links-company .links-logo-fallback {
+        min-width: 140px;
+        font-size: 14px;
+        padding: 10px 14px;
+      }
+
       /* フッター */
       .links-footer {
-        margin-top: 48px;
+        margin-top: 18px;
         font-family: "Montserrat", sans-serif;
         font-size: 11px;
-        color: #444;
+        color: #8f8378;
         letter-spacing: 0.15em;
         text-align: center;
       }
@@ -266,21 +363,37 @@ $has_mogs_logo = file_exists( $template_dir . $mogs_logo_relative_path );
       /* スマホ最適化 */
       @media (max-width: 480px) {
         body {
-          padding: 48px 16px 64px;
+          padding: 24px 14px 42px;
+        }
+        .links-wrapper {
+          padding: 28px 18px 24px;
+          border-radius: 26px;
         }
         .links-logo {
-          width: 140px;
+          width: 114px;
         }
         .links-logo-fallback {
           min-width: 0;
           width: 100%;
-          font-size: 20px;
-          padding: 16px 18px;
+          font-size: 16px;
+          padding: 12px 14px;
         }
         .links-sub-logo,
         .links-sub-logo-fallback {
-          width: 96px;
-          height: 96px;
+          width: 124px;
+          height: 124px;
+        }
+        .links-sub-logo-fallback {
+          font-size: 24px;
+        }
+        .links-company .links-logo {
+          width: 82px;
+        }
+        .links-title {
+          font-size: 22px;
+        }
+        .links-list li a {
+          padding: 15px 16px;
         }
       }
     </style>
@@ -290,19 +403,7 @@ $has_mogs_logo = file_exists( $template_dir . $mogs_logo_relative_path );
       <header class="links-header">
         <div class="links-brand-stack">
           <div class="links-brand-card">
-            <?php if ( $has_sekailabo_logo ) : ?>
-            <img
-              src="<?php echo esc_url( $template_uri . $sekailabo_logo_relative_path ); ?>"
-              alt="SEKAILABO."
-              class="links-logo"
-            />
-            <?php else : ?>
-            <div class="links-logo-fallback">SEKAILABO.</div>
-            <?php endif; ?>
-            <p class="links-tagline">Web Production &amp; Consulting</p>
-          </div>
-
-          <div class="links-brand-card">
+            <p class="links-header-label">MOGS LINK HUB</p>
             <?php if ( $has_mogs_logo ) : ?>
             <img
               src="<?php echo esc_url( $template_uri . $mogs_logo_relative_path ); ?>"
@@ -312,9 +413,13 @@ $has_mogs_logo = file_exists( $template_dir . $mogs_logo_relative_path );
             <?php else : ?>
             <div class="links-sub-logo-fallback">MOGS</div>
             <?php endif; ?>
+            <h1 class="links-title">MOGS</h1>
             <p class="links-group-copy">
               Gourmet influencer group<br />
               Instagram &amp; TikTok
+            </p>
+            <p class="links-subtitle">
+              グルメインフルエンサーとして発信している各種リンクをまとめています。
             </p>
           </div>
         </div>
@@ -404,6 +509,20 @@ $has_mogs_logo = file_exists( $template_dir . $mogs_logo_relative_path );
           </a>
         </li>
       </ul>
+
+      <section class="links-company">
+        <p class="links-company-copy">Produced by SEKAILABO.</p>
+        <?php if ( $has_sekailabo_logo ) : ?>
+        <img
+          src="<?php echo esc_url( $template_uri . $sekailabo_logo_relative_path ); ?>"
+          alt="SEKAILABO."
+          class="links-logo"
+        />
+        <?php else : ?>
+        <div class="links-logo-fallback">SEKAILABO.</div>
+        <?php endif; ?>
+        <p class="links-tagline">Web Production &amp; Consulting</p>
+      </section>
 
       <footer class="links-footer">
         &copy; <?php echo esc_html( wp_date( 'Y' ) ); ?> SEKAILABO.
