@@ -64,7 +64,7 @@ $has_mogs_logo = file_exists( $template_dir . $mogs_logo_relative_path );
       body {
         width: 100%;
         min-height: 100%;
-        background: #000;
+        background: #060f1c;
       }
       a {
         text-decoration: none;
@@ -138,7 +138,7 @@ $has_mogs_logo = file_exists( $template_dir . $mogs_logo_relative_path );
         {
           href: D.homeUrl,
           icon: "fas fa-globe",
-          color: "#7ec8e3",
+          color: "#5dd5f5",
           label: "SEKAILABO\u2019 \u516C\u5F0F\u30B5\u30A4\u30C8",
           sub: "sekailabo.com",
           cta: false,
@@ -146,7 +146,7 @@ $has_mogs_logo = file_exists( $template_dir . $mogs_logo_relative_path );
         {
           href: "https://mogpass.up.railway.app/lp",
           icon: "fas fa-star",
-          color: "#f4a261",
+          color: "#4eecc0",
           label: "MOGPASS",
           sub: "\u30B5\u30FC\u30D3\u30B9\u7D39\u4ECB\u30DA\u30FC\u30B8",
           cta: true,
@@ -154,7 +154,7 @@ $has_mogs_logo = file_exists( $template_dir . $mogs_logo_relative_path );
         {
           href: "https://www.instagram.com/mogs_gourmet/reels/",
           icon: "fab fa-instagram",
-          color: "#e1306c",
+          color: "#ff7eb8",
           label: "Instagram",
           sub: "@mogs_gourmet",
           cta: false,
@@ -162,7 +162,7 @@ $has_mogs_logo = file_exists( $template_dir . $mogs_logo_relative_path );
         {
           href: "https://www.tiktok.com/@mogs_gourmet",
           icon: "fab fa-tiktok",
-          color: "#69c9d0",
+          color: "#5de8f0",
           label: "TikTok",
           sub: "@mogs_gourmet",
           cta: false,
@@ -170,7 +170,7 @@ $has_mogs_logo = file_exists( $template_dir . $mogs_logo_relative_path );
         {
           href: D.contactUrl,
           icon: "fas fa-envelope",
-          color: "#90ee90",
+          color: "#7ef5c0",
           label: "\u304A\u554F\u3044\u5408\u308F\u305B",
           sub: "Contact",
           cta: false,
@@ -208,9 +208,9 @@ $has_mogs_logo = file_exists( $template_dir . $mogs_logo_relative_path );
               fontSize: "26px",
               fontWeight: "700",
               letterSpacing: "0.12em",
-              color: "rgba(255,255,255,0.92)",
-              background: "rgba(255,255,255,0.07)",
-              border: "1px solid rgba(255,255,255,0.15)",
+              color: "rgba(180,240,255,0.95)",
+              background: "rgba(0,160,210,0.12)",
+              border: "1px solid rgba(100,220,255,0.22)",
               backdropFilter: "blur(16px)",
               WebkitBackdropFilter: "blur(16px)",
             }}
@@ -227,7 +227,12 @@ $has_mogs_logo = file_exists( $template_dir . $mogs_logo_relative_path );
             <img
               src=${D.templateUri + D.sekailaboLogoPath}
               alt="SEKAILABO'"
-              style=${{ width: "80px", height: "auto", opacity: 0.65 }}
+              style=${{
+                width: "80px",
+                height: "auto",
+                opacity: 0.55,
+                filter: "brightness(1.2) hue-rotate(180deg)",
+              }}
             />
           `;
         }
@@ -238,7 +243,7 @@ $has_mogs_logo = file_exists( $template_dir . $mogs_logo_relative_path );
               fontSize: "13px",
               fontWeight: "700",
               letterSpacing: "0.15em",
-              color: "rgba(255,255,255,0.50)",
+              color: "rgba(100,220,255,0.65)",
             }}
             >SEKAILABO'</span
           >
@@ -271,12 +276,12 @@ $has_mogs_logo = file_exists( $template_dir . $mogs_logo_relative_path );
                 padding: "17px 22px",
                 borderRadius: "999px",
                 background:
-                  "linear-gradient(135deg, rgba(255,255,255,0.22) 0%, rgba(255,255,255,0.06) 100%)",
-                border: "1px solid rgba(255,255,255,0.34)",
+                  "linear-gradient(135deg, rgba(0,200,255,0.20) 0%, rgba(0,160,220,0.08) 100%)",
+                border: "1px solid rgba(0,210,255,0.38)",
                 backdropFilter: "blur(24px)",
                 WebkitBackdropFilter: "blur(24px)",
                 boxShadow:
-                  "0 0 40px rgba(255,210,130,0.06), inset 0 1px 0 rgba(255,255,255,0.24)",
+                  "0 0 50px rgba(0,200,255,0.12), inset 0 1px 0 rgba(100,230,255,0.28)",
                 color: "white",
                 textDecoration: "none",
                 cursor: "pointer",
@@ -288,7 +293,7 @@ $has_mogs_logo = file_exists( $template_dir . $mogs_logo_relative_path );
                   height: "38px",
                   borderRadius: "50%",
                   flexShrink: 0,
-                  background: "rgba(255,255,255,0.18)",
+                  background: "rgba(0,210,255,0.18)",
                   marginRight: "16px",
                   display: "flex",
                   alignItems: "center",
@@ -318,14 +323,14 @@ $has_mogs_logo = file_exists( $template_dir . $mogs_logo_relative_path );
                     marginTop: "3px",
                     fontFamily: '"Montserrat", sans-serif',
                     letterSpacing: "0.10em",
-                    color: "rgba(255,255,255,0.55)",
+                    color: "rgba(180,245,255,0.70)",
                   }}
                   >${link.sub}</span
                 >
               </span>
               <i
                 className="fas fa-chevron-right"
-                style=${{ color: "rgba(255,255,255,0.60)", fontSize: "11px" }}
+                style=${{ color: "rgba(100,220,255,0.70)", fontSize: "11px" }}
               ></i>
             <//>
           `;
@@ -340,7 +345,7 @@ $has_mogs_logo = file_exists( $template_dir . $mogs_logo_relative_path );
             initial=${initial}
             animate=${animate}
             transition=${transition}
-            whileHover=${{ y: -3, background: "rgba(255,255,255,0.09)" }}
+            whileHover=${{ y: -3, background: "rgba(0,180,220,0.09)" }}
             whileTap=${{ scale: 0.98 }}
             style=${{
               display: "flex",
@@ -348,8 +353,8 @@ $has_mogs_logo = file_exists( $template_dir . $mogs_logo_relative_path );
               width: "100%",
               padding: "16px 20px",
               borderRadius: "20px",
-              background: "rgba(255,255,255,0.05)",
-              border: "1px solid rgba(255,255,255,0.10)",
+              background: "rgba(0,160,210,0.05)",
+              border: "1px solid rgba(100,220,255,0.12)",
               backdropFilter: "blur(16px)",
               WebkitBackdropFilter: "blur(16px)",
               color: "white",
@@ -362,7 +367,7 @@ $has_mogs_logo = file_exists( $template_dir . $mogs_logo_relative_path );
                 height: "38px",
                 borderRadius: "12px",
                 flexShrink: 0,
-                background: "rgba(255,255,255,0.08)",
+                background: "rgba(0,180,220,0.10)",
                 marginRight: "16px",
                 display: "flex",
                 alignItems: "center",
@@ -392,14 +397,14 @@ $has_mogs_logo = file_exists( $template_dir . $mogs_logo_relative_path );
                   marginTop: "3px",
                   fontFamily: '"Montserrat", sans-serif',
                   letterSpacing: "0.10em",
-                  color: "rgba(255,255,255,0.42)",
+                  color: "rgba(150,220,255,0.55)",
                 }}
                 >${link.sub}</span
               >
             </span>
             <i
               className="fas fa-chevron-right"
-              style=${{ color: "rgba(255,255,255,0.30)", fontSize: "11px" }}
+              style=${{ color: "rgba(100,210,255,0.42)", fontSize: "11px" }}
             ></i>
           <//>
         `;
@@ -411,7 +416,7 @@ $has_mogs_logo = file_exists( $template_dir . $mogs_logo_relative_path );
           <div
             style=${{
               minHeight: "100vh",
-              background: "#000",
+              background: "#060f1c",
               display: "flex",
               flexDirection: "column",
               alignItems: "center",
@@ -441,7 +446,7 @@ $has_mogs_logo = file_exists( $template_dir . $mogs_logo_relative_path );
                   height: "560px",
                   borderRadius: "50%",
                   background:
-                    "radial-gradient(circle, rgba(70,32,110,0.30) 0%, transparent 68%)",
+                    "radial-gradient(circle, rgba(0,180,220,0.22) 0%, transparent 68%)",
                 }}
               ></div>
               <div
@@ -453,7 +458,7 @@ $has_mogs_logo = file_exists( $template_dir . $mogs_logo_relative_path );
                   height: "440px",
                   borderRadius: "50%",
                   background:
-                    "radial-gradient(circle, rgba(110,24,52,0.22) 0%, transparent 68%)",
+                    "radial-gradient(circle, rgba(0,160,200,0.16) 0%, transparent 68%)",
                 }}
               ></div>
               <div
@@ -465,7 +470,7 @@ $has_mogs_logo = file_exists( $template_dir . $mogs_logo_relative_path );
                   height: "300px",
                   borderRadius: "50%",
                   background:
-                    "radial-gradient(circle, rgba(24,42,96,0.16) 0%, transparent 68%)",
+                    "radial-gradient(circle, rgba(0,100,200,0.18) 0%, transparent 68%)",
                 }}
               ></div>
             </div>
@@ -479,12 +484,12 @@ $has_mogs_logo = file_exists( $template_dir . $mogs_logo_relative_path );
                 maxWidth: "440px",
                 borderRadius: "40px",
                 padding: "44px 32px 40px",
-                background: "rgba(255,255,255,0.03)",
-                border: "1px solid rgba(255,255,255,0.08)",
+                background: "rgba(0,120,180,0.04)",
+                border: "1px solid rgba(100,220,255,0.12)",
                 backdropFilter: "blur(32px)",
                 WebkitBackdropFilter: "blur(32px)",
                 boxShadow:
-                  "0 40px 100px rgba(0,0,0,0.80), inset 0 1px 0 rgba(255,255,255,0.07)",
+                  "0 40px 100px rgba(0,10,30,0.70), inset 0 1px 0 rgba(100,220,255,0.08)",
               }}
             >
               <!-- Hero: ぼかしから浮かび上がるアニメーション -->
@@ -501,7 +506,7 @@ $has_mogs_logo = file_exists( $template_dir . $mogs_logo_relative_path );
                     fontWeight: "600",
                     letterSpacing: "0.34em",
                     textTransform: "uppercase",
-                    color: "rgba(255,255,255,0.34)",
+                    color: "rgba(100,220,255,0.60)",
                     marginBottom: "22px",
                   }}
                 >
@@ -533,7 +538,7 @@ $has_mogs_logo = file_exists( $template_dir . $mogs_logo_relative_path );
                     fontFamily: '"Noto Sans JP", sans-serif',
                     fontSize: "13px",
                     lineHeight: "1.90",
-                    color: "rgba(255,255,255,0.46)",
+                    color: "rgba(180,240,255,0.65)",
                     marginBottom: "6px",
                   }}
                 >
@@ -546,7 +551,7 @@ $has_mogs_logo = file_exists( $template_dir . $mogs_logo_relative_path );
                     fontFamily: '"Noto Sans JP", sans-serif',
                     fontSize: "12px",
                     letterSpacing: "0.04em",
-                    color: "rgba(255,255,255,0.30)",
+                    color: "rgba(150,220,255,0.48)",
                   }}
                 >
                   各種リンクをまとめています。
@@ -557,7 +562,7 @@ $has_mogs_logo = file_exists( $template_dir . $mogs_logo_relative_path );
               <div
                 style=${{
                   height: "1px",
-                  background: "rgba(255,255,255,0.07)",
+                  background: "rgba(100,220,255,0.12)",
                   margin: "0 0 24px",
                 }}
               ></div>
@@ -589,7 +594,7 @@ $has_mogs_logo = file_exists( $template_dir . $mogs_logo_relative_path );
                 style=${{
                   marginTop: "32px",
                   paddingTop: "26px",
-                  borderTop: "1px solid rgba(255,255,255,0.07)",
+                  borderTop: "1px solid rgba(100,220,255,0.12)",
                   display: "flex",
                   flexDirection: "column",
                   alignItems: "center",
@@ -606,7 +611,7 @@ $has_mogs_logo = file_exists( $template_dir . $mogs_logo_relative_path );
                     fontWeight: "600",
                     letterSpacing: "0.30em",
                     textTransform: "uppercase",
-                    color: "rgba(255,255,255,0.26)",
+                    color: "rgba(100,220,255,0.50)",
                   }}
                 >
                   Produced by SEKAILABO'
@@ -620,7 +625,7 @@ $has_mogs_logo = file_exists( $template_dir . $mogs_logo_relative_path );
                     fontSize: "9px",
                     letterSpacing: "0.20em",
                     textTransform: "uppercase",
-                    color: "rgba(255,255,255,0.20)",
+                    color: "rgba(100,220,255,0.35)",
                   }}
                 >
                   Web Production & Consulting
@@ -639,7 +644,7 @@ $has_mogs_logo = file_exists( $template_dir . $mogs_logo_relative_path );
                     fontFamily: '"Montserrat", sans-serif',
                     fontSize: "11px",
                     letterSpacing: "0.16em",
-                    color: "rgba(255,255,255,0.16)",
+                    color: "rgba(100,220,255,0.28)",
                   }}
                 >
                   © ${D.year} SEKAILABO'
