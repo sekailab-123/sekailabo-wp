@@ -3,6 +3,13 @@
  * リンクツリーページ本体
  * template-linktree.php から読み込まれます。
  */
+
+$template_dir = get_template_directory();
+$template_uri = get_template_directory_uri();
+$sekailabo_logo_relative_path = '/img/sekailabo.png';
+$mogs_logo_relative_path = '/img/mogs.png';
+$has_sekailabo_logo = file_exists( $template_dir . $sekailabo_logo_relative_path );
+$has_mogs_logo = file_exists( $template_dir . $mogs_logo_relative_path );
 ?>
 <!DOCTYPE html>
 <html lang="ja">
@@ -71,11 +78,73 @@
         text-align: center;
       }
 
+      .links-brand-stack {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 18px;
+      }
+
+      .links-brand-card {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 12px;
+      }
+
       .links-logo {
         width: 160px;
         height: auto;
         display: block;
-        margin: 0 auto 16px;
+        margin: 0 auto;
+      }
+
+      .links-logo-fallback {
+        min-width: 220px;
+        padding: 18px 24px;
+        border: 1px solid rgba(255, 255, 255, 0.16);
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        font-family: "Montserrat", sans-serif;
+        font-size: 26px;
+        font-weight: 700;
+        letter-spacing: 0.12em;
+        color: #f3efe7;
+        background: linear-gradient(
+          145deg,
+          rgba(255, 255, 255, 0.06),
+          rgba(255, 255, 255, 0.02)
+        );
+      }
+
+      .links-sub-logo {
+        width: 112px;
+        height: auto;
+        display: block;
+        margin: 0 auto;
+      }
+
+      .links-sub-logo-fallback {
+        width: 112px;
+        height: 112px;
+        border: 1px solid rgba(255, 255, 255, 0.16);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family: "Montserrat", sans-serif;
+        font-size: 22px;
+        font-weight: 700;
+        letter-spacing: 0.18em;
+        color: #f3efe7;
+        background: linear-gradient(
+          145deg,
+          rgba(255, 255, 255, 0.08),
+          rgba(255, 255, 255, 0.02)
+        );
+        padding-left: 0.18em;
       }
 
       .links-tagline {
@@ -85,6 +154,13 @@
         letter-spacing: 0.25em;
         color: #888;
         text-transform: uppercase;
+      }
+
+      .links-group-copy {
+        font-size: 12px;
+        line-height: 1.8;
+        color: #a6a6a6;
+        letter-spacing: 0.06em;
       }
 
       /* リンクボタン */
@@ -157,10 +233,6 @@
       .link-icon.icon-contact {
         color: #90ee90;
       }
-      .link-icon.icon-recruit {
-        color: #ffd700;
-      }
-
       .link-label {
         flex: 1;
         font-size: 14px;
@@ -199,18 +271,53 @@
         .links-logo {
           width: 140px;
         }
+        .links-logo-fallback {
+          min-width: 0;
+          width: 100%;
+          font-size: 20px;
+          padding: 16px 18px;
+        }
+        .links-sub-logo,
+        .links-sub-logo-fallback {
+          width: 96px;
+          height: 96px;
+        }
       }
     </style>
   </head>
   <body>
     <div class="links-wrapper">
       <header class="links-header">
-        <img
-          src="<?php echo get_template_directory_uri(); ?>/img/logo.png"
-          alt="SEKAILABO."
-          class="links-logo"
-        />
-        <p class="links-tagline">Web Production &amp; Consulting</p>
+        <div class="links-brand-stack">
+          <div class="links-brand-card">
+            <?php if ( $has_sekailabo_logo ) : ?>
+            <img
+              src="<?php echo esc_url( $template_uri . $sekailabo_logo_relative_path ); ?>"
+              alt="SEKAILABO."
+              class="links-logo"
+            />
+            <?php else : ?>
+            <div class="links-logo-fallback">SEKAILABO.</div>
+            <?php endif; ?>
+            <p class="links-tagline">Web Production &amp; Consulting</p>
+          </div>
+
+          <div class="links-brand-card">
+            <?php if ( $has_mogs_logo ) : ?>
+            <img
+              src="<?php echo esc_url( $template_uri . $mogs_logo_relative_path ); ?>"
+              alt="MOGS"
+              class="links-sub-logo"
+            />
+            <?php else : ?>
+            <div class="links-sub-logo-fallback">MOGS</div>
+            <?php endif; ?>
+            <p class="links-group-copy">
+              Gourmet influencer group<br />
+              Instagram &amp; TikTok
+            </p>
+          </div>
+        </div>
       </header>
 
       <ul class="links-list">
@@ -296,27 +403,10 @@
             <i class="fas fa-chevron-right link-arrow"></i>
           </a>
         </li>
-
-        <li>
-          <a
-            href="<?php echo esc_url( home_url('/recruit') ); ?>"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <span class="link-icon icon-recruit"
-              ><i class="fas fa-briefcase"></i
-            ></span>
-            <span class="link-label">
-              採用情報
-              <span class="link-label-sub">Recruit</span>
-            </span>
-            <i class="fas fa-chevron-right link-arrow"></i>
-          </a>
-        </li>
       </ul>
 
       <footer class="links-footer">
-        &copy; <?php echo date('Y'); ?> SEKAILABO.
+        &copy; <?php echo esc_html( wp_date( 'Y' ) ); ?> SEKAILABO.
       </footer>
     </div>
 
