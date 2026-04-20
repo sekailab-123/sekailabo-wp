@@ -43,7 +43,7 @@ $has_mogs_logo = file_exists( $template_dir . $mogs_logo_relative_path );
       href="<?php echo get_template_directory_uri(); ?>/img/logo_symbol.png"
     />
     <link
-      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Noto+Sans+JP:wght@400;500;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Montserrat:wght@400;600;700&family=Noto+Sans+JP:wght@400;500;700&display=swap"
       rel="stylesheet"
     />
     <link
@@ -60,482 +60,601 @@ $has_mogs_logo = file_exists( $template_dir . $mogs_logo_relative_path );
         margin: 0;
         padding: 0;
       }
-
       html,
       body {
         width: 100%;
         min-height: 100%;
+        background: #000;
       }
-
-      body {
-        background:
-          radial-gradient(
-            circle at top,
-            rgba(122, 81, 97, 0.16),
-            transparent 38%
-          ),
-          radial-gradient(
-            circle at bottom,
-            rgba(61, 39, 49, 0.08),
-            transparent 30%
-          ),
-          linear-gradient(180deg, #f8f4ef 0%, #f0ebe5 48%, #e7e1da 100%);
-        color: #1f1a17;
-        font-family:
-          "Noto Sans JP", YuGothic, "ヒラギノ角ゴ Pro W3", sans-serif;
-        display: flex;
-        justify-content: center;
-        align-items: flex-start;
-        padding: 42px 20px 72px;
-      }
-
-      .links-wrapper {
-        width: 100%;
-        max-width: 520px;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        padding: 36px 28px 30px;
-        border: 1px solid rgba(88, 64, 72, 0.1);
-        border-radius: 32px;
-        background: linear-gradient(
-          180deg,
-          rgba(255, 255, 255, 0.9),
-          rgba(248, 244, 240, 0.8)
-        );
-        box-shadow:
-          0 24px 60px rgba(70, 48, 54, 0.12),
-          0 10px 20px rgba(127, 97, 108, 0.08),
-          inset 0 1px 0 rgba(255, 255, 255, 0.9);
-        backdrop-filter: blur(12px);
-      }
-
-      /* ロゴエリア */
-      .links-header {
-        width: 100%;
-        margin-bottom: 30px;
-        text-align: center;
-      }
-
-      .links-brand-stack {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 10px;
-      }
-
-      .links-brand-card {
-        width: 100%;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 10px;
-      }
-
-      .links-header-label {
-        font-family: "Montserrat", sans-serif;
-        font-size: 10px;
-        font-weight: 600;
-        letter-spacing: 0.28em;
-        color: #8a6673;
-        text-transform: uppercase;
-      }
-
-      .links-logo {
-        width: 132px;
-        height: auto;
-        display: block;
-        margin: 0 auto;
-      }
-
-      .links-logo-fallback {
-        min-width: 180px;
-        padding: 12px 18px;
-        border: 1px solid rgba(72, 56, 41, 0.12);
-        border-radius: 999px;
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        font-family: "Montserrat", sans-serif;
-        font-size: 18px;
-        font-weight: 700;
-        letter-spacing: 0.12em;
-        color: #5d4a3c;
-        background: linear-gradient(
-          145deg,
-          rgba(255, 255, 255, 0.95),
-          rgba(239, 235, 227, 0.94)
-        );
-      }
-
-      .links-sub-logo {
-        width: 156px;
-        height: auto;
-        display: block;
-        margin: 0 auto;
-      }
-
-      .links-sub-logo-fallback {
-        width: 156px;
-        height: 156px;
-        border: 1px solid rgba(88, 64, 72, 0.14);
-        border-radius: 28px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-family: "Montserrat", sans-serif;
-        font-size: 30px;
-        font-weight: 700;
-        letter-spacing: 0.16em;
-        color: #5d4a3c;
-        background: linear-gradient(
-          150deg,
-          rgba(255, 255, 255, 0.98),
-          rgba(236, 228, 224, 0.96)
-        );
-        padding-left: 0.18em;
-        box-shadow: 0 14px 28px rgba(88, 67, 43, 0.06);
-      }
-
-      .links-tagline {
-        font-family: "Montserrat", sans-serif;
-        font-size: 10px;
-        font-weight: 600;
-        letter-spacing: 0.24em;
-        color: #7d6f63;
-        text-transform: uppercase;
-      }
-
-      .links-group-copy {
-        font-size: 13px;
-        line-height: 1.85;
-        color: #6f5861;
-        letter-spacing: 0.04em;
-      }
-
-      .links-title {
-        font-family: "Montserrat", sans-serif;
-        font-size: 26px;
-        font-weight: 700;
-        letter-spacing: 0.12em;
-        color: #382830;
-        text-transform: uppercase;
-      }
-
-      .links-subtitle {
-        max-width: 320px;
-        font-size: 13px;
-        line-height: 1.85;
-        color: #776771;
-      }
-
-      /* リンクボタン */
-      .links-list {
-        list-style: none;
-        width: 100%;
-        display: flex;
-        flex-direction: column;
-        gap: 12px;
-      }
-
-      .links-list li a {
-        display: flex;
-        align-items: center;
-        width: 100%;
-        padding: 16px 18px;
-        border: 1px solid rgba(88, 64, 72, 0.1);
-        border-radius: 20px;
-        background: linear-gradient(
-          180deg,
-          rgba(255, 255, 255, 0.96),
-          rgba(245, 241, 238, 0.92)
-        );
-        color: #231b15;
+      a {
         text-decoration: none;
-        font-family: "Noto Sans JP", sans-serif;
-        font-size: 14px;
-        font-weight: 500;
-        letter-spacing: 0.03em;
-        transition:
-          background-color 0.2s ease,
-          border-color 0.2s ease,
-          transform 0.1s ease,
-          box-shadow 0.2s ease;
-        position: relative;
-        box-shadow: 0 10px 24px rgba(70, 48, 54, 0.06);
-      }
-
-      .links-list li a:hover,
-      .links-list li a:focus {
-        background: linear-gradient(
-          180deg,
-          rgba(255, 255, 255, 1),
-          rgba(244, 236, 235, 0.96)
-        );
-        border-color: rgba(124, 92, 103, 0.24);
-        transform: translateY(-2px);
-        box-shadow: 0 16px 32px rgba(70, 48, 54, 0.1);
-        outline: none;
-      }
-
-      .links-list li a:active {
-        transform: translateY(0);
-      }
-
-      .link-icon {
-        width: 36px;
-        height: 36px;
-        border-radius: 12px;
-        background-color: #f1eaeb;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        flex-shrink: 0;
-        margin-right: 16px;
-        font-size: 15px;
-      }
-
-      .link-icon.icon-web {
-        color: #b0c4de;
-      }
-      .link-icon.icon-mogpass {
-        color: #f4a261;
-      }
-      .link-icon.icon-ig {
-        color: #c13584;
-      }
-      .link-icon.icon-tiktok {
-        color: #69c9d0;
-      }
-      .link-icon.icon-contact {
-        color: #90ee90;
-      }
-      .link-label {
-        flex: 1;
-        font-size: 14px;
-      }
-
-      .link-label-sub {
-        display: block;
-        font-size: 11px;
-        color: #8a7d72;
-        margin-top: 2px;
-        font-family: "Montserrat", sans-serif;
-        letter-spacing: 0.08em;
-      }
-
-      .link-arrow {
-        color: #9c8e82;
-        font-size: 12px;
-        flex-shrink: 0;
-      }
-
-      .links-company {
-        width: 100%;
-        margin-top: 28px;
-        padding-top: 22px;
-        border-top: 1px solid rgba(78, 60, 41, 0.1);
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 10px;
-      }
-
-      .links-company-copy {
-        font-family: "Montserrat", sans-serif;
-        font-size: 10px;
-        font-weight: 600;
-        letter-spacing: 0.24em;
-        color: #8a6673;
-        text-transform: uppercase;
-      }
-
-      .links-company .links-logo {
-        width: 96px;
-      }
-
-      .links-company .links-logo-fallback {
-        min-width: 140px;
-        font-size: 14px;
-        padding: 10px 14px;
-      }
-
-      /* フッター */
-      .links-footer {
-        margin-top: 18px;
-        font-family: "Montserrat", sans-serif;
-        font-size: 11px;
-        color: #8f8378;
-        letter-spacing: 0.15em;
-        text-align: center;
-      }
-
-      /* スマホ最適化 */
-      @media (max-width: 480px) {
-        body {
-          padding: 24px 14px 42px;
-        }
-        .links-wrapper {
-          padding: 28px 18px 24px;
-          border-radius: 26px;
-        }
-        .links-logo {
-          width: 114px;
-        }
-        .links-logo-fallback {
-          min-width: 0;
-          width: 100%;
-          font-size: 16px;
-          padding: 12px 14px;
-        }
-        .links-sub-logo,
-        .links-sub-logo-fallback {
-          width: 124px;
-          height: 124px;
-        }
-        .links-sub-logo-fallback {
-          font-size: 24px;
-        }
-        .links-company .links-logo {
-          width: 82px;
-        }
-        .links-title {
-          font-size: 22px;
-        }
-        .links-list li a {
-          padding: 15px 16px;
-        }
       }
     </style>
   </head>
   <body>
-    <div class="links-wrapper">
-      <header class="links-header">
-        <div class="links-brand-stack">
-          <div class="links-brand-card">
-            <p class="links-header-label">MOGS LINK HUB</p>
-            <?php if ( $has_mogs_logo ) : ?>
+    <div id="links-root"></div>
+    <noscript>
+      <div
+        style="
+          color: white;
+          text-align: center;
+          padding: 60px 20px;
+          font-family: sans-serif;
+        "
+      >
+        JavaScriptを有効にしてご覧ください。
+      </div>
+    </noscript>
+
+    <!-- ES Module importmap: React 18 + Framer Motion 11 + htm (Babel 不要) -->
+    <script type="importmap">
+      {
+        "imports": {
+          "react": "https://esm.sh/react@18.3.1",
+          "react/jsx-runtime": "https://esm.sh/react@18.3.1/jsx-runtime",
+          "react-dom/client": "https://esm.sh/react-dom@18.3.1/client",
+          "framer-motion": "https://esm.sh/framer-motion@11.3.31",
+          "htm": "https://esm.sh/htm@3.1.1"
+        }
+      }
+    </script>
+
+    <!-- PHP データ橋渡し -->
+    <script>
+      window.LINKS_DATA = {
+        templateUri:       "<?php echo esc_js( $template_uri ); ?>",
+        hasMogsLogo:       <?php echo $has_mogs_logo ? 'true' : 'false'; ?>,
+        mogsLogoPath:      "<?php echo esc_js( $mogs_logo_relative_path ); ?>",
+        hasSekailaboLogo:  <?php echo $has_sekailabo_logo ? 'true' : 'false'; ?>,
+        sekailaboLogoPath: "<?php echo esc_js( $sekailabo_logo_relative_path ); ?>",
+        homeUrl:           "<?php echo esc_js( home_url( '/' ) ); ?>",
+        contactUrl:        "<?php echo esc_js( home_url( '/contact/' ) ); ?>",
+        year:              "<?php echo esc_js( wp_date( 'Y' ) ); ?>"
+      };
+    </script>
+
+    <script type="module">
+      import React from "react";
+      import { createRoot } from "react-dom/client";
+      import { motion } from "framer-motion";
+      import htm from "htm";
+
+      /* htm を React.createElement にバインド（Babel 不要、JSX ライクな記法） */
+      const html = htm.bind(React.createElement);
+
+      /* PHP から受け取ったデータ */
+      const D = window.LINKS_DATA;
+
+      /* ─── アニメーション定義 ─────────────────────────── */
+      /* Hero: ぼかし＋フェードアップで浮かび上がる */
+      const fadeUp = (delay = 0) => ({
+        initial: { opacity: 0, y: 28, filter: "blur(10px)" },
+        animate: { opacity: 1, y: 0, filter: "blur(0px)" },
+        transition: { duration: 0.8, delay, ease: [0.22, 1, 0.36, 1] },
+      });
+
+      /* ─── リンク定義（元コンテンツを完全維持） ─────────── */
+      const LINKS = [
+        {
+          href: D.homeUrl,
+          icon: "fas fa-globe",
+          color: "#7ec8e3",
+          label: "SEKAILABO\u2019 \u516C\u5F0F\u30B5\u30A4\u30C8",
+          sub: "sekailabo.com",
+          cta: false,
+        },
+        {
+          href: "https://mogpass.up.railway.app/lp",
+          icon: "fas fa-star",
+          color: "#f4a261",
+          label: "MOGPASS",
+          sub: "\u30B5\u30FC\u30D3\u30B9\u7D39\u4ECB\u30DA\u30FC\u30B8",
+          cta: true,
+        },
+        {
+          href: "https://www.instagram.com/mogs_gourmet/reels/",
+          icon: "fab fa-instagram",
+          color: "#e1306c",
+          label: "Instagram",
+          sub: "@mogs_gourmet",
+          cta: false,
+        },
+        {
+          href: "https://www.tiktok.com/@mogs_gourmet",
+          icon: "fab fa-tiktok",
+          color: "#69c9d0",
+          label: "TikTok",
+          sub: "@mogs_gourmet",
+          cta: false,
+        },
+        {
+          href: D.contactUrl,
+          icon: "fas fa-envelope",
+          color: "#90ee90",
+          label: "\u304A\u554F\u3044\u5408\u308F\u305B",
+          sub: "Contact",
+          cta: false,
+        },
+      ];
+
+      /* ─── MOGS ロゴ ───────────────────────────────────── */
+      function MogsLogo() {
+        if (D.hasMogsLogo) {
+          return html`
             <img
-              src="<?php echo esc_url( $template_uri . $mogs_logo_relative_path ); ?>"
+              src=${D.templateUri + D.mogsLogoPath}
               alt="MOGS"
-              class="links-sub-logo"
+              style=${{
+                width: "128px",
+                height: "auto",
+                display: "block",
+                margin: "0 auto",
+              }}
             />
-            <?php else : ?>
-            <div class="links-sub-logo-fallback">MOGS</div>
-            <?php endif; ?>
-            <h1 class="links-title">MOGS</h1>
-            <p class="links-group-copy">
-              Gourmet influencer group<br />
-              Instagram &amp; TikTok
-            </p>
-            <p class="links-subtitle">各種リンクをまとめています。</p>
+          `;
+        }
+        /* 画像なしのフォールバック: ガラスカード */
+        return html`
+          <div
+            style=${{
+              width: "120px",
+              height: "120px",
+              margin: "0 auto",
+              borderRadius: "24px",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              fontFamily: '"Playfair Display", Georgia, serif',
+              fontSize: "26px",
+              fontWeight: "700",
+              letterSpacing: "0.12em",
+              color: "rgba(255,255,255,0.92)",
+              background: "rgba(255,255,255,0.07)",
+              border: "1px solid rgba(255,255,255,0.15)",
+              backdropFilter: "blur(16px)",
+              WebkitBackdropFilter: "blur(16px)",
+            }}
+          >
+            MOGS
           </div>
-        </div>
-      </header>
+        `;
+      }
 
-      <ul class="links-list">
-        <li>
-          <a
-            href="<?php echo esc_url( home_url('/') ); ?>"
+      /* ─── SEKAILABO ロゴ ───────────────────────────────── */
+      function SekailaboLogo() {
+        if (D.hasSekailaboLogo) {
+          return html`
+            <img
+              src=${D.templateUri + D.sekailaboLogoPath}
+              alt="SEKAILABO'"
+              style=${{ width: "80px", height: "auto", opacity: 0.65 }}
+            />
+          `;
+        }
+        return html`
+          <span
+            style=${{
+              fontFamily: '"Montserrat", sans-serif',
+              fontSize: "13px",
+              fontWeight: "700",
+              letterSpacing: "0.15em",
+              color: "rgba(255,255,255,0.50)",
+            }}
+            >SEKAILABO'</span
+          >
+        `;
+      }
+
+      /* ─── リンクカード ───────────────────────────────────
+       *  cta: true  → 光沢感のある丸いボタン（MOGPASS）
+       *  cta: false → ガラスモフィズムカード（その他リンク）
+       * ─────────────────────────────────────────────────── */
+      function LinkCard({ link, delay }) {
+        const { initial, animate, transition } = fadeUp(delay);
+
+        if (link.cta) {
+          /* ── CTA: glossy pill ───────────────────────── */
+          return html`
+            <${motion.a}
+              href=${link.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              initial=${initial}
+              animate=${animate}
+              transition=${transition}
+              whileHover=${{ scale: 1.04, y: -4 }}
+              whileTap=${{ scale: 0.97 }}
+              style=${{
+                display: "flex",
+                alignItems: "center",
+                width: "100%",
+                padding: "17px 22px",
+                borderRadius: "999px",
+                background:
+                  "linear-gradient(135deg, rgba(255,255,255,0.22) 0%, rgba(255,255,255,0.06) 100%)",
+                border: "1px solid rgba(255,255,255,0.34)",
+                backdropFilter: "blur(24px)",
+                WebkitBackdropFilter: "blur(24px)",
+                boxShadow:
+                  "0 0 40px rgba(255,210,130,0.06), inset 0 1px 0 rgba(255,255,255,0.24)",
+                color: "white",
+                textDecoration: "none",
+                cursor: "pointer",
+              }}
+            >
+              <span
+                style=${{
+                  width: "38px",
+                  height: "38px",
+                  borderRadius: "50%",
+                  flexShrink: 0,
+                  background: "rgba(255,255,255,0.18)",
+                  marginRight: "16px",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  color: link.color,
+                  fontSize: "15px",
+                }}
+              >
+                <i className=${link.icon}></i>
+              </span>
+              <span style=${{ flex: 1 }}>
+                <span
+                  style=${{
+                    display: "block",
+                    fontSize: "14px",
+                    fontWeight: "600",
+                    fontFamily: '"Montserrat", sans-serif',
+                    letterSpacing: "0.07em",
+                    color: "white",
+                  }}
+                  >${link.label}</span
+                >
+                <span
+                  style=${{
+                    display: "block",
+                    fontSize: "11px",
+                    marginTop: "3px",
+                    fontFamily: '"Montserrat", sans-serif',
+                    letterSpacing: "0.10em",
+                    color: "rgba(255,255,255,0.55)",
+                  }}
+                  >${link.sub}</span
+                >
+              </span>
+              <i
+                className="fas fa-chevron-right"
+                style=${{ color: "rgba(255,255,255,0.60)", fontSize: "11px" }}
+              ></i>
+            <//>
+          `;
+        }
+
+        /* ── 標準ガラスカード ────────────────────────────── */
+        return html`
+          <${motion.a}
+            href=${link.href}
             target="_blank"
             rel="noopener noreferrer"
+            initial=${initial}
+            animate=${animate}
+            transition=${transition}
+            whileHover=${{ y: -3, background: "rgba(255,255,255,0.09)" }}
+            whileTap=${{ scale: 0.98 }}
+            style=${{
+              display: "flex",
+              alignItems: "center",
+              width: "100%",
+              padding: "16px 20px",
+              borderRadius: "20px",
+              background: "rgba(255,255,255,0.05)",
+              border: "1px solid rgba(255,255,255,0.10)",
+              backdropFilter: "blur(16px)",
+              WebkitBackdropFilter: "blur(16px)",
+              color: "white",
+              textDecoration: "none",
+            }}
           >
-            <span class="link-icon icon-web"><i class="fas fa-globe"></i></span>
-            <span class="link-label">
-              SEKAILABO' 公式サイト
-              <span class="link-label-sub">sekailabo.com</span>
+            <span
+              style=${{
+                width: "38px",
+                height: "38px",
+                borderRadius: "12px",
+                flexShrink: 0,
+                background: "rgba(255,255,255,0.08)",
+                marginRight: "16px",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                color: link.color,
+                fontSize: "15px",
+              }}
+            >
+              <i className=${link.icon}></i>
             </span>
-            <i class="fas fa-chevron-right link-arrow"></i>
-          </a>
-        </li>
+            <span style=${{ flex: 1 }}>
+              <span
+                style=${{
+                  display: "block",
+                  fontSize: "14px",
+                  fontWeight: "500",
+                  fontFamily: '"Noto Sans JP", sans-serif',
+                  letterSpacing: "0.04em",
+                  color: "white",
+                }}
+                >${link.label}</span
+              >
+              <span
+                style=${{
+                  display: "block",
+                  fontSize: "11px",
+                  marginTop: "3px",
+                  fontFamily: '"Montserrat", sans-serif',
+                  letterSpacing: "0.10em",
+                  color: "rgba(255,255,255,0.42)",
+                }}
+                >${link.sub}</span
+              >
+            </span>
+            <i
+              className="fas fa-chevron-right"
+              style=${{ color: "rgba(255,255,255,0.30)", fontSize: "11px" }}
+            ></i>
+          <//>
+        `;
+      }
 
-        <li>
-          <a
-            href="https://mogpass.up.railway.app/lp"
-            target="_blank"
-            rel="noopener noreferrer"
+      /* ─── App ルート ─────────────────────────────────── */
+      function App() {
+        return html`
+          <div
+            style=${{
+              minHeight: "100vh",
+              background: "#000",
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+              justifyContent: "flex-start",
+              padding: "60px 20px 80px",
+              position: "relative",
+              overflow: "hidden",
+            }}
           >
-            <span class="link-icon icon-mogpass"
-              ><i class="fas fa-star"></i
-            ></span>
-            <span class="link-label">
-              MOGPASS
-              <span class="link-label-sub">サービス紹介ページ</span>
-            </span>
-            <i class="fas fa-chevron-right link-arrow"></i>
-          </a>
-        </li>
+            <!-- 背景グラデーションオーブ -->
+            <div
+              aria-hidden=${true}
+              style=${{
+                position: "fixed",
+                inset: 0,
+                pointerEvents: "none",
+                overflow: "hidden",
+              }}
+            >
+              <div
+                style=${{
+                  position: "absolute",
+                  top: "-180px",
+                  left: "50%",
+                  transform: "translateX(-50%)",
+                  width: "560px",
+                  height: "560px",
+                  borderRadius: "50%",
+                  background:
+                    "radial-gradient(circle, rgba(70,32,110,0.30) 0%, transparent 68%)",
+                }}
+              ></div>
+              <div
+                style=${{
+                  position: "absolute",
+                  bottom: "-100px",
+                  right: "-70px",
+                  width: "440px",
+                  height: "440px",
+                  borderRadius: "50%",
+                  background:
+                    "radial-gradient(circle, rgba(110,24,52,0.22) 0%, transparent 68%)",
+                }}
+              ></div>
+              <div
+                style=${{
+                  position: "absolute",
+                  top: "45%",
+                  left: "-100px",
+                  width: "300px",
+                  height: "300px",
+                  borderRadius: "50%",
+                  background:
+                    "radial-gradient(circle, rgba(24,42,96,0.16) 0%, transparent 68%)",
+                }}
+              ></div>
+            </div>
 
-        <li>
-          <a
-            href="https://www.instagram.com/mogs_gourmet/reels/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <span class="link-icon icon-ig"
-              ><i class="fab fa-instagram"></i
-            ></span>
-            <span class="link-label">
-              Instagram
-              <span class="link-label-sub">@mogs_gourmet</span>
-            </span>
-            <i class="fas fa-chevron-right link-arrow"></i>
-          </a>
-        </li>
+            <!-- メインガラスカード -->
+            <div
+              style=${{
+                position: "relative",
+                zIndex: 1,
+                width: "100%",
+                maxWidth: "440px",
+                borderRadius: "40px",
+                padding: "44px 32px 40px",
+                background: "rgba(255,255,255,0.03)",
+                border: "1px solid rgba(255,255,255,0.08)",
+                backdropFilter: "blur(32px)",
+                WebkitBackdropFilter: "blur(32px)",
+                boxShadow:
+                  "0 40px 100px rgba(0,0,0,0.80), inset 0 1px 0 rgba(255,255,255,0.07)",
+              }}
+            >
+              <!-- Hero: ぼかしから浮かび上がるアニメーション -->
+              <${motion.header}
+                style=${{ textAlign: "center", marginBottom: "32px" }}
+                initial=${{ opacity: 0, y: 36, filter: "blur(14px)" }}
+                animate=${{ opacity: 1, y: 0, filter: "blur(0px)" }}
+                transition=${{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
+              >
+                <p
+                  style=${{
+                    fontFamily: '"Montserrat", sans-serif',
+                    fontSize: "10px",
+                    fontWeight: "600",
+                    letterSpacing: "0.34em",
+                    textTransform: "uppercase",
+                    color: "rgba(255,255,255,0.34)",
+                    marginBottom: "22px",
+                  }}
+                >
+                  MOGS LINK HUB
+                </p>
 
-        <li>
-          <a
-            href="https://www.tiktok.com/@mogs_gourmet"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <span class="link-icon icon-tiktok"
-              ><i class="fab fa-tiktok"></i
-            ></span>
-            <span class="link-label">
-              TikTok
-              <span class="link-label-sub">@mogs_gourmet</span>
-            </span>
-            <i class="fas fa-chevron-right link-arrow"></i>
-          </a>
-        </li>
+                <div style=${{ marginBottom: "22px" }}>
+                  <${MogsLogo} />
+                </div>
 
-        <li>
-          <a
-            href="<?php echo esc_url( home_url('/contact/') ); ?>"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <span class="link-icon icon-contact"
-              ><i class="fas fa-envelope"></i
-            ></span>
-            <span class="link-label">
-              お問い合わせ
-              <span class="link-label-sub">Contact</span>
-            </span>
-            <i class="fas fa-chevron-right link-arrow"></i>
-          </a>
-        </li>
-      </ul>
+                <!-- Playfair Display セリフ体見出し -->
+                <h1
+                  style=${{
+                    fontFamily: '"Playfair Display", Georgia, serif',
+                    fontSize: "42px",
+                    fontWeight: "700",
+                    letterSpacing: "0.16em",
+                    textTransform: "uppercase",
+                    color: "white",
+                    marginBottom: "14px",
+                    lineHeight: 1.05,
+                  }}
+                >
+                  MOGS
+                </h1>
 
-      <section class="links-company">
-        <p class="links-company-copy">Produced by SEKAILABO'</p>
-        <?php if ( $has_sekailabo_logo ) : ?>
-        <img
-          src="<?php echo esc_url( $template_uri . $sekailabo_logo_relative_path ); ?>"
-          alt="SEKAILABO'"
-          class="links-logo"
-        />
-        <?php else : ?>
-        <div class="links-logo-fallback">SEKAILABO'</div>
-        <?php endif; ?>
-        <p class="links-tagline">Web Production &amp; Consulting</p>
-      </section>
+                <p
+                  style=${{
+                    fontFamily: '"Noto Sans JP", sans-serif',
+                    fontSize: "13px",
+                    lineHeight: "1.90",
+                    color: "rgba(255,255,255,0.46)",
+                    marginBottom: "6px",
+                  }}
+                >
+                  Gourmet influencer group<br />
+                  Instagram & TikTok
+                </p>
 
-      <footer class="links-footer">
-        &copy; <?php echo esc_html( wp_date( 'Y' ) ); ?> SEKAILABO'
-      </footer>
-    </div>
+                <p
+                  style=${{
+                    fontFamily: '"Noto Sans JP", sans-serif',
+                    fontSize: "12px",
+                    letterSpacing: "0.04em",
+                    color: "rgba(255,255,255,0.30)",
+                  }}
+                >
+                  各種リンクをまとめています。
+                </p>
+              <//>
+
+              <!-- 区切り線 -->
+              <div
+                style=${{
+                  height: "1px",
+                  background: "rgba(255,255,255,0.07)",
+                  margin: "0 0 24px",
+                }}
+              ></div>
+
+              <!-- リンクリスト（stagger アニメーション） -->
+              <nav>
+                <ul
+                  style=${{
+                    listStyle: "none",
+                    padding: 0,
+                    margin: 0,
+                    display: "flex",
+                    flexDirection: "column",
+                    gap: "12px",
+                  }}
+                >
+                  ${LINKS.map(
+                    (link, i) => html`
+                      <li key=${i}>
+                        <${LinkCard} link=${link} delay=${0.12 + i * 0.09} />
+                      </li>
+                    `,
+                  )}
+                </ul>
+              </nav>
+
+              <!-- Produced by SEKAILABO' セクション -->
+              <${motion.section}
+                style=${{
+                  marginTop: "32px",
+                  paddingTop: "26px",
+                  borderTop: "1px solid rgba(255,255,255,0.07)",
+                  display: "flex",
+                  flexDirection: "column",
+                  alignItems: "center",
+                  gap: "10px",
+                }}
+                initial=${{ opacity: 0 }}
+                animate=${{ opacity: 1 }}
+                transition=${{ duration: 0.8, delay: 0.95 }}
+              >
+                <p
+                  style=${{
+                    fontFamily: '"Montserrat", sans-serif',
+                    fontSize: "9px",
+                    fontWeight: "600",
+                    letterSpacing: "0.30em",
+                    textTransform: "uppercase",
+                    color: "rgba(255,255,255,0.26)",
+                  }}
+                >
+                  Produced by SEKAILABO'
+                </p>
+
+                <${SekailaboLogo} />
+
+                <p
+                  style=${{
+                    fontFamily: '"Montserrat", sans-serif',
+                    fontSize: "9px",
+                    letterSpacing: "0.20em",
+                    textTransform: "uppercase",
+                    color: "rgba(255,255,255,0.20)",
+                  }}
+                >
+                  Web Production & Consulting
+                </p>
+              <//>
+
+              <!-- コピーライト -->
+              <${motion.footer}
+                style=${{ marginTop: "20px", textAlign: "center" }}
+                initial=${{ opacity: 0 }}
+                animate=${{ opacity: 1 }}
+                transition=${{ duration: 0.8, delay: 1.15 }}
+              >
+                <p
+                  style=${{
+                    fontFamily: '"Montserrat", sans-serif',
+                    fontSize: "11px",
+                    letterSpacing: "0.16em",
+                    color: "rgba(255,255,255,0.16)",
+                  }}
+                >
+                  © ${D.year} SEKAILABO'
+                </p>
+              <//>
+            </div>
+          </div>
+        `;
+      }
+
+      /* React マウント */
+      createRoot(document.getElementById("links-root")).render(
+        html`<${App} />`,
+      );
+    </script>
 
     <?php wp_footer(); ?>
   </body>
