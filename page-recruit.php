@@ -11,17 +11,17 @@
     <meta name="format-detection" content="telephone=no">
 
     <!--SEO対策-->
-    <title>SEKAILABO. | 採用ページ</title>
-    <meta name="keywords" content="SEKAILABO.,福岡市,博多,アルバイト,求人,経験者優遇,ウェブ制作,ウェブ,WEB,デザイン,ホームページ,コンサルティング">
+    <title>SEKAILABO' | 採用ページ</title>
+    <meta name="keywords" content="SEKAILABO',福岡市,博多,アルバイト,求人,経験者優遇,ウェブ制作,ウェブ,WEB,デザイン,ホームページ,コンサルティング">
     <meta name="description" content="Webデザイナー(アルバイト)募集。時給900円〜シフト制。">
-    <meta name="author" content="SEKAILABO. | SIROTANI RIKU">
+    <meta name="author" content="SEKAILABO' | SIROTANI RIKU">
     <!--←書かなくて良い-->
     <link rel="canonical" href="https://sekailabo.com">
     <!--???-->
 
     <!--OPG対策-->
-    <meta property="og:site_name" content="SEKAILABO.">
-    <meta property="og:title" content="SEKAILABO.">
+    <meta property="og:site_name" content="SEKAILABO'">
+    <meta property="og:title" content="SEKAILABO'">
     <!--<title>と同じにする。以下同じ-->
     <meta property="og:description" content="Webデザイナー(アルバイト)募集。時給900円〜シフト制。">
     <meta property="og:type" content="website">
@@ -97,7 +97,7 @@
             "employmentType": "PART_TIME",
             "hiringOrganization": {
                 "@type": "Organization",
-                "name": "SEKAILABO.",
+                "name": "SEKAILABO'",
                 "sameAs": "https://sekailabo.com",
                 "logo": "https://sekailabo.com/img/logo2.png"
 
@@ -165,7 +165,7 @@
 
         <div id="pcGN">
             <a href="<?php echo home_url(); ?>">
-                <h1><span>SEKAILABO.</span></h1>
+                <h1><span>SEKAILABO'</span></h1>
             </a>
             <div id="naviBox">
                 <ul id="navi1">
@@ -342,7 +342,7 @@
                 <div class="o_c_s-wrap__inner_860">
                     <div id="mw_wp_form_mw-wp-form-82" class="mw_wp_form mw_wp_form_input  ">
                         <form method="post" action="" enctype="multipart/form-data">
-                            <p class="o_c_f-inquirement__caution">SEKAILABO. は新しい仲間を募集しています。<br />皆様のご応募を、心よりお待ちしております。</p>
+                            <p class="o_c_f-inquirement__caution">SEKAILABO' は新しい仲間を募集しています。<br />皆様のご応募を、心よりお待ちしております。</p>
                             <table class="o_c_f-inquirement">
                                 <tbody>
                                     <tr>
@@ -395,7 +395,7 @@
                 </div>
             </section>
     </div>
-    <p id="copyright">COPYRIGHT &copy; 2022- SEKAILABO.</p>
+    <p id="copyright">COPYRIGHT &copy; 2022- SEKAILABO'</p>
     </form>
     <!-- SCRIPTS -->
     <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/css/jquery.mb.YTPlayer.min.css">

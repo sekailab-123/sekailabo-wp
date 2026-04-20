@@ -44,7 +44,7 @@
         <div id="pcGN">
             <div id="navi_icon">
                 <a href="<?php echo home_url(); ?>">
-                    <h1><span>SEKAILABO.</span></h1>
+                    <h1><span>SEKAILABO'</span></h1>
                 </a>
                 <div id="naviBox">
                     <ul id="navi1">
@@ -138,7 +138,7 @@
         <ul id="aboutUl">
             <li>
                 <p>[ 会社名 ]
-                    <br>SEKAILABO.株式会社
+                    <br>SEKAILABO'株式会社
                     <br class="sp-f-only">[ 連絡先 ]
                     <br>info@sekailabo.com
                     <br>[ 代表者名 ]
@@ -164,7 +164,7 @@
 
         <a href="<?php echo home_url(); ?>/contact/" class="btn">CONTACT</a>
 
-        <p id="copyright">COPYRIGHT &copy; 2022- SEKAILABO.</p>
+        <p id="copyright">COPYRIGHT &copy; 2022- SEKAILABO'</p>
     </div>
 
     <!--back to top (トップに戻る)-->

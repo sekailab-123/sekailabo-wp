@@ -35,7 +35,7 @@
 
         <div id="pcGN">
             <a href="<?php echo home_url(); ?>">
-                <h1><span>SEKAILABO.</span></h1>
+                <h1><span>SEKAILABO'</span></h1>
             </a>
             <div id="naviBox">
                 <ul id="navi1">
@@ -92,7 +92,7 @@
                                     <p>会社名</p>
                                 </th>
                                 <td>
-                                    <p>SEKAILABO.株式会社</p>
+                                    <p>SEKAILABO'株式会社</p>
                                 </td>
                             </tr>
                             <tr>
@@ -185,7 +185,7 @@
                 </div>
             </section>
     </div>
-    <p id="copyright">COPYRIGHT &copy; 2022- SEKAILABO.</p>
+    <p id="copyright">COPYRIGHT &copy; 2022- SEKAILABO'</p>
     </form>
     <!-- SCRIPTS -->
     <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/css/jquery.mb.YTPlayer.min.css">

@@ -36,7 +36,7 @@
         <div id="pcGN">
             <div id="navi_icon">
                 <a href="<?php echo home_url(); ?>">
-                    <h1><span>SEKAILABO.</span></h1>
+                    <h1><span>SEKAILABO'</span></h1>
                 </a>
                 <div id="naviBox">
                     <ul id="navi1">

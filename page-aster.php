@@ -42,7 +42,7 @@
         <div id="pcGN">
             <div id="navi_icon" id="navi_icon_aster">
                 <a href="<?php echo home_url(); ?>/aster/">
-                    <h6><span>SEKAILABO.</span></h6>
+                    <h6><span>SEKAILABO'</span></h6>
                 </a>
 
                 <div id="naviBox">
@@ -60,7 +60,7 @@
                     <ul id="navi2">
                         <li><a href="<?php echo home_url(); ?>/recruit">RECRUIT</a>
                         </li>
-                        <li><a href="<?php echo home_url(); ?>">SEKAILABO.</a>
+                        <li><a href="<?php echo home_url(); ?>">SEKAILABO'</a>
                         </li>
                         <li><a href="<?php echo home_url(); ?>/contact/">CONTACT</a>
                         </li>
@@ -263,7 +263,7 @@
 
             <a href="<?php echo home_url(); ?>/contact/" class="btn">CONTACT</a>
 
-            <p id="copyright">COPYRIGHT &copy; 2022- SEKAILABO.</p>
+            <p id="copyright">COPYRIGHT &copy; 2022- SEKAILABO'</p>
         </div>
         <!--back to top (トップに戻る)-->
         <div id="fixSocial" class="pc">

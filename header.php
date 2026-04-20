@@ -12,17 +12,17 @@
   <meta name="format-detection" content="telephone=no">
 
   <!--SEO対策-->
-  <title>SEKAILABO.</title>
-  <meta name="keywords" content="SEKAILABO.,福岡,東京,ウェブ制作,ウェブ,WEB,デザイン,広告,ホームページ,コンサルティング">
-  <meta name="description" content="SEKAILABO. は、福岡を拠点に全国的に展開するWEB制作のフリーランスすです。飲食、美容、建設会社などをメインに多種多様な業界のホームページを作ります。">
-  <meta name="author" content="SEKAILABO. | SIROTANI RIKU">
+  <title>SEKAILABO'</title>
+  <meta name="keywords" content="SEKAILABO',福岡,東京,ウェブ制作,ウェブ,WEB,デザイン,広告,ホームページ,コンサルティング">
+  <meta name="description" content="SEKAILABO' は、福岡を拠点に全国的に展開するWEB制作のフリーランスすです。飲食、美容、建設会社などをメインに多種多様な業界のホームページを作ります。">
+  <meta name="author" content="SEKAILABO' | SIROTANI RIKU">
 
 
   <!--OPG対策-->
-  <meta property="og:site_name" content="SEKAILABO.">
-  <meta property="og:title" content="SEKAILABO.">
+  <meta property="og:site_name" content="SEKAILABO'">
+  <meta property="og:title" content="SEKAILABO'">
   <!--<title>と同じにする。以下同じ-->
-  <meta property="og:description" content="SEKAILABO. は、福岡を拠点に展開するWEB制作のフリーランスすです。飲食、美容、建設会社などをメインに多種多様な業界のホームページを作ります。">
+  <meta property="og:description" content="SEKAILABO' は、福岡を拠点に展開するWEB制作のフリーランスすです。飲食、美容、建設会社などをメインに多種多様な業界のホームページを作ります。">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://sekailabo.com">
   <meta property="og:image" content="  ">

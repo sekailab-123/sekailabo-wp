@@ -36,7 +36,7 @@ $has_mogs_logo = file_exists( $template_dir . $mogs_logo_relative_path );
     />
     <meta name="format-detection" content="telephone=no" />
     <meta name="robots" content="noindex, nofollow" />
-    <title>SEKAILABO. | LINKS</title>
+    <title>SEKAILABO' | LINKS</title>
     <link
       rel="icon"
       type="image/x-icon"
@@ -71,10 +71,15 @@ $has_mogs_logo = file_exists( $template_dir . $mogs_logo_relative_path );
         background:
           radial-gradient(
             circle at top,
-            rgba(221, 201, 173, 0.3),
-            transparent 34%
+            rgba(122, 81, 97, 0.16),
+            transparent 38%
           ),
-          linear-gradient(180deg, #f7f3ed 0%, #efebe3 48%, #e8e4dc 100%);
+          radial-gradient(
+            circle at bottom,
+            rgba(61, 39, 49, 0.08),
+            transparent 30%
+          ),
+          linear-gradient(180deg, #f8f4ef 0%, #f0ebe5 48%, #e7e1da 100%);
         color: #1f1a17;
         font-family:
           "Noto Sans JP", YuGothic, "ヒラギノ角ゴ Pro W3", sans-serif;
@@ -91,11 +96,16 @@ $has_mogs_logo = file_exists( $template_dir . $mogs_logo_relative_path );
         flex-direction: column;
         align-items: center;
         padding: 36px 28px 30px;
-        border: 1px solid rgba(72, 56, 41, 0.08);
+        border: 1px solid rgba(88, 64, 72, 0.1);
         border-radius: 32px;
-        background: rgba(255, 255, 255, 0.84);
+        background: linear-gradient(
+          180deg,
+          rgba(255, 255, 255, 0.9),
+          rgba(248, 244, 240, 0.8)
+        );
         box-shadow:
-          0 24px 60px rgba(82, 62, 41, 0.12),
+          0 24px 60px rgba(70, 48, 54, 0.12),
+          0 10px 20px rgba(127, 97, 108, 0.08),
           inset 0 1px 0 rgba(255, 255, 255, 0.9);
         backdrop-filter: blur(12px);
       }
@@ -127,7 +137,7 @@ $has_mogs_logo = file_exists( $template_dir . $mogs_logo_relative_path );
         font-size: 10px;
         font-weight: 600;
         letter-spacing: 0.28em;
-        color: #7a6b5d;
+        color: #8a6673;
         text-transform: uppercase;
       }
 
@@ -168,7 +178,7 @@ $has_mogs_logo = file_exists( $template_dir . $mogs_logo_relative_path );
       .links-sub-logo-fallback {
         width: 156px;
         height: 156px;
-        border: 1px solid rgba(72, 56, 41, 0.14);
+        border: 1px solid rgba(88, 64, 72, 0.14);
         border-radius: 28px;
         display: flex;
         align-items: center;
@@ -181,10 +191,10 @@ $has_mogs_logo = file_exists( $template_dir . $mogs_logo_relative_path );
         background: linear-gradient(
           150deg,
           rgba(255, 255, 255, 0.98),
-          rgba(233, 226, 214, 0.96)
+          rgba(236, 228, 224, 0.96)
         );
         padding-left: 0.18em;
-        box-shadow: 0 14px 28px rgba(88, 67, 43, 0.08);
+        box-shadow: 0 14px 28px rgba(88, 67, 43, 0.06);
       }
 
       .links-tagline {
@@ -199,7 +209,7 @@ $has_mogs_logo = file_exists( $template_dir . $mogs_logo_relative_path );
       .links-group-copy {
         font-size: 13px;
         line-height: 1.85;
-        color: #6b5c4f;
+        color: #6f5861;
         letter-spacing: 0.04em;
       }
 
@@ -208,7 +218,7 @@ $has_mogs_logo = file_exists( $template_dir . $mogs_logo_relative_path );
         font-size: 26px;
         font-weight: 700;
         letter-spacing: 0.12em;
-        color: #2f251d;
+        color: #382830;
         text-transform: uppercase;
       }
 
@@ -216,7 +226,7 @@ $has_mogs_logo = file_exists( $template_dir . $mogs_logo_relative_path );
         max-width: 320px;
         font-size: 13px;
         line-height: 1.85;
-        color: #7a6b5d;
+        color: #776771;
       }
 
       /* リンクボタン */
@@ -233,12 +243,12 @@ $has_mogs_logo = file_exists( $template_dir . $mogs_logo_relative_path );
         align-items: center;
         width: 100%;
         padding: 16px 18px;
-        border: 1px solid rgba(78, 60, 41, 0.1);
+        border: 1px solid rgba(88, 64, 72, 0.1);
         border-radius: 20px;
         background: linear-gradient(
           180deg,
           rgba(255, 255, 255, 0.96),
-          rgba(246, 242, 236, 0.92)
+          rgba(245, 241, 238, 0.92)
         );
         color: #231b15;
         text-decoration: none;
@@ -252,7 +262,7 @@ $has_mogs_logo = file_exists( $template_dir . $mogs_logo_relative_path );
           transform 0.1s ease,
           box-shadow 0.2s ease;
         position: relative;
-        box-shadow: 0 10px 24px rgba(88, 67, 43, 0.06);
+        box-shadow: 0 10px 24px rgba(70, 48, 54, 0.06);
       }
 
       .links-list li a:hover,
@@ -260,11 +270,11 @@ $has_mogs_logo = file_exists( $template_dir . $mogs_logo_relative_path );
         background: linear-gradient(
           180deg,
           rgba(255, 255, 255, 1),
-          rgba(246, 239, 229, 0.96)
+          rgba(244, 236, 235, 0.96)
         );
-        border-color: rgba(109, 86, 61, 0.2);
+        border-color: rgba(124, 92, 103, 0.24);
         transform: translateY(-2px);
-        box-shadow: 0 16px 32px rgba(88, 67, 43, 0.1);
+        box-shadow: 0 16px 32px rgba(70, 48, 54, 0.1);
         outline: none;
       }
 
@@ -276,7 +286,7 @@ $has_mogs_logo = file_exists( $template_dir . $mogs_logo_relative_path );
         width: 36px;
         height: 36px;
         border-radius: 12px;
-        background-color: #f3eee7;
+        background-color: #f1eaeb;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -336,7 +346,7 @@ $has_mogs_logo = file_exists( $template_dir . $mogs_logo_relative_path );
         font-size: 10px;
         font-weight: 600;
         letter-spacing: 0.24em;
-        color: #7d6f63;
+        color: #8a6673;
         text-transform: uppercase;
       }
 
@@ -434,7 +444,7 @@ $has_mogs_logo = file_exists( $template_dir . $mogs_logo_relative_path );
           >
             <span class="link-icon icon-web"><i class="fas fa-globe"></i></span>
             <span class="link-label">
-              SEKAILABO. 公式サイト
+              SEKAILABO' 公式サイト
               <span class="link-label-sub">sekailabo.com</span>
             </span>
             <i class="fas fa-chevron-right link-arrow"></i>
@@ -511,21 +521,21 @@ $has_mogs_logo = file_exists( $template_dir . $mogs_logo_relative_path );
       </ul>
 
       <section class="links-company">
-        <p class="links-company-copy">Produced by SEKAILABO.</p>
+        <p class="links-company-copy">Produced by SEKAILABO'</p>
         <?php if ( $has_sekailabo_logo ) : ?>
         <img
           src="<?php echo esc_url( $template_uri . $sekailabo_logo_relative_path ); ?>"
-          alt="SEKAILABO."
+          alt="SEKAILABO'"
           class="links-logo"
         />
         <?php else : ?>
-        <div class="links-logo-fallback">SEKAILABO.</div>
+        <div class="links-logo-fallback">SEKAILABO'</div>
         <?php endif; ?>
         <p class="links-tagline">Web Production &amp; Consulting</p>
       </section>
 
       <footer class="links-footer">
-        &copy; <?php echo esc_html( wp_date( 'Y' ) ); ?> SEKAILABO.
+        &copy; <?php echo esc_html( wp_date( 'Y' ) ); ?> SEKAILABO'
       </footer>
     </div>
 
