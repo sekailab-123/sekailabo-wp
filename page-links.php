@@ -135,6 +135,7 @@ $has_mogs_logo = file_exists( $template_dir . $mogs_logo_relative_path );
 
       /* ─── リンク定義（元コンテンツを完全維持） ─────────── */
       const LINKS = [
+        /* 一時非表示：SEKAILABO公式サイト
         {
           href: D.homeUrl,
           icon: "fas fa-globe",
@@ -143,8 +144,9 @@ $has_mogs_logo = file_exists( $template_dir . $mogs_logo_relative_path );
           sub: "sekailabo.com",
           cta: false,
         },
+        */
         {
-          href: "https://mogpass.up.railway.app/lp",
+          href: "https://mogpass.up.railway.app/mogpass",
           icon: "fas fa-star",
           color: "#4eecc0",
           label: "MOGPASS",
