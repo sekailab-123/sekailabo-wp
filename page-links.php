@@ -24,6 +24,7 @@ foreach ( $sekailabo_logo_candidates as $sekailabo_logo_candidate ) {
 }
 
 $has_mogs_logo = file_exists( $template_dir . $mogs_logo_relative_path );
+$sekailabo_logo_url_path = str_replace( "'", '%27', $sekailabo_logo_relative_path );
 ?>
 <!DOCTYPE html>
 <html lang="ja">
@@ -106,7 +107,7 @@ $has_mogs_logo = file_exists( $template_dir . $mogs_logo_relative_path );
         hasMogsLogo:       <?php echo $has_mogs_logo ? 'true' : 'false'; ?>,
         mogsLogoPath:      "<?php echo esc_js( $mogs_logo_relative_path ); ?>",
         hasSekailaboLogo:  <?php echo $has_sekailabo_logo ? 'true' : 'false'; ?>,
-        sekailaboLogoPath: "<?php echo esc_js( $sekailabo_logo_relative_path ); ?>",
+        sekailaboLogoPath: "<?php echo esc_js( $sekailabo_logo_url_path ); ?>",
         homeUrl:           "<?php echo esc_js( home_url( '/' ) ); ?>",
         contactUrl:        "<?php echo esc_js( home_url( '/contact/' ) ); ?>",
         year:              "<?php echo esc_js( wp_date( 'Y' ) ); ?>"

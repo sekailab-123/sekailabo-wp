@@ -40,12 +40,12 @@
     <link rel="icon" type="image/x-icon" href="<?php echo get_template_directory_uri(); ?>/img/logo_symbol.png">
 
     <!--上記のスマホ版 144x144で作ればok(今回なし)-->
-    <link rel="apple-touch-icon" href="<?php echo get_template_directory_uri(); ?>/img/SEKAILABO'.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="<?php echo get_template_directory_uri(); ?>/img/SEKAILABO'.png">
+    <link rel="apple-touch-icon" href="<?php echo get_template_directory_uri(); ?>/img/SEKAILABO%27.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="<?php echo get_template_directory_uri(); ?>/img/SEKAILABO%27.png">
 
     <!--<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">-->
-    <link rel="apple-touch-icon" href="<?php echo get_template_directory_uri(); ?>/img/SEKAILABO'.png">
-    <link rel="apple-touch-icon" sizes="144x144" href="<?php echo get_template_directory_uri(); ?>/img/SEKAILABO'.png">
+    <link rel="apple-touch-icon" href="<?php echo get_template_directory_uri(); ?>/img/SEKAILABO%27.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="<?php echo get_template_directory_uri(); ?>/img/SEKAILABO%27.png">
 
     <!--dns-prefetch-->
     <link rel="dns-prefetch" href="<?php echo home_url(); ?>//www.google-analytics.com" />

@@ -100,7 +100,7 @@ video#bgvid {
 #LA {
   width: 80%;
   height: 560px;
-  background-image: url("../img/SEKAILABO'.png");
+  background-image: url("../img/SEKAILABO%27.png");
   background-repeat: no-repeat;
   background-size: contain;
   background-position: center;
@@ -232,7 +232,7 @@ a#more1:hover {
 h1 {
   width: 190px;
   height: 64px;
-  background-image: url("../img/SEKAILABO'.png");
+  background-image: url("../img/SEKAILABO%27.png");
   background-repeat: no-repeat;
   background-size: contain;
   background-position: left center;
@@ -255,7 +255,7 @@ h1:hover {
 .navi_icon_aster h1 {
   width: 190px;
   height: 64px;
-  background-image: url("../img/SEKAILABO'.png");
+  background-image: url("../img/SEKAILABO%27.png");
   background-repeat: no-repeat;
   background-size: contain;
   background-position: left center;
