@@ -6,11 +6,11 @@
 
 $template_dir = get_template_directory();
 $template_uri = get_template_directory_uri();
-$sekailabo_logo_relative_path = '/img/SEKAILABO.png';
+$sekailabo_logo_relative_path = "/img/SEKAILABO'.png";
 $sekailabo_logo_candidates = array(
+  "/img/SEKAILABO'.png",
   '/img/SEKAILABO.png',
   '/img/sekailabo.png',
-  "/img/SEKAILABO'.png",
 );
 $mogs_logo_relative_path = '/img/mogs.png';
 $has_sekailabo_logo = false;

@@ -97,8 +97,9 @@ a:focus {
 #LA {
   width: 700px;
   height: 100px;
-  background-image: url(../img/LA.png);
-  background-size: 75%;
+  background-image: url("../img/SEKAILABO'.png");
+  background-size: contain;
+  background-position: center;
   margin-top: -150px;
   background-repeat: no-repeat;
   margin: -120px auto;
@@ -198,11 +199,12 @@ a#more1 {
 }
 
 h1 {
-  width: 180px;
+  width: 220px;
   height: 50px;
-  background-image: url(../img/SEKAILABO.png);
+  background-image: url("../img/SEKAILABO'.png");
   background-repeat: no-repeat;
-  background-size: 90%;
+  background-size: contain;
+  background-position: left center;
   position: absolute;
   top: 18px;
   left: 40px;
@@ -221,11 +223,12 @@ h1:hover {
 }
 
 .navi_icon_aster h1 {
-  width: 180px;
+  width: 220px;
   height: 50px;
-  background-image: url(../img/SEKAILABO.png);
+  background-image: url("../img/SEKAILABO'.png");
   background-repeat: no-repeat;
-  background-size: 90%;
+  background-size: contain;
+  background-position: left center;
   position: absolute;
   top: 15px;
   /*5px*/
@@ -1862,7 +1865,7 @@ td {
 }
 
 .mainback::after {
-  content: '';
+  content: "";
   position: absolute;
   inset: 0;
   background: rgba(0, 0, 0, 0.55);

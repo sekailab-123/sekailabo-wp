@@ -7,7 +7,7 @@
         <div id="mainvisual">
             <div id="main_title">
                 <div id="LA"><span>SEKAILABO</span></div>
-                <p class="hero-tagline">遊び場から、世界をリデザインする。</p>
+                <p class="hero-tagline">ひと口の感動を、次の誰かへ。</p>
             </div>
             <div class="hero-scroll">
                 <span class="scroll-line"></span>
@@ -126,7 +126,7 @@
                         </div>
                     </li>
                 </ul>
-                <p class="biz-philosophy" data-reveal>すべての事業の根底に「遊び場から、世界をリデザインする」というフィロソフィーが流れています。</p>
+                <p class="biz-philosophy" data-reveal>MOGS の核には、「ひと口の感動を、次の誰かへ。」という思想が流れています。</p>
             </div>
         </section>
 

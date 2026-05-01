@@ -100,9 +100,10 @@ video#bgvid {
 #LA {
   width: 80%;
   height: 560px;
-  background-image: url(../img/LAsp.png);
+  background-image: url("../img/SEKAILABO'.png");
   background-repeat: no-repeat;
-  background-size: 100%;
+  background-size: contain;
+  background-position: center;
   margin: 0 auto;
   display: inline-block;
 }
@@ -229,11 +230,12 @@ a#more1:hover {
 }
 
 h1 {
-  width: 180px;
+  width: 190px;
   height: 64px;
-  background-image: url(../img/logo.png);
+  background-image: url("../img/SEKAILABO'.png");
   background-repeat: no-repeat;
-  background-size: 100%;
+  background-size: contain;
+  background-position: left center;
   position: absolute;
   top: 8px;
   left: 23px;
@@ -251,11 +253,12 @@ h1:hover {
 }
 
 .navi_icon_aster h1 {
-  width: 180px;
+  width: 190px;
   height: 64px;
-  background-image: url(../img/logo.png);
+  background-image: url("../img/SEKAILABO'.png");
   background-repeat: no-repeat;
-  background-size: 100%;
+  background-size: contain;
+  background-position: left center;
   position: absolute;
   top: 8px;
   left: 23px;
