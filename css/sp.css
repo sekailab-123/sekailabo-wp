@@ -84,23 +84,8 @@ a:focus {
   background-size: cover;
 }
 
-video {
-  display: none;
-}
-
 video#bgvid {
-  position: absolute;
-  right: -100%;
-  bottom: -100%;
-  top: -100%;
-  left: -100%;
-  min-width: 100%;
-  min-height: 100%;
-  max-width: inherit;
-  margin: auto;
-  width: auto;
-  height: auto;
-  z-index: -100;
+  display: block;
 }
 
 #main_title {

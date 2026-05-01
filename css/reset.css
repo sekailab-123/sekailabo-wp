@@ -15,7 +15,7 @@ version: 2.6.0
 
 body {
     -webkit-text-size-adjust: none;
-    background-color: #f2f1f1;
+    background-color: transparent;
     text-align: center;
 }
 

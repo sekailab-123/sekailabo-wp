@@ -323,34 +323,11 @@
         <!--back to top 終わり-->
     </div>
 
-    <!--videoURL: 'szKFtvM9ELw',-->
-
-    <!-- 「jquery.mb.YTPlayer」(youtube動画背景再生)の設定----------------------->
     <div class="mainback">
-        <div class="mainvisual__video" id="js-mainvisualVideo" data-property="{
-        videoURL:'szKFtvM9ELw',
-        quality: 'large',
-        containment: 'body',          
-        autoPlay: true,
-        loop: 2,
-        mute: true,
-        startAt: 0,
-        stopAt: 45,
-        opacity: 1,
-        showControls: false,
-        showYTLogo: false
-        }">
-            <div class="loading">Loading...</div>
-        </div>
-        <!--
-    ・再生するyoutubeのID or URL
-    ・Youtubeを再生させる（埋め込ませる？）要素をbodyにするか否か
-    ・自動再生させるか
-    ・ループ再生させるか
-    ・ミュートにするか
-    ・動画の再生位置
-    ・透過度合い
-    ・再生、停止などのインターフェースを出すかどうか
-    ・youtubeの炉画やリンクを表示するかどうか　-->
+        <video id="bgvid" autoplay muted loop playsinline>
+            <source src="<?php echo get_template_directory_uri(); ?>/しゅんどる.mov" type="video/quicktime">
+            <source src="<?php echo get_template_directory_uri(); ?>/しゅんどる.mov" type="video/mp4">
+        </video>
+    </div>
 
-        <?php get_footer(); ?>
+    <?php get_footer(); ?>
