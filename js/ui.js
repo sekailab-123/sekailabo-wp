@@ -232,32 +232,42 @@
 	jQuery(document).ready(function() {
 
 		// ===== SCROLL REVEAL (Intersection Observer) =====
-		(function() {
+		// animsition の fade-in (1500ms) 完了後に初期化
+		function initReveal() {
+			var els = document.querySelectorAll('[data-reveal]');
+			if (!els.length) return;
+
+			// IntersectionObserver 非対応ブラウザ用フォールバック
 			if (!('IntersectionObserver' in window)) {
-				document.querySelectorAll('[data-reveal]').forEach(function(el) {
-					el.classList.add('is-revealed');
-				});
+				els.forEach(function(el) { el.classList.add('is-revealed'); });
 				return;
 			}
+
 			var observer = new IntersectionObserver(function(entries) {
 				entries.forEach(function(entry) {
 					if (entry.isIntersecting) {
 						var el = entry.target;
-						var delay = el.getAttribute('data-reveal-delay');
-						if (delay) {
-							setTimeout(function() { el.classList.add('is-revealed'); }, parseInt(delay, 10));
-						} else {
-							el.classList.add('is-revealed');
-						}
+						var delay = parseInt(el.getAttribute('data-reveal-delay') || '0', 10);
+						setTimeout(function() { el.classList.add('is-revealed'); }, delay);
 						observer.unobserve(el);
 					}
 				});
-			}, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+			}, { threshold: 0.08, rootMargin: '0px 0px 0px 0px' });
 
-			document.querySelectorAll('[data-reveal]').forEach(function(el) {
-				observer.observe(el);
+			els.forEach(function(el) { observer.observe(el); });
+
+			// 既にビューポート内にある要素を即時表示
+			els.forEach(function(el) {
+				var rect = el.getBoundingClientRect();
+				if (rect.top < window.innerHeight && rect.bottom > 0) {
+					var delay = parseInt(el.getAttribute('data-reveal-delay') || '0', 10);
+					setTimeout(function() { el.classList.add('is-revealed'); }, delay);
+				}
 			});
-		})();
+		}
+
+		// animsition の inDuration (1500ms) + 余裕を持って 1700ms 後に起動
+		setTimeout(initReveal, 1700);
 	    jQuery(".animsition").animsition({
 	        inClass: 'fade-in',
 	        outClass: 'fade-out',

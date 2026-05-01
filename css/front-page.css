@@ -627,6 +627,16 @@ body.home #fixSocial .gotop img:hover {
   transform: translateY(0);
 }
 
+/* JS 未読み込み / animsition 競合時のフォールバック:
+   3秒後も is-revealed がなければ強制表示 */
+@keyframes revealFallback {
+  to { opacity: 1; transform: translateY(0); }
+}
+
+[data-reveal] {
+  animation: revealFallback 0.01s 3.5s forwards;
+}
+
 
 /* =============================================================================
    13. RESPONSIVE
