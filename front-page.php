@@ -1,6 +1,6 @@
 <?php get_header(); ?>
 
-<body data-rsssl=1>
+<body <?php body_class(); ?> data-rsssl=1>
     <div class="animsition">
 
         <!-- ===== HERO ===== -->
