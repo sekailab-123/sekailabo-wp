@@ -13,6 +13,26 @@ body.home {
   color: #e4e2ef;
 }
 
+body.home a {
+  color: rgba(228, 226, 239, 0.85);
+}
+
+body.home a:hover {
+  color: #e4e2ef;
+}
+
+body.home h2 {
+  color: #e4e2ef;
+}
+
+body.home h3 {
+  color: rgba(228, 226, 239, 0.88);
+}
+
+body.home p {
+  color: rgba(228, 226, 239, 0.72);
+}
+
 
 /* =============================================================================
    2. DESKTOP NAVIGATION
@@ -321,6 +341,11 @@ body.home #bizPhilosophy {
 
 body.home h2#blog {
   color: #fff;
+}
+
+body.home .blogCt {
+  color: rgba(228, 226, 239, 0.42);
+  border-bottom-color: rgba(255, 255, 255, 0.08);
 }
 
 body.home #blogUl li {
