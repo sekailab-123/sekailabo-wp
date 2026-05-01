@@ -2,6 +2,8 @@
 
 <body data-rsssl=1>
     <div class="animsition">
+
+        <!-- ===== HERO ===== -->
         <div id="mainvisual">
             <div id="main_title">
                 <div id="LA"><span>SEKAILABO</span></div>
@@ -12,70 +14,50 @@
                 <span class="scroll-text">SCROLL</span>
             </div>
         </div>
-        <!--heddaer-スマホ------------------------------------------------------------->
+
+        <!-- ===== SP NAV ===== -->
         <div id="spGN">
             <div id="navibar">
                 <ul id="navi12">
-                    <li><a href="" class="closd">TOP</a>
-                    </li>
-                    <li><a href="#message" class="closd">MESSAGE</a>
-                    </li>
-                    <li><a href="#service" class="closd">BUSINESS</a>
-                    </li>
-                    <li><a href="<?php echo get_post_type_archive_link('topics'); ?>">TOPICS</a>
-                    </li>
-                    <li><a href="#aboutUl" class="closd">ABOUT</a>
-                    </li>
+                    <li><a href="" class="closd">TOP</a></li>
+                    <li><a href="#message" class="closd">ABOUT</a></li>
+                    <li><a href="#service" class="closd">BUSINESS</a></li>
+                    <li><a href="<?php echo get_post_type_archive_link('topics'); ?>">TOPICS</a></li>
+                    <li><a href="#info" class="closd">ABOUT US</a></li>
                 </ul>
                 <ul id="navi22">
-                    <li><a href="<?php echo home_url(); ?>/recruit">RECRUIT</a>
-                    </li>
-                    <li><a href="<?php echo home_url(); ?>/company">COMPANY</a>
-                    </li>
-                    <li><a href="<?php echo home_url(); ?>/contact">CONTACT</a>
-                    </li>
+                    <li><a href="<?php echo home_url(); ?>/recruit">RECRUIT</a></li>
+                    <li><a href="<?php echo home_url(); ?>/company">COMPANY</a></li>
+                    <li><a href="<?php echo home_url(); ?>/contact">CONTACT</a></li>
                 </ul>
                 <p>FOLLOW ME</p>
                 <a href="https://twitter.com/laboratory_Riku" target="_blank"><i class="fab fa-twitter fa-4x"></i></a>
-                <a href="https://instagram.com/sekailabo" target="_blank"> <i class="fab fa-instagram fa-4x"></i></a>
+                <a href="https://instagram.com/sekailabo" target="_blank"><i class="fab fa-instagram fa-4x"></i></a>
             </div>
         </div>
-        <!--heddaer-スマホ------------------------------------------------------------->
-        <!--heddaer-PC---------------------------------------------------------------->
 
+        <!-- ===== PC NAV ===== -->
         <div id="pcGN">
             <div id="navi_icon">
                 <a href="<?php echo home_url(); ?>">
                     <h1><span>SEKAILABO'</span></h1>
                 </a>
-
                 <div id="naviBox">
                     <ul id="navi1">
-                        <li><a href="#message">MESSAGE</a>
-                        </li>
-                        <li><a href="#service">BUSINESS</a>
-                        </li>
-                        <li><a href="#blog">TOPICS</a>
-                        </li>
-                        <li><a href="#aboutUl" class="closd">ABOUT</a>
-                        </li>
+                        <li><a href="#message">ABOUT</a></li>
+                        <li><a href="#service">BUSINESS</a></li>
+                        <li><a href="#blog">TOPICS</a></li>
+                        <li><a href="#info">ABOUT US</a></li>
                     </ul>
-
                     <ul id="navi2">
-                        <li><a href="<?php echo home_url(); ?>/recruit">RECRUIT</a>
-                        </li>
-                        <li><a href="<?php echo home_url(); ?>/company">COMPANY</a>
-                        </li>
-                        <li><a href="<?php echo home_url(); ?>/contact">CONTACT</a>
-                        </li>
+                        <li><a href="<?php echo home_url(); ?>/recruit">RECRUIT</a></li>
+                        <li><a href="<?php echo home_url(); ?>/company">COMPANY</a></li>
+                        <li><a href="<?php echo home_url(); ?>/contact">CONTACT</a></li>
                     </ul>
                     <p>FOLLOW ME</p>
                     <a href="https://www.facebook.com" target="_blank" id="fbbtn"><span>facebook</span></a>
                     <a href="https://instagram.com/sekailabo" target="_blank" id="isbtn"><span>instagram</span></a>
                 </div>
-
-                <!---heddaer-PC--------------------------------------------------------------->
-
                 <div class="btnHamburger">
                     <span class="line line_01"></span>
                     <span class="line line_02"></span>
@@ -84,253 +66,152 @@
             </div>
         </div>
 
-        <!----------メッセージ------------------------------------------------->
-
-        <div class="message_block">
-            <section class="about-section" id="message">
-                <div class="about-inner">
-                    <p class="section-label">ABOUT</p>
-                    <div class="about-grid">
-                        <div class="about-text">
-                            <h2 class="about-headline">福岡の路地裏から、<br>世界へ。</h2>
-                            <p class="about-lead">グルメSNSメディア「MOGS」を自ら運営するインフルエンサーとして、AI×クリエイティブで飲食業界のDXを支援。「0.1秒で心が動く」クリエイティブへの執着と、現場の熱量——それが、私たちの差別化です。</p>
-                            <span class="about-divider"></span>
-                            <p class="about-sub">中学来の親友二人が持ち込む「ハシゴ酒」の精神。単なる成功よりも、最高の仲間と最高のプロセスを。その信頼の温度感こそ、SEKAILABO'の根幹です。</p>
-                        </div>
-                        <div class="about-mogs">
-                            <img src="<?php echo get_template_directory_uri(); ?>/img/mogs.png" alt="MOGS">
-                        </div>
-                    </div>
+        <!-- ===== ABOUT ===== -->
+        <section class="fp-section about-section" id="message">
+            <div class="fp-inner">
+                <div class="section-eyebrow" data-reveal>
+                    <span class="section-index">01</span>
+                    <span class="section-label">ABOUT</span>
                 </div>
-            </section>
+                <div class="about-layout" data-reveal data-reveal-delay="100">
+                    <div class="about-text">
+                        <h2 class="about-headline">福岡の路地裏から、<br>世界へ。</h2>
+                        <p class="about-lead">グルメSNSメディア「MOGS」を自ら運営するインフルエンサーとして、AI×クリエイティブで飲食業界のDXを支援。「0.1秒で心が動く」クリエイティブへの執着と、現場の熱量——それが、私たちの差別化です。</p>
+                        <span class="about-rule"></span>
+                        <p class="about-sub">中学来の親友二人が持ち込む「ハシゴ酒」の精神。単なる成功よりも、最高の仲間と最高のプロセスを。その信頼の温度感こそ、SEKAILABO'の根幹です。</p>
+                    </div>
+                    <img class="mogs-accent" src="<?php echo get_template_directory_uri(); ?>/img/mogs.png" alt="MOGS">
+                </div>
+            </div>
+        </section>
 
-            <!--------メッセージ--------------------------------------------------->
-            <!--------ビジネス----------------------------------------------------->
-            <h2 id="service">BUSINESS</h2>
-            <ul id="businessUl" class="clear">
-                <li id="b1">
-                    <span class="biz-num">01</span>
-                    <h3>Gourmet Media &amp; Influence</h3>
-                    <h4>メディア事業</h4>
-                    <p>美食の街・福岡を拠点に、グルメSNSメディア『MOGS』を運営。「0.1秒で指を止める」クリエイティブとAI技術を駆使したナラティブで、ユーザーの「次の一軒」を創り出します。</p>
-                </li>
-                <li id="b2">
-                    <span class="biz-num">02</span>
-                    <h3>Restaurant DX Support</h3>
-                    <h4>飲食DX支援事業</h4>
-                    <p>システム導入が目的ではなく、店主・スタッフの「負担」を減らし、客の「感動」を増やすためのDXを支援。LINE連携ソリューションで順番待ち管理やロイヤリティ施策を実現します。</p>
-                </li>
-                <li id="b3">
-                    <span class="biz-num">03</span>
-                    <h3>Creative &amp; SNS Marketing</h3>
-                    <h4>クリエイティブ・SNS運用事業</h4>
-                    <p>TikTok・Instagram Reels等のショート動画特化型マーケティングで、SNSアカウントを「ファンとの遊び場」へ。ロゴからトーン&amp;マナーまで一貫したブランドストーリーを構築します。</p>
-                </li>
-                <li id="b4">
-                    <span class="biz-num">04</span>
-                    <h3>EC &amp; Advertising Strategy</h3>
-                    <h4>EC・広告戦略事業</h4>
-                    <p>楽天・Amazon等のプラットフォーム最適化からRPP広告のデータドリブン運用まで、ECサイトの立ち上げ〜利益最大化を網羅的にサポート。海外市場を見据えたクロスボーダーECも支援します。</p>
-                </li>
-            </ul>
-            <p id="bizPhilosophy">すべての事業の根底に「遊び場から、世界をリデザインする」というフィロソフィーが流れています。</p>
-            <!--------ビジネス----------------------------------------------------->
-            <!--------トピックス----------------------------------------------------->
-            <h2 id="blog">TOPICS</h2>
-            <article>
+        <!-- ===== BUSINESS ===== -->
+        <section class="fp-section biz-section" id="service">
+            <div class="fp-inner">
+                <div class="section-eyebrow" data-reveal>
+                    <span class="section-index">02</span>
+                    <span class="section-label">BUSINESS</span>
+                </div>
+                <ul class="biz-list">
+                    <li class="biz-row" data-reveal>
+                        <span class="biz-num">01</span>
+                        <div class="biz-content">
+                            <h3>Gourmet Media &amp; Influence</h3>
+                            <p class="biz-ja">メディア事業</p>
+                            <p class="biz-desc">美食の街・福岡を拠点に、グルメSNSメディア『MOGS』を運営。「0.1秒で指を止める」クリエイティブとAI技術を駆使したナラティブで、ユーザーの「次の一軒」を創り出します。</p>
+                        </div>
+                    </li>
+                    <li class="biz-row" data-reveal>
+                        <span class="biz-num">02</span>
+                        <div class="biz-content">
+                            <h3>Restaurant DX Support</h3>
+                            <p class="biz-ja">飲食DX支援事業</p>
+                            <p class="biz-desc">システム導入が目的ではなく、店主・スタッフの「負担」を減らし、客の「感動」を増やすためのDXを支援。LINE連携ソリューションで順番待ち管理やロイヤリティ施策を実現します。</p>
+                        </div>
+                    </li>
+                    <li class="biz-row" data-reveal>
+                        <span class="biz-num">03</span>
+                        <div class="biz-content">
+                            <h3>Creative &amp; SNS Marketing</h3>
+                            <p class="biz-ja">クリエイティブ・SNS運用事業</p>
+                            <p class="biz-desc">TikTok・Instagram Reels等のショート動画特化型マーケティングで、SNSアカウントを「ファンとの遊び場」へ。ロゴからトーン&amp;マナーまで一貫したブランドストーリーを構築します。</p>
+                        </div>
+                    </li>
+                    <li class="biz-row" data-reveal>
+                        <span class="biz-num">04</span>
+                        <div class="biz-content">
+                            <h3>EC &amp; Advertising Strategy</h3>
+                            <p class="biz-ja">EC・広告戦略事業</p>
+                            <p class="biz-desc">楽天・Amazon等のプラットフォーム最適化からRPP広告のデータドリブン運用まで、ECサイトの立ち上げ〜利益最大化を網羅的にサポート。海外市場を見据えたクロスボーダーECも支援します。</p>
+                        </div>
+                    </li>
+                </ul>
+                <p class="biz-philosophy" data-reveal>すべての事業の根底に「遊び場から、世界をリデザインする」というフィロソフィーが流れています。</p>
+            </div>
+        </section>
+
+        <!-- ===== TOPICS ===== -->
+        <section class="fp-section topics-section" id="blog">
+            <div class="fp-inner">
+                <div class="section-eyebrow" data-reveal>
+                    <span class="section-index">03</span>
+                    <span class="section-label">TOPICS</span>
+                </div>
+                <div class="topics-grid" data-reveal>
                 <?php
                 $args = array(
-                    'paged' => $paged, //ページネーションを使いたいなら指定
-                    'posts_per_page' => 1, //1記事のみ出力
-                    'post_status' => 'publish', //公開の記事だけ
-                    'post_type' => 'topics', //カスタム投稿slag
-                    'orderby' => 'date', //日付を出力する基準
-                    'order' => 'DESC' //表示する順番（逆はASC）                     
+                    'posts_per_page' => 3,
+                    'post_status'    => 'publish',
+                    'post_type'      => 'topics',
+                    'orderby'        => 'date',
+                    'order'          => 'DESC',
                 );
-
                 $the_query = new WP_Query($args);
                 if ($the_query->have_posts()) :
-                ?>
-
-                    <?php global $previousday; //この表記と$previousday = '';で同じ日付の投稿でも表示される
                     while ($the_query->have_posts()) : $the_query->the_post();
-                        $previousday = '';
-                        //-------- ここから繰り返し---------- 
-                    ?>
-
-                        <ul id="blogUl" class="clear">
-                            <li>
-                                <a href="<?php the_permalink(); ?>" class="animsition-link">
-                                    <div class="blogImg">
-                                        <?php if (has_post_thumbnail()) : ?>
-                                            <?php the_post_thumbnail('medium'); ?>
-                                        <?php else : ?>
-                                            <img src="<?php echo get_template_directory_uri(); ?>/img/no-image.gif" alt="no-img">
-                                        <?php endif; ?>
-                                    </div>
-                                    <span class="blogDt"><time datetime="<?php echo get_the_date('Y.m.d'); ?>">
-                                            <?php echo get_the_date(); ?>
-                                        </time>
-                                    </span>
-                                    <h3><?php the_title(); ?></h3>
-                                    <div class="blogText">
-                                        <p><?php
-                                            $str = get_the_excerpt();
-                                            echo na_trim_words($str, 74); ?>
-                                        </p>
-                                    </div>
-                                </a>
-                            </li>
-                        <?php //-------- 繰り返しここまで-----------
-                    endwhile; ?>
-                    <?php //-------- WP_query終了-----------
+                ?>
+                    <a href="<?php the_permalink(); ?>" class="topic-card animsition-link">
+                        <div class="topic-img">
+                            <?php if (has_post_thumbnail()) : ?>
+                                <?php the_post_thumbnail('medium'); ?>
+                            <?php else : ?>
+                                <img src="<?php echo get_template_directory_uri(); ?>/img/no-image.gif" alt="no-img">
+                            <?php endif; ?>
+                        </div>
+                        <div class="topic-body">
+                            <time class="topic-date" datetime="<?php echo get_the_date('Y-m-d'); ?>"><?php echo get_the_date('Y.m.d'); ?></time>
+                            <h3 class="topic-title"><?php the_title(); ?></h3>
+                            <p class="topic-excerpt"><?php echo na_trim_words(get_the_excerpt(), 60); ?></p>
+                        </div>
+                    </a>
+                <?php
+                    endwhile;
                     wp_reset_postdata();
-                endif; ?>
-                    <?php
-                    $args = array(
-                        'paged' => $paged, //ページネーションを使いたいなら指定
-                        'posts_per_page' => 1, //1記事のみ出力
-                        'post_status' => 'publish', //公開の記事だけ
-                        'post_type' => 'topics', //カスタム投稿slag
-                        'orderby' => 'date', //日付を出力する基準
-                        'offset' => 1,
-                    );
+                endif;
+                ?>
+                </div>
+                <a href="<?php echo get_post_type_archive_link('topics'); ?>" class="fp-more-link" data-reveal>VIEW MORE</a>
+            </div>
+        </section>
 
-                    $the_query = new WP_Query($args);
-                    if ($the_query->have_posts()) :
-                    ?>
+        <!-- ===== ABOUT US ===== -->
+        <section class="fp-section info-section" id="info">
+            <div class="fp-inner">
+                <div class="section-eyebrow" data-reveal>
+                    <span class="section-index">04</span>
+                    <span class="section-label">ABOUT US</span>
+                </div>
+                <div class="info-grid" data-reveal>
+                    <div class="info-col">
+                        <p>[ 組織名 ]<br>SEKAILABO'</p>
+                        <p>[ 連絡先 ]<br>info@sekailabo.com</p>
+                        <p>[ 代表者名 ]<br>城谷　陸</p>
+                    </div>
+                    <div class="info-col">
+                        <p>[ 事業内容 ]<br>
+                            ・WEBコンサルタント事業<br>
+                            ・メディア事業<br>
+                            ・飲食DX支援事業<br>
+                            ・クリエイティブ・SNS運用事業<br>
+                            ・EC・広告戦略事業
+                        </p>
+                    </div>
+                </div>
+                <a href="<?php echo home_url(); ?>/contact/" class="fp-contact-btn" data-reveal>CONTACT</a>
+                <p class="fp-copyright">COPYRIGHT &copy; 2026– SEKAILABO'</p>
+            </div>
+        </section>
 
-                        <?php global $previousday; //この表記と$previousday = '';で同じ日付の投稿でも表示される
-                        while ($the_query->have_posts()) : $the_query->the_post();
-                            $previousday = '';
-                            //-------- ここから繰り返し---------- 
-                        ?>
-                            <li>
-                                <a href="<?php the_permalink(); ?>" class="animsition-link">
-                                    <div class="blogImg">
-                                        <?php if (has_post_thumbnail()) : ?>
-                                            <?php the_post_thumbnail('medium'); ?>
-                                        <?php else : ?>
-                                            <img src="<?php echo get_template_directory_uri(); ?>/img/no-image.gif" alt="no-img">
-                                        <?php endif; ?>
-                                    </div>
-                                    <span class="blogDt"><time datetime="<?php echo get_the_date('Y.m.d'); ?>">
-                                            <?php echo get_the_date(); ?>
-                                        </time>
-                                    </span>
-                                    <h3><?php the_title(); ?></h3>
-                                    <div class="blogText">
-                                        <p><?php
-                                            $str = get_the_excerpt();
-                                            echo na_trim_words($str, 74); ?>
-                                        </p>
-                                    </div>
-                                </a>
-                            </li>
-                        <?php //-------- 繰り返しここまで-----------
-                        endwhile; ?>
-                    <?php //-------- WP_query終了-----------
-                        wp_reset_postdata();
-                    endif; ?>
-
-                    <?php
-                    $args = array(
-                        'paged' => $paged, //ページネーションを使いたいなら指定
-                        'posts_per_page' => 1, //1記事のみ出力
-                        'post_status' => 'publish', //公開の記事だけ
-                        'post_type' => 'topics', //カスタム投稿slag
-                        'orderby' => 'date', //日付を出力する基準
-                        'offset' => 2,
-                    );
-
-                    $the_query = new WP_Query($args);
-                    if ($the_query->have_posts()) :
-                    ?>
-
-                        <?php global $previousday; //この表記と$previousday = '';で同じ日付の投稿でも表示される
-                        while ($the_query->have_posts()) : $the_query->the_post();
-                            $previousday = '';
-                            //-------- ここから繰り返し---------- 
-                        ?>
-                            <li>
-                                <a href="<?php the_permalink(); ?>" class="animsition-link">
-                                    <div class="blogImg">
-                                        <?php if (has_post_thumbnail()) : ?>
-                                            <?php the_post_thumbnail('large'); ?>
-                                        <?php else : ?>
-                                            <img src="<?php echo get_template_directory_uri(); ?>/img/no-image.gif" alt="no-img">
-                                        <?php endif; ?>
-                                    </div>
-                                    <span class="blogDt"><time datetime="<?php echo get_the_date('Y.m.d'); ?>">
-                                            <?php echo get_the_date(); ?>
-                                        </time>
-                                    </span>
-                                    <h3><?php
-                                        if (mb_strlen($post->post_title, 'UTF-8') > 17) {
-                                            $title = mb_substr($post->post_title, 0, 17, 'UTF-8');
-                                            echo $title . '...';
-                                        } else {
-                                            echo $post->post_title;
-                                        }
-                                        ?></h3>
-                                    <div class="blogText">
-                                        <p><?php
-                                            $str = get_the_excerpt();
-                                            echo na_trim_words($str, 74); ?>
-                                        </p>
-                                    </div>
-                                </a>
-                            </li>
-                        <?php //-------- 繰り返しここまで-----------
-                        endwhile; ?>
-                    <?php //-------- WP_query終了-----------
-                        wp_reset_postdata();
-                    endif; ?>
-                        </ul>
-            </article>
-
-            <a href="<?php echo get_post_type_archive_link('topics'); ?>" id="more2">VIEW MORE</a>
-            <!--------トピックス----------------------------------------------------->
-        </div>
-
-        <div class="about_block">
-            <h2 class="a_c">ABOUT US</h2>
-            <ul id="aboutUl">
-                <li>
-                    <p>[ 組織名 ]
-                        <br>SEKAILABO'
-                        <br class="sp-f-only">[ 連絡先 ]
-                        <br>info@sekailabo.com
-                        <br>[ 代表者名 ]
-                        <br>城谷　陸
-                    </p>
-                </li>
-                <li id="sp-padding">
-                    <p>[ 事業内容 ]
-                        <br> ・WEBコンサルタント事業
-						<br> ・メディア事業
-                        <br> ・飲食DX支援事業
-                        <br> ・クリエイティブ・SNS運用事業
-						<br> ・EC・広告戦略事業
-                    </p>
-                </li>
-            </ul>
-
-            <a href="<?php echo home_url(); ?>/contact/" class="btn">CONTACT</a>
-
-            <p id="copyright">COPYRIGHT &copy; 2026- SEKAILABO'</p>
-        </div>
-
-
-        <!--back to top (トップに戻る)-->
+        <!-- BACK TO TOP -->
         <div id="fixSocial" class="pc">
             <li>
                 <span class="gotop">
-                    <img src="<?php echo get_template_directory_uri(); ?>/img/BTT.png" alt="BACK TO TOP"></span>
+                    <img src="<?php echo get_template_directory_uri(); ?>/img/BTT.png" alt="BACK TO TOP">
+                </span>
             </li>
         </div>
-        <!--back to top 終わり-->
-    </div>
+
+    </div><!-- /.animsition -->
 
     <div class="mainback">
         <video id="bgvid" autoplay muted loop playsinline>

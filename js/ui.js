@@ -230,6 +230,34 @@
 	});
 
 	jQuery(document).ready(function() {
+
+		// ===== SCROLL REVEAL (Intersection Observer) =====
+		(function() {
+			if (!('IntersectionObserver' in window)) {
+				document.querySelectorAll('[data-reveal]').forEach(function(el) {
+					el.classList.add('is-revealed');
+				});
+				return;
+			}
+			var observer = new IntersectionObserver(function(entries) {
+				entries.forEach(function(entry) {
+					if (entry.isIntersecting) {
+						var el = entry.target;
+						var delay = el.getAttribute('data-reveal-delay');
+						if (delay) {
+							setTimeout(function() { el.classList.add('is-revealed'); }, parseInt(delay, 10));
+						} else {
+							el.classList.add('is-revealed');
+						}
+						observer.unobserve(el);
+					}
+				});
+			}, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+
+			document.querySelectorAll('[data-reveal]').forEach(function(el) {
+				observer.observe(el);
+			});
+		})();
 	    jQuery(".animsition").animsition({
 	        inClass: 'fade-in',
 	        outClass: 'fade-out',
