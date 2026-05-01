@@ -1,8 +1,10 @@
 	jQuery(window).load(function() {
-	    jQuery('#main_title').delay(300).animate({ 'margin-top': '-105px' }, 800, "easeOutQuad");
-	    jQuery('#LA').animate({ 'opacity': '1' }, 1000);
-	    jQuery('#more1').delay(2500).animate({ 'opacity': '1' }, 1000);
-	    setTimeout('mousein()');
+	    if (!jQuery('body').hasClass('home')) {
+	        jQuery('#main_title').delay(300).animate({ 'margin-top': '-105px' }, 800, "easeOutQuad");
+	        jQuery('#LA').animate({ 'opacity': '1' }, 1000);
+	        jQuery('#more1').delay(2500).animate({ 'opacity': '1' }, 1000);
+	        setTimeout('mousein()');
+	    }
 
 	    jQuery('#more1').click(function() {
 	        if (jQuery('#main_title').css('height') == '210px') {

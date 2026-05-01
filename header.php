@@ -45,10 +45,13 @@
 
 
   <!--cssファイル読み込み-->
-  <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/css/import.css">
+  <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/css/reset.css">
   <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/css/animsition.min.css">
-  <link href='https://fonts.googleapis.com/css?family=Montserrat:400,700|Raleway:400,700|Arvo|Quando' rel='stylesheet' type='text/css'>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Lato:wght@400;700&family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Noto+Sans+JP:wght@400;700&family=Raleway:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/css/basic.css" media="screen and (min-width: 769px)">
+  <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/css/sp.css" media="screen and (max-width: 768px)">
   <?php if ( is_front_page() ) : ?>
   <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/css/front-page.css">
   <?php endif; ?>

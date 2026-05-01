@@ -95,16 +95,17 @@ body.home #navibar {
    ============================================================================= */
 
 body.home #mainvisual {
-  height: 100vh;
+  height: 100vh !important;
   min-height: 600px;
-  min-width: unset;
+  min-width: unset !important;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
 body.home #main_title {
-  position: static;
+  position: static !important;
+  margin-top: 0 !important;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -117,9 +118,9 @@ body.home #LA {
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
-  margin: 0 auto;
-  position: static;
-  margin-top: 0;
+  margin: 0 auto !important;
+  position: static !important;
+  margin-top: 0 !important;
 }
 
 body.home .hero-tagline {
