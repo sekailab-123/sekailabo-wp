@@ -229,6 +229,7 @@ body.home .fp-inner {
   margin: 0 auto;
   padding: 0 48px;
   box-sizing: border-box;
+  text-align: left;
 }
 
 body.home .section-eyebrow {
@@ -236,6 +237,7 @@ body.home .section-eyebrow {
   align-items: baseline;
   gap: 20px;
   margin-bottom: 72px;
+  text-align: left;
 }
 
 body.home .section-index {
@@ -284,6 +286,7 @@ body.home .message_block {
 body.home .about-layout {
   position: relative;
   max-width: 780px;
+  text-align: left;
 }
 
 body.home .mogs-accent {
@@ -346,6 +349,7 @@ body.home .biz-list {
   list-style: none;
   padding: 0;
   margin: 0;
+  text-align: left;
 }
 
 body.home .biz-row {
@@ -362,6 +366,7 @@ body.home .biz-row {
   border-bottom: none !important;
   box-sizing: border-box;
   transition: opacity 0.3s ease;
+  text-align: left;
 }
 
 body.home .biz-row:last-child {
@@ -444,6 +449,7 @@ body.home .topics-grid {
   grid-template-columns: repeat(3, 1fr);
   gap: 28px;
   margin-bottom: 56px;
+  text-align: left;
 }
 
 body.home .topic-card {
@@ -552,6 +558,7 @@ body.home .info-grid {
   gap: 64px;
   margin-bottom: 64px;
   max-width: 760px;
+  text-align: left;
 }
 
 body.home .info-col p {
