@@ -5,8 +5,12 @@
         <div id="mainvisual">
             <div id="main_title">
                 <div id="LA"><span>SEKAILABO</span></div>
+                <p class="hero-tagline">遊び場から、世界をリデザインする。</p>
             </div>
-            <div id="mouse"></div>
+            <div class="hero-scroll">
+                <span class="scroll-line"></span>
+                <span class="scroll-text">SCROLL</span>
+            </div>
         </div>
         <!--heddaer-スマホ------------------------------------------------------------->
         <div id="spGN">
@@ -83,17 +87,22 @@
         <!----------メッセージ------------------------------------------------->
 
         <div class="message_block">
-            <div class="message_inner">
-                <img src="<?php echo get_template_directory_uri(); ?>/img/LAL.png" id="pc" />
-                <img src="<?php echo get_template_directory_uri(); ?>/img/LALsp.png" id="sp" />
-                <div id="message">
-                    <p>SEKAILABO のメンバーは一人一人に専門分野があり、個性を持っています。
-                        <br class="Fpc" />&nbsp;私たちは、お客様の夢の実現をサポートしたい。 必要なのは、Logic(論理)だけでも
-                        <br class="Fpc" />&nbsp;Art(デザイン)だけでもありません。 これらを持ったメンバーが、お客様と同じ方向
-                        <br class="Fpc" />を向いて作り上げるものこそ最高傑作だと思うのです。
-                    </p>
+            <section class="about-section" id="message">
+                <div class="about-inner">
+                    <p class="section-label">ABOUT</p>
+                    <div class="about-grid">
+                        <div class="about-text">
+                            <h2 class="about-headline">福岡の路地裏から、<br>世界へ。</h2>
+                            <p class="about-lead">グルメSNSメディア「MOGS」を自ら運営するインフルエンサーとして、AI×クリエイティブで飲食業界のDXを支援。「0.1秒で心が動く」クリエイティブへの執着と、現場の熱量——それが、私たちの差別化です。</p>
+                            <span class="about-divider"></span>
+                            <p class="about-sub">中学来の親友二人が持ち込む「ハシゴ酒」の精神。単なる成功よりも、最高の仲間と最高のプロセスを。その信頼の温度感こそ、SEKAILABO'の根幹です。</p>
+                        </div>
+                        <div class="about-mogs">
+                            <img src="<?php echo get_template_directory_uri(); ?>/img/mogs.png" alt="MOGS">
+                        </div>
+                    </div>
                 </div>
-            </div>
+            </section>
 
             <!--------メッセージ--------------------------------------------------->
             <!--------ビジネス----------------------------------------------------->

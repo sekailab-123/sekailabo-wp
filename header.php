@@ -46,10 +46,12 @@
 
   <!--cssファイル読み込み-->
   <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/css/import.css">
-  <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/css/jquery.mb.YTPlayer.min.css">
   <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/css/animsition.min.css">
   <link href='https://fonts.googleapis.com/css?family=Montserrat:400,700|Raleway:400,700|Arvo|Quando' rel='stylesheet' type='text/css'>
-  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Lato:wght@400;700&family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
+  <?php if ( is_front_page() ) : ?>
+  <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/css/front-page.css">
+  <?php endif; ?>
 
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
 

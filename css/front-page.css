@@ -1,0 +1,466 @@
+/* =============================================================================
+   front-page.css — SEKAILABO Front Page Dark Luxury Redesign
+   Scoped to body.home (WordPress front page class)
+   ============================================================================= */
+
+
+/* =============================================================================
+   1. BASE
+   ============================================================================= */
+
+body.home {
+  background: transparent;
+  color: #e4e2ef;
+}
+
+
+/* =============================================================================
+   2. DESKTOP NAVIGATION
+   ============================================================================= */
+
+body.home #naviBox {
+  background: rgba(5, 5, 16, 0.84);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border: none;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+body.home #pcGN h1 {
+  background-image: url(../img/LA.png);
+  filter: brightness(10) saturate(0);
+}
+
+body.home #navi1 a,
+body.home #navi2 a {
+  color: #fff;
+}
+
+body.home #naviBox > p {
+  color: rgba(228, 226, 239, 0.38);
+  border-left-color: rgba(255, 255, 255, 0.12);
+}
+
+body.home #fbbtn,
+body.home #isbtn {
+  filter: brightness(0) invert(1);
+  opacity: 0.55;
+  transition: opacity 0.3s;
+}
+
+body.home #fbbtn:hover,
+body.home #isbtn:hover {
+  opacity: 0.9;
+}
+
+
+/* =============================================================================
+   3. MOBILE NAVIGATION
+   ============================================================================= */
+
+body.home #spGN {
+  background: rgba(5, 5, 16, 0.97);
+}
+
+body.home .btnHamburger .line {
+  background: rgba(228, 226, 239, 0.85);
+}
+
+body.home #navibar {
+  background: rgba(5, 5, 16, 0.97);
+  border-top: 1px solid rgba(255, 255, 255, 0.09);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+body.home #navi12 a,
+body.home #navi22 a {
+  color: rgba(228, 226, 239, 0.85);
+}
+
+body.home #navibar a {
+  color: rgba(228, 226, 239, 0.85);
+}
+
+body.home #navibar > p {
+  color: rgba(228, 226, 239, 0.38);
+}
+
+body.home #navibar {
+  border: 1px solid rgba(255, 255, 255, 0.09);
+}
+
+
+/* =============================================================================
+   4. HERO — #mainvisual
+   ============================================================================= */
+
+body.home #mainvisual {
+  height: 100vh;
+  min-height: 600px;
+  min-width: unset;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+body.home #main_title {
+  position: static;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 28px;
+}
+
+body.home #LA {
+  width: clamp(220px, 36vw, 480px);
+  height: 60px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  margin: 0 auto;
+  position: static;
+  margin-top: 0;
+}
+
+body.home .hero-tagline {
+  font-family: 'Cormorant Garamond', 'Georgia', serif;
+  font-style: italic;
+  font-weight: 300;
+  font-size: clamp(1.1rem, 1.6vw, 1.7rem);
+  letter-spacing: 0.32em;
+  color: rgba(228, 226, 239, 0.55);
+  text-align: center;
+}
+
+body.home .hero-scroll {
+  position: absolute;
+  bottom: 52px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+body.home .scroll-line {
+  width: 1px;
+  height: 52px;
+  background: linear-gradient(to bottom, transparent, rgba(228, 226, 239, 0.45));
+  animation: scrollDrop 2.4s ease-in-out infinite;
+}
+
+body.home .scroll-text {
+  font-family: 'Raleway', sans-serif;
+  font-size: 0.72rem;
+  letter-spacing: 0.42em;
+  color: rgba(228, 226, 239, 0.32);
+  text-transform: uppercase;
+}
+
+body.home #mouse {
+  display: none;
+}
+
+@keyframes scrollDrop {
+  0%   { opacity: 0; transform: translateY(-6px); }
+  50%  { opacity: 1; transform: translateY(0); }
+  100% { opacity: 0; transform: translateY(8px); }
+}
+
+
+/* =============================================================================
+   5. ABOUT SECTION
+   ============================================================================= */
+
+body.home .message_block {
+  background: transparent;
+  background-image: none;
+}
+
+body.home .about-section {
+  padding: 120px 0 100px;
+}
+
+body.home .about-inner {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 0 48px;
+  box-sizing: border-box;
+}
+
+body.home .section-label {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  font-family: 'Raleway', sans-serif;
+  font-size: 0.78rem;
+  letter-spacing: 0.48em;
+  color: rgba(228, 226, 239, 0.32);
+  text-transform: uppercase;
+  margin-bottom: 56px;
+}
+
+body.home .section-label::before {
+  content: '';
+  display: block;
+  width: 36px;
+  height: 1px;
+  background: rgba(228, 226, 239, 0.32);
+  flex-shrink: 0;
+}
+
+body.home .about-grid {
+  display: grid;
+  grid-template-columns: 1fr 320px;
+  gap: 80px;
+  align-items: center;
+}
+
+body.home .about-headline {
+  font-family: 'Cormorant Garamond', 'Georgia', serif;
+  font-weight: 300;
+  font-size: clamp(2.8rem, 4.2vw, 4.8rem);
+  line-height: 1.28;
+  text-align: left;
+  color: #e4e2ef;
+  height: auto;
+  max-width: none;
+  padding: 0;
+  margin: 0 0 32px;
+  letter-spacing: 0.04em;
+}
+
+body.home .about-lead {
+  font-size: 1.5rem;
+  line-height: 2.3;
+  color: rgba(228, 226, 239, 0.55);
+  text-align: left;
+  margin-top: 24px;
+}
+
+body.home .about-divider {
+  display: block;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.07);
+  margin: 30px 0;
+}
+
+body.home .about-sub {
+  font-size: 1.3rem;
+  line-height: 2.0;
+  color: rgba(228, 226, 239, 0.32);
+}
+
+body.home .about-mogs img {
+  max-width: 280px;
+  width: 100%;
+  filter: drop-shadow(0 0 30px rgba(140, 20, 20, 0.2));
+  transition: filter 0.4s ease;
+}
+
+body.home .about-mogs img:hover {
+  filter: drop-shadow(0 0 52px rgba(140, 20, 20, 0.35));
+}
+
+
+/* =============================================================================
+   6. BUSINESS SECTION
+   ============================================================================= */
+
+body.home h2#service {
+  color: #fff;
+}
+
+body.home #businessUl {
+  padding: 0 24px;
+}
+
+body.home #businessUl li {
+  background: rgba(8, 8, 20, 0.6);
+  border-top: 1px solid rgba(255, 255, 255, 0.09);
+  border-right: 1px solid rgba(255, 255, 255, 0.03);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+  transition: background 0.3s ease, border-top-color 0.3s ease;
+}
+
+body.home #businessUl li:hover {
+  background: rgba(16, 16, 38, 0.85);
+  border-top-color: rgba(255, 255, 255, 0.2);
+}
+
+body.home #businessUl li .biz-num {
+  color: rgba(228, 226, 239, 0.04);
+  font-size: 8rem;
+  line-height: 1;
+}
+
+body.home #businessUl li h3 {
+  color: rgba(228, 226, 239, 0.88);
+}
+
+body.home #businessUl li h4 {
+  color: rgba(228, 226, 239, 0.36);
+}
+
+body.home #businessUl li p {
+  color: rgba(228, 226, 239, 0.62);
+}
+
+body.home #bizPhilosophy {
+  background: rgba(8, 8, 20, 0.7);
+  font-style: italic;
+  color: rgba(228, 226, 239, 0.32);
+}
+
+
+/* =============================================================================
+   7. TOPICS SECTION
+   ============================================================================= */
+
+body.home h2#blog {
+  color: #fff;
+}
+
+body.home #blogUl li {
+  background: rgba(8, 8, 20, 0.65);
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.5);
+  transition: box-shadow 0.35s ease, transform 0.35s ease;
+}
+
+body.home #blogUl li:hover {
+  box-shadow: 0 12px 48px rgba(0, 0, 0, 0.75);
+  transform: translateY(-6px);
+}
+
+body.home #blogUl li .blogDt {
+  color: rgba(228, 226, 239, 0.36);
+}
+
+body.home #blogUl li h3 {
+  color: rgba(228, 226, 239, 0.82);
+}
+
+body.home #blogUl li .blogText p {
+  color: rgba(228, 226, 239, 0.46);
+}
+
+body.home #more2 {
+  background: transparent;
+  border: 1px solid rgba(228, 226, 239, 0.18);
+  color: rgba(228, 226, 239, 0.65);
+  transition: background 0.3s ease, border-color 0.3s ease, color 0.3s ease;
+}
+
+body.home #more2:hover {
+  background: rgba(228, 226, 239, 0.06);
+  border-color: rgba(228, 226, 239, 0.42);
+  color: rgba(228, 226, 239, 0.9);
+}
+
+
+/* =============================================================================
+   8. ABOUT BLOCK / FOOTER
+   ============================================================================= */
+
+body.home .about_block {
+  background: rgba(5, 5, 14, 0.9);
+  border-top: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+body.home h2.a_c {
+  color: rgba(228, 226, 239, 0.92);
+}
+
+body.home #aboutUl p {
+  color: rgba(228, 226, 239, 0.78);
+}
+
+body.home a.btn {
+  background: transparent;
+  border: 1px solid rgba(228, 226, 239, 0.28);
+  color: rgba(228, 226, 239, 0.78);
+  transition: background 0.3s ease, border-color 0.3s ease, color 0.3s ease;
+}
+
+body.home a.btn:hover {
+  background: rgba(228, 226, 239, 0.08);
+  border-color: rgba(228, 226, 239, 0.55);
+  color: #e4e2ef;
+}
+
+body.home #copyright {
+  color: rgba(228, 226, 239, 0.24);
+}
+
+
+/* =============================================================================
+   9. BACK TO TOP
+   ============================================================================= */
+
+body.home #fixSocial .gotop img {
+  filter: invert(1);
+  opacity: 0.45;
+  transition: opacity 0.3s ease;
+}
+
+body.home #fixSocial .gotop img:hover {
+  opacity: 0.9;
+}
+
+
+/* =============================================================================
+   10. RESPONSIVE
+   ============================================================================= */
+
+/* --- 1024px and below --- */
+@media (max-width: 1024px) {
+  body.home .about-grid {
+    grid-template-columns: 1fr;
+  }
+
+  body.home .about-mogs {
+    order: -1;
+    text-align: center;
+  }
+
+  body.home .about-mogs img {
+    max-width: 200px;
+  }
+
+  body.home #businessUl li {
+    width: 100%;
+  }
+}
+
+/* --- 768px and below --- */
+@media (max-width: 768px) {
+  body.home .about-inner {
+    padding: 0 24px;
+  }
+
+  body.home .about-headline {
+    font-size: clamp(2rem, 7vw, 2.8rem);
+  }
+
+  body.home .about-section {
+    padding: 80px 0 72px;
+  }
+
+  body.home .about-grid {
+    gap: 48px;
+  }
+}
+
+/* --- 480px and below --- */
+@media (max-width: 480px) {
+  body.home #LA {
+    width: clamp(160px, 60vw, 220px);
+    height: 48px;
+  }
+
+  body.home .hero-tagline {
+    font-size: clamp(0.9rem, 3.5vw, 1.1rem);
+    letter-spacing: 0.22em;
+  }
+}
