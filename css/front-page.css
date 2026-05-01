@@ -180,6 +180,7 @@ body.home #mainvisual {
   align-items: center;
   justify-content: center;
   position: relative;
+  padding: 120px 48px 100px;
 }
 
 body.home #mainvisual::before {
@@ -217,75 +218,92 @@ body.home #mainvisual::after {
 
 body.home #main_title {
   position: static !important;
-  width: min(100%, 780px);
-  padding: clamp(28px, 4vw, 44px);
-  border-radius: 28px;
-  background: linear-gradient(
-    180deg,
-    rgba(8, 12, 22, 0.56) 0%,
-    rgba(8, 12, 22, 0.32) 100%
-  );
-  border: 1px solid rgba(180, 196, 214, 0.14);
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
-  box-shadow:
-    0 28px 72px rgba(0, 0, 0, 0.28),
-    inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  width: min(100%, 1120px);
+  padding: 0;
+  border-radius: 0;
+  background: transparent;
+  border: none;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  box-shadow: none;
   margin-top: 0 !important;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 24px;
+  gap: 18px;
   z-index: 1;
+  text-align: center;
 }
 
 body.home #LA {
-  width: clamp(220px, 36vw, 460px);
-  height: clamp(44px, 7vw, 86px);
-  background-image: url("../img/SEKAILABO%27.png");
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center;
-  margin: 0 auto !important;
-  position: static !important;
-  margin-top: 0 !important;
+  display: none;
+}
+
+body.home .hero-kicker {
+  font-family: "Raleway", sans-serif;
+  font-size: 0.8rem;
+  font-weight: 500;
+  letter-spacing: 0.42em;
+  text-transform: uppercase;
+  color: rgba(236, 238, 243, 0.66) !important;
+  margin: 0;
 }
 
 body.home .hero-tagline {
   font-family: "Cormorant Garamond", "Georgia", serif;
   font-style: normal;
-  font-weight: 400;
-  font-size: clamp(1.08rem, 1.8vw, 1.8rem);
-  letter-spacing: 0.28em;
-  color: rgba(240, 244, 248, 0.92) !important;
+  font-weight: 300;
+  font-size: clamp(4.8rem, 12vw, 10.6rem);
+  line-height: 1;
+  letter-spacing: -0.02em;
+  color: rgba(248, 247, 243, 0.97) !important;
   text-align: center;
-  text-shadow: 0 8px 28px rgba(0, 0, 0, 0.34);
+  text-shadow: 0 10px 36px rgba(0, 0, 0, 0.18);
+  margin: 0;
+}
+
+body.home .hero-lead {
+  max-width: 620px;
+  font-family: "Noto Sans JP", sans-serif;
+  font-size: 1.25rem;
+  line-height: 1.95;
+  letter-spacing: 0.08em;
+  color: rgba(242, 244, 247, 0.78) !important;
+  margin: 10px 0 0;
+  text-shadow: 0 8px 24px rgba(0, 0, 0, 0.22);
 }
 
 body.home .hero-scroll {
   position: absolute;
-  bottom: 48px;
-  left: 50%;
-  transform: translateX(-50%);
+  right: 46px;
+  bottom: 38px;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
-  gap: 10px;
+  gap: 14px;
 }
 
 body.home .scroll-line {
-  width: 1px;
-  height: 48px;
-  background: linear-gradient(to bottom, transparent, rgba(230, 228, 240, 0.4));
+  width: 52px;
+  height: 1px;
+  background: linear-gradient(to right, transparent, rgba(230, 228, 240, 0.56));
   animation: scrollDrop 2.4s ease-in-out infinite;
 }
 
 body.home .scroll-text {
   font-family: "Raleway", sans-serif;
   font-size: 0.68rem;
-  letter-spacing: 0.46em;
-  color: rgba(230, 228, 240, 0.28) !important;
+  letter-spacing: 0.28em;
+  color: rgba(230, 228, 240, 0.42) !important;
   text-transform: uppercase;
+}
+
+body.home .scroll-text::before {
+  content: "( ";
+}
+
+body.home .scroll-text::after {
+  content: " )";
 }
 
 body.home #mouse {
@@ -295,15 +313,15 @@ body.home #mouse {
 @keyframes scrollDrop {
   0% {
     opacity: 0;
-    transform: translateY(-6px);
+    transform: translateX(-10px);
   }
   50% {
     opacity: 1;
-    transform: translateY(0);
+    transform: translateX(0);
   }
   100% {
     opacity: 0;
-    transform: translateY(8px);
+    transform: translateX(12px);
   }
 }
 
@@ -797,10 +815,34 @@ body.home #fixSocial .gotop img:hover {
     inset: 8% 4% 18%;
   }
 
+  body.home #mainvisual {
+    padding: 110px 24px 96px;
+  }
+
   body.home #main_title {
-    width: calc(100% - 32px);
-    padding: 26px 22px;
-    gap: 18px;
+    width: 100%;
+    gap: 14px;
+  }
+
+  body.home .hero-kicker {
+    font-size: 0.62rem;
+    letter-spacing: 0.34em;
+  }
+
+  body.home .hero-lead {
+    font-size: 1rem;
+    line-height: 1.85;
+    letter-spacing: 0.05em;
+    max-width: 420px;
+  }
+
+  body.home .hero-scroll {
+    right: 24px;
+    bottom: 24px;
+  }
+
+  body.home .scroll-line {
+    width: 34px;
   }
 
   body.home .fp-inner {
@@ -851,13 +893,29 @@ body.home #fixSocial .gotop img:hover {
 }
 
 @media (max-width: 480px) {
-  body.home #LA {
-    width: clamp(160px, 60vw, 220px);
-    height: 44px;
+  body.home .hero-tagline {
+    font-size: clamp(3.2rem, 18vw, 5.2rem);
+    line-height: 1.04;
   }
 
+  body.home .hero-lead {
+    font-size: 0.92rem;
+  }
+
+  body.home .hero-lead br {
+    display: none;
+  }
+
+  body.home .hero-scroll {
+    right: 18px;
+    bottom: 20px;
+    gap: 10px;
+  }
+}
+
+@media (max-width: 375px) {
   body.home .hero-tagline {
-    font-size: clamp(0.88rem, 3.6vw, 1.08rem);
-    letter-spacing: 0.14em;
+    font-size: clamp(2.8rem, 16vw, 3.6rem);
+    line-height: 1.06;
   }
 }

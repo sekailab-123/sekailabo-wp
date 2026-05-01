@@ -6,8 +6,9 @@
         <!-- ===== HERO ===== -->
         <div id="mainvisual">
             <div id="main_title">
-                <div id="LA"><span>SEKAILABO</span></div>
-                <p class="hero-tagline">ひと口の感動を、次の誰かへ。</p>
+                <p class="hero-kicker">( MOGS / SEKAILABO' )</p>
+                <h2 class="hero-tagline">ひと口の感動を、<br>次の誰かへ。</h2>
+                <p class="hero-lead">MOGS を起点に、グルメとホスピタリティの体験を<br>AI とクリエイティブで再編集する。</p>
             </div>
             <div class="hero-scroll">
                 <span class="scroll-line"></span>
