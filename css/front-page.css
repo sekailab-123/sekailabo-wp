@@ -50,44 +50,28 @@ body.home p {
   content: "";
   position: absolute;
   inset: 0;
-  background:
-    radial-gradient(
-      circle at 18% 20%,
-      rgba(99, 132, 160, 0.1),
-      transparent 28%
-    ),
-    radial-gradient(
-      circle at 82% 16%,
-      rgba(62, 92, 118, 0.12),
-      transparent 32%
-    ),
-    radial-gradient(
-      circle at 54% 22%,
-      rgba(255, 255, 255, 0.05),
-      transparent 36%
-    ),
-    radial-gradient(circle at 50% 45%, rgba(0, 0, 0, 0.05), transparent 52%),
-    linear-gradient(
-      180deg,
-      rgba(4, 7, 16, 0.58) 0%,
-      rgba(5, 9, 18, 0.4) 26%,
-      rgba(4, 6, 14, 0.62) 100%
-    );
+  background: linear-gradient(
+    180deg,
+    rgba(4, 6, 12, 0.34) 0%,
+    rgba(4, 6, 12, 0.14) 14%,
+    rgba(4, 6, 12, 0) 32%
+  );
 }
 
 .mainback::after {
   content: "";
   position: absolute;
   inset: 0;
-  background:
-    linear-gradient(
-      90deg,
-      rgba(4, 6, 12, 0.4) 0%,
-      rgba(4, 6, 12, 0.1) 45%,
-      rgba(4, 6, 12, 0.44) 100%
-    ),
-    linear-gradient(180deg, rgba(2, 3, 8, 0.06) 0%, rgba(2, 3, 8, 0.18) 100%),
-    rgba(0, 0, 0, 0.28);
+  background: linear-gradient(
+    180deg,
+    rgba(4, 6, 12, 0) 56%,
+    rgba(4, 6, 12, 0.18) 100%
+  );
+}
+
+body.home #pcGN {
+  min-width: 0;
+  height: 76px;
 }
 
 #bgvid {
@@ -101,17 +85,39 @@ body.home p {
    ============================================================================= */
 
 body.home #naviBox {
-  background: rgba(4, 4, 14, 0.88);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
+  height: 60px;
+  background: linear-gradient(
+    180deg,
+    rgba(5, 7, 14, 0.76) 0%,
+    rgba(5, 7, 14, 0.46) 100%
+  );
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
   border: none;
   border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.12);
 }
 
 body.home #pcGN h1 {
   background-image: url("../img/SEKAILABO%27.png");
   background-size: contain;
   filter: none;
+  width: 196px;
+  height: 44px;
+  top: 14px;
+  left: 28px;
+}
+
+body.home ul#navi1 {
+  height: 60px;
+  line-height: 60px;
+  left: 212px;
+}
+
+body.home ul#navi2 {
+  height: 60px;
+  line-height: 60px;
+  right: 162px;
 }
 
 body.home #navi1 a,
@@ -128,6 +134,8 @@ body.home #navi2 a:hover {
 body.home #naviBox > p {
   color: rgba(230, 228, 240, 0.3) !important;
   border-left-color: rgba(255, 255, 255, 0.1);
+  top: 15px;
+  right: 92px;
 }
 
 body.home #fbbtn,
@@ -135,6 +143,7 @@ body.home #isbtn {
   filter: brightness(0) invert(1);
   opacity: 0.45;
   transition: opacity 0.3s;
+  top: 16px;
 }
 
 body.home #fbbtn:hover,
@@ -147,7 +156,12 @@ body.home #isbtn:hover {
    ============================================================================= */
 
 body.home #spGN {
-  background: rgba(4, 4, 14, 0.97);
+  background: linear-gradient(
+    180deg,
+    rgba(5, 7, 14, 0.92) 0%,
+    rgba(5, 7, 14, 0.82) 100%
+  );
+  padding-bottom: 82px;
 }
 
 body.home .btnHamburger .line {
@@ -180,45 +194,48 @@ body.home #mainvisual {
   align-items: center;
   justify-content: center;
   position: relative;
-  padding: 120px 48px 100px;
+  padding: 156px 48px 108px;
 }
 
 body.home #mainvisual::before {
   content: "";
   position: absolute;
-  inset: 11% 10% 18%;
-  border-radius: 40px;
+  inset: 16% 18% 20%;
+  border-radius: 999px;
   background:
     radial-gradient(
-      circle at 50% 30%,
-      rgba(118, 150, 178, 0.1),
-      transparent 46%
+      circle at 50% 40%,
+      rgba(7, 10, 18, 0.54),
+      rgba(7, 10, 18, 0.28) 38%,
+      transparent 72%
     ),
-    linear-gradient(
-      180deg,
-      rgba(8, 12, 22, 0.18) 0%,
-      rgba(8, 12, 22, 0.04) 100%
+    radial-gradient(
+      circle at 32% 16%,
+      rgba(132, 160, 186, 0.1),
+      transparent 32%
     );
-  filter: blur(24px);
+  filter: blur(22px);
   pointer-events: none;
 }
 
 body.home #mainvisual::after {
   content: "";
   position: absolute;
-  inset: 0;
-  background: linear-gradient(
-    180deg,
-    rgba(2, 4, 12, 0.08) 0%,
-    rgba(2, 4, 12, 0) 28%,
-    rgba(2, 4, 12, 0.14) 100%
-  );
+  inset: 12% 6% 10%;
+  background:
+    radial-gradient(circle at 76% 34%, rgba(7, 10, 18, 0.16), transparent 24%),
+    radial-gradient(
+      circle at 50% 48%,
+      rgba(255, 255, 255, 0.04),
+      transparent 20%
+    );
+  filter: blur(18px);
   pointer-events: none;
 }
 
 body.home #main_title {
-  position: static !important;
-  width: min(100%, 1120px);
+  position: relative !important;
+  width: min(100%, 1080px);
   padding: 0;
   border-radius: 0;
   background: transparent;
@@ -235,6 +252,22 @@ body.home #main_title {
   text-align: center;
 }
 
+body.home #main_title::before {
+  content: "";
+  position: absolute;
+  inset: -10% 8% -14%;
+  border-radius: 56px;
+  background: linear-gradient(
+    180deg,
+    rgba(8, 11, 18, 0.44) 0%,
+    rgba(8, 11, 18, 0.22) 56%,
+    rgba(8, 11, 18, 0) 100%
+  );
+  filter: blur(18px);
+  z-index: -1;
+  pointer-events: none;
+}
+
 body.home #LA {
   display: none;
 }
@@ -243,7 +276,7 @@ body.home .hero-kicker {
   font-family: "Raleway", sans-serif;
   font-size: 0.8rem;
   font-weight: 500;
-  letter-spacing: 0.42em;
+  letter-spacing: 0.34em;
   text-transform: uppercase;
   color: rgba(236, 238, 243, 0.66) !important;
   margin: 0;
@@ -253,24 +286,24 @@ body.home .hero-tagline {
   font-family: "Cormorant Garamond", "Georgia", serif;
   font-style: normal;
   font-weight: 300;
-  font-size: clamp(4.8rem, 12vw, 10.6rem);
+  font-size: clamp(4.1rem, 10.8vw, 9.2rem);
   line-height: 1;
   letter-spacing: -0.02em;
   color: rgba(248, 247, 243, 0.97) !important;
   text-align: center;
-  text-shadow: 0 10px 36px rgba(0, 0, 0, 0.18);
+  text-shadow: 0 12px 28px rgba(0, 0, 0, 0.26);
   margin: 0;
 }
 
 body.home .hero-lead {
-  max-width: 620px;
+  max-width: 760px;
   font-family: "Noto Sans JP", sans-serif;
-  font-size: 1.25rem;
-  line-height: 1.95;
-  letter-spacing: 0.08em;
-  color: rgba(242, 244, 247, 0.78) !important;
-  margin: 10px 0 0;
-  text-shadow: 0 8px 24px rgba(0, 0, 0, 0.22);
+  font-size: 1.12rem;
+  line-height: 2.05;
+  letter-spacing: 0.06em;
+  color: rgba(242, 244, 247, 0.82) !important;
+  margin: 14px 0 0;
+  text-shadow: 0 8px 18px rgba(0, 0, 0, 0.26);
 }
 
 body.home .hero-scroll {
@@ -437,8 +470,8 @@ body.home .about-headline {
 }
 
 body.home .about-lead {
-  font-size: 1.5rem;
-  line-height: 2.15;
+  font-size: 1.42rem;
+  line-height: 2.05;
   color: rgba(240, 242, 246, 0.84) !important;
   text-align: left;
   margin: 0;
@@ -453,9 +486,9 @@ body.home .about-rule {
 }
 
 body.home .about-sub {
-  font-size: 1.3rem;
-  line-height: 2;
-  color: rgba(218, 223, 230, 0.78) !important;
+  font-size: 1.14rem;
+  line-height: 2.05;
+  color: rgba(218, 223, 230, 0.72) !important;
 }
 
 /* =============================================================================
@@ -812,11 +845,12 @@ body.home #fixSocial .gotop img:hover {
 
 @media (max-width: 768px) {
   body.home #mainvisual::before {
-    inset: 8% 4% 18%;
+    inset: 18% 8% 24%;
   }
 
   body.home #mainvisual {
-    padding: 110px 24px 96px;
+    padding: 138px 24px 96px;
+    min-height: 640px;
   }
 
   body.home #main_title {
@@ -824,9 +858,13 @@ body.home #fixSocial .gotop img:hover {
     gap: 14px;
   }
 
+  body.home #main_title::before {
+    inset: -12% 0 -16%;
+  }
+
   body.home .hero-kicker {
     font-size: 0.62rem;
-    letter-spacing: 0.34em;
+    letter-spacing: 0.28em;
   }
 
   body.home .hero-lead {
@@ -843,6 +881,16 @@ body.home #fixSocial .gotop img:hover {
 
   body.home .scroll-line {
     width: 34px;
+  }
+
+  body.home .about-lead {
+    font-size: 1.16rem;
+    line-height: 1.96;
+  }
+
+  body.home .about-sub {
+    font-size: 0.98rem;
+    line-height: 1.9;
   }
 
   body.home .fp-inner {
@@ -910,6 +958,10 @@ body.home #fixSocial .gotop img:hover {
     right: 18px;
     bottom: 20px;
     gap: 10px;
+  }
+
+  body.home #spGN {
+    padding-bottom: 72px;
   }
 }
 

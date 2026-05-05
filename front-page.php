@@ -6,9 +6,9 @@
         <!-- ===== HERO ===== -->
         <div id="mainvisual">
             <div id="main_title">
-                <p class="hero-kicker">( MOGS / SEKAILABO' )</p>
-                <h2 class="hero-tagline">ひと口の感動を、<br>次の誰かへ。</h2>
-                <p class="hero-lead">MOGS を起点に、グルメとホスピタリティの体験を<br>AI とクリエイティブで再編集する。</p>
+                <p class="hero-kicker">( SEKAILABO' / CREATIVE DIRECTION )</p>
+                <h2 class="hero-tagline">感情を編み、<br>体験をデザインする。</h2>
+                <p class="hero-lead">映像、SNS、AI を横断しながら、ブランドとコミュニティの熱量をかたちにする。<br>MOGS で育った実感値を、企画から実装まで接続する。</p>
             </div>
             <div class="hero-scroll">
                 <span class="scroll-line"></span>
@@ -77,9 +77,9 @@
                 <div class="about-layout" data-reveal data-reveal-delay="100">
                     <div class="about-text">
                         <h2 class="about-headline">福岡の路地裏から、<br>世界へ。</h2>
-                        <p class="about-lead">グルメSNSメディア「MOGS」を自ら運営するインフルエンサーとして、AI×クリエイティブで飲食業界のDXを支援。「0.1秒で心が動く」クリエイティブへの執着と、現場の熱量——それが、私たちの差別化です。</p>
+                        <p class="about-lead">MOGS を起点に、SNS・映像・AI を横断しながら、ブランドの世界観を立ち上げる。0.1 秒で心が動く表現と、現場に根づく運用設計までを一気通貫で手がけています。</p>
                         <span class="about-rule"></span>
-                        <p class="about-sub">中学来の親友二人が持ち込む「ハシゴ酒」の精神。単なる成功よりも、最高の仲間と最高のプロセスを。その信頼の温度感こそ、SEKAILABO'の根幹です。</p>
+                        <p class="about-sub">肩肘を張らずに試し、対話しながら磨いていく。その柔らかな熱量と信頼感が、SEKAILABO' のものづくりの土台です。</p>
                     </div>
                     <img class="mogs-accent" src="<?php echo get_template_directory_uri(); ?>/img/mogs.png" alt="MOGS">
                 </div>
@@ -127,7 +127,7 @@
                         </div>
                     </li>
                 </ul>
-                <p class="biz-philosophy" data-reveal>MOGS の核には、「ひと口の感動を、次の誰かへ。」という思想が流れています。</p>
+                <p class="biz-philosophy" data-reveal>MOGS で磨いた観察眼と熱量を、企画・制作・運用を横断するクリエイティブへ接続しています。</p>
             </div>
         </section>
 
