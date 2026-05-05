@@ -416,7 +416,14 @@ body.home .section-label::before {
 
 body.home .about-section {
   padding: 140px 0 120px;
-  border-top: 1px solid rgba(255, 255, 255, 0.04);
+  border-top: none;
+  background:
+    linear-gradient(
+      180deg,
+      rgba(247, 243, 236, 0.98) 0%,
+      rgba(240, 234, 225, 0.98) 100%
+    ),
+    #f5f0e8;
 }
 
 body.home .message_block {
@@ -426,31 +433,30 @@ body.home .message_block {
 
 body.home .about-layout {
   position: relative;
-  max-width: 780px;
+  max-width: 1120px;
   text-align: left;
-  padding: clamp(28px, 4.2vw, 52px);
-  border-radius: 32px;
-  background: linear-gradient(
-    180deg,
-    rgba(9, 12, 20, 0.54) 0%,
-    rgba(9, 12, 20, 0.28) 100%
-  );
-  border: 1px solid rgba(184, 198, 214, 0.1);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  box-shadow:
-    0 28px 80px rgba(0, 0, 0, 0.2),
-    inset 0 1px 0 rgba(255, 255, 255, 0.06);
+  padding: clamp(28px, 4.2vw, 56px) 0 0;
+  border-radius: 0;
+  background: transparent;
+  border: none;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  box-shadow: none;
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(220px, 320px);
+  gap: clamp(32px, 5vw, 96px);
+  align-items: end;
 }
 
 body.home .mogs-accent {
-  position: absolute;
-  top: 0;
-  right: -100px;
-  width: 72px;
-  opacity: 0.32;
-  filter: saturate(0) brightness(2.2)
-    drop-shadow(0 0 18px rgba(180, 210, 226, 0.12));
+  position: relative;
+  top: auto;
+  right: auto;
+  width: min(100%, 250px);
+  justify-self: end;
+  align-self: start;
+  opacity: 0.9;
+  filter: saturate(0) contrast(1.05);
   transition: opacity 0.4s ease;
   pointer-events: none;
 }
@@ -460,19 +466,19 @@ body.home .about-headline {
   font-weight: 300;
   font-size: clamp(3rem, 4.8vw, 5.5rem);
   line-height: 1.18;
-  color: #f7f7fa !important;
+  color: #111111 !important;
   letter-spacing: 0.03em;
   margin: 0 0 40px;
   padding: 0;
   height: auto !important;
   max-width: none !important;
-  text-shadow: 0 10px 32px rgba(0, 0, 0, 0.24);
+  text-shadow: none;
 }
 
 body.home .about-lead {
   font-size: 1.42rem;
   line-height: 2.05;
-  color: rgba(240, 242, 246, 0.84) !important;
+  color: rgba(17, 17, 17, 0.82) !important;
   text-align: left;
   margin: 0;
 }
@@ -480,24 +486,175 @@ body.home .about-lead {
 body.home .about-rule {
   display: block;
   height: 1px;
-  width: 100%;
-  background: rgba(255, 255, 255, 0.07);
+  width: min(180px, 100%);
+  background: rgba(17, 17, 17, 0.14);
   margin: 36px 0;
 }
 
 body.home .about-sub {
   font-size: 1.14rem;
   line-height: 2.05;
-  color: rgba(218, 223, 230, 0.72) !important;
+  color: rgba(17, 17, 17, 0.58) !important;
+}
+
+body.home .about-section .section-index,
+body.home .biz-section .section-index,
+body.home .info-section .section-index {
+  color: rgba(20, 20, 20, 0.08) !important;
+}
+
+body.home .about-section .section-label,
+body.home .biz-section .section-label,
+body.home .info-section .section-label {
+  color: rgba(20, 20, 20, 0.46) !important;
+  border-bottom-color: rgba(20, 20, 20, 0.14);
 }
 
 /* =============================================================================
-   8. BUSINESS SECTION
+   8. SHOWCASE SECTION
+   ============================================================================= */
+
+body.home .showcase-section {
+  padding: 124px 0 128px;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+body.home .showcase-intro {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 36px;
+  align-items: end;
+  margin-bottom: 42px;
+}
+
+body.home .showcase-headline {
+  font-family: "Cormorant Garamond", "Georgia", serif;
+  font-size: clamp(2.9rem, 5vw, 5rem);
+  line-height: 1.12;
+  font-weight: 300;
+  letter-spacing: 0.02em;
+  color: rgba(248, 247, 243, 0.96) !important;
+  margin: 0 0 18px;
+}
+
+body.home .showcase-lead {
+  max-width: 720px;
+  font-size: 1.2rem;
+  line-height: 2;
+  color: rgba(230, 228, 240, 0.74) !important;
+  margin: 0;
+}
+
+body.home .showcase-caption {
+  align-self: start;
+  margin: 12px 0 0;
+  font-family: "Raleway", sans-serif;
+  font-size: 0.72rem;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: rgba(230, 228, 240, 0.34) !important;
+}
+
+body.home .showcase-slider {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: minmax(320px, 38vw);
+  gap: 24px;
+  overflow-x: auto;
+  padding-bottom: 8px;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(230, 228, 240, 0.22) transparent;
+}
+
+body.home .showcase-slider::-webkit-scrollbar {
+  height: 8px;
+}
+
+body.home .showcase-slider::-webkit-scrollbar-thumb {
+  background: rgba(230, 228, 240, 0.22);
+  border-radius: 999px;
+}
+
+body.home .showcase-slide {
+  scroll-snap-align: start;
+  display: grid;
+  gap: 18px;
+  padding: 18px;
+  background: linear-gradient(
+    180deg,
+    rgba(10, 12, 20, 0.64) 0%,
+    rgba(10, 12, 20, 0.46) 100%
+  );
+  border: 1px solid rgba(184, 198, 214, 0.1);
+  border-radius: 28px;
+  box-shadow:
+    0 24px 54px rgba(0, 0, 0, 0.22),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
+}
+
+body.home .showcase-media {
+  aspect-ratio: 4 / 5;
+  overflow: hidden;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.04);
+}
+
+body.home .showcase-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+body.home .showcase-copy {
+  display: grid;
+  gap: 8px;
+}
+
+body.home .showcase-num {
+  font-family: "Raleway", sans-serif;
+  font-size: 0.72rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: rgba(230, 228, 240, 0.34) !important;
+}
+
+body.home .showcase-copy h3 {
+  position: static;
+  width: auto;
+  height: auto;
+  font-family: "Raleway", sans-serif;
+  font-size: 1.42rem;
+  line-height: 1.45;
+  letter-spacing: 0.08em;
+  color: rgba(248, 248, 250, 0.92) !important;
+  margin: 0;
+  padding: 0;
+  border: none;
+}
+
+body.home .showcase-copy p {
+  font-size: 1.05rem;
+  line-height: 1.9;
+  color: rgba(230, 228, 240, 0.68) !important;
+  margin: 0;
+}
+
+/* =============================================================================
+   9. BUSINESS SECTION
    ============================================================================= */
 
 body.home .biz-section {
   padding: 120px 0;
-  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  border-top: none;
+  background:
+    linear-gradient(
+      180deg,
+      rgba(255, 251, 246, 0.98) 0%,
+      rgba(245, 239, 231, 0.98) 100%
+    ),
+    #fbf7f1;
 }
 
 body.home .biz-list {
@@ -516,17 +673,13 @@ body.home .biz-row {
   margin-bottom: 18px;
   width: auto !important;
   height: auto !important;
-  background: linear-gradient(
-    180deg,
-    rgba(10, 12, 20, 0.56) 0%,
-    rgba(10, 12, 20, 0.32) 100%
-  ) !important;
-  border: 1px solid rgba(184, 198, 214, 0.1) !important;
+  background: rgba(255, 255, 255, 0.86) !important;
+  border: 1px solid rgba(20, 20, 20, 0.08) !important;
   border-radius: 28px;
   box-sizing: border-box;
   box-shadow:
-    0 22px 50px rgba(0, 0, 0, 0.18),
-    inset 0 1px 0 rgba(255, 255, 255, 0.05);
+    0 16px 36px rgba(29, 24, 18, 0.08),
+    inset 0 1px 0 rgba(255, 255, 255, 0.6);
   transition:
     opacity 0.3s ease,
     transform 0.3s ease,
@@ -541,7 +694,7 @@ body.home .biz-row:last-child {
 body.home .biz-row:hover {
   opacity: 1;
   transform: translateY(-4px);
-  border-color: rgba(255, 255, 255, 0.16) !important;
+  border-color: rgba(20, 20, 20, 0.14) !important;
 }
 
 body.home .biz-num {
@@ -550,7 +703,7 @@ body.home .biz-num {
   font-weight: 300;
   line-height: 1;
   letter-spacing: 0.02em;
-  color: rgba(230, 228, 240, 0.05) !important;
+  color: rgba(20, 20, 20, 0.08) !important;
   margin: 0;
   align-self: center;
   user-select: none;
@@ -561,7 +714,7 @@ body.home .biz-content h3 {
   font-size: 1.5rem;
   font-weight: 600;
   letter-spacing: 0.12em;
-  color: rgba(248, 248, 250, 0.96) !important;
+  color: rgba(17, 17, 17, 0.92) !important;
   margin: 0 0 8px;
   padding: 0;
   position: static;
@@ -574,7 +727,7 @@ body.home .biz-content h3 {
 body.home .biz-ja {
   font-size: 1.15rem;
   letter-spacing: 0.06em;
-  color: rgba(196, 205, 216, 0.76) !important;
+  color: rgba(17, 17, 17, 0.54) !important;
   margin: 0 0 20px;
   line-height: 1.5;
 }
@@ -582,7 +735,7 @@ body.home .biz-ja {
 body.home .biz-desc {
   font-size: 1.4rem;
   line-height: 1.9;
-  color: rgba(240, 242, 246, 0.84) !important;
+  color: rgba(17, 17, 17, 0.72) !important;
   margin: 0;
   text-align: left;
 }
@@ -593,17 +746,17 @@ body.home .biz-philosophy {
   font-style: normal;
   font-family: "Cormorant Garamond", serif;
   letter-spacing: 0.1em;
-  color: rgba(242, 244, 247, 0.86) !important;
+  color: rgba(17, 17, 17, 0.72) !important;
   text-align: center;
-  background: rgba(10, 12, 20, 0.48) !important;
-  border: 1px solid rgba(184, 198, 214, 0.1);
+  background: rgba(255, 255, 255, 0.72) !important;
+  border: 1px solid rgba(20, 20, 20, 0.08);
   border-radius: 999px;
   padding: 18px 28px;
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.05);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.55);
 }
 
 /* =============================================================================
-   9. TOPICS SECTION
+   10. TOPICS SECTION
    ============================================================================= */
 
 body.home .topics-section {
@@ -719,17 +872,19 @@ body.home .fp-more-link:hover {
 }
 
 /* =============================================================================
-   10. ABOUT US / INFO SECTION
+   11. ABOUT US / INFO SECTION
    ============================================================================= */
 
 body.home .info-section {
   padding: 120px 0 100px;
-  border-top: 1px solid rgba(255, 255, 255, 0.05);
-  background: linear-gradient(
-    180deg,
-    rgba(8, 10, 18, 0.6) 0%,
-    rgba(6, 8, 14, 0.76) 100%
-  );
+  border-top: none;
+  background:
+    linear-gradient(
+      180deg,
+      rgba(247, 243, 236, 0.98) 0%,
+      rgba(238, 232, 223, 0.98) 100%
+    ),
+    #f4eee6;
 }
 
 body.home .info-grid {
@@ -744,7 +899,7 @@ body.home .info-grid {
 body.home .info-col p {
   font-size: 1.45rem;
   line-height: 2.2;
-  color: rgba(230, 228, 240, 0.68) !important;
+  color: rgba(17, 17, 17, 0.68) !important;
   margin: 0 0 24px;
   text-align: left;
 }
@@ -761,8 +916,8 @@ body.home .fp-contact-btn {
   font-weight: 600;
   letter-spacing: 0.52em;
   text-transform: uppercase;
-  color: rgba(230, 228, 240, 0.72) !important;
-  border: 1px solid rgba(230, 228, 240, 0.22);
+  color: rgba(17, 17, 17, 0.72) !important;
+  border: 1px solid rgba(17, 17, 17, 0.18);
   padding: 18px 72px;
   margin: 0 0 80px;
   transition:
@@ -772,21 +927,21 @@ body.home .fp-contact-btn {
 }
 
 body.home .fp-contact-btn:hover {
-  color: #fff !important;
-  border-color: rgba(230, 228, 240, 0.55);
-  background: rgba(230, 228, 240, 0.06);
+  color: #111 !important;
+  border-color: rgba(17, 17, 17, 0.42);
+  background: rgba(17, 17, 17, 0.04);
 }
 
 body.home .fp-copyright {
   font-family: "Raleway", sans-serif;
   font-size: 0.75rem;
   letter-spacing: 0.28em;
-  color: rgba(230, 228, 240, 0.2) !important;
+  color: rgba(17, 17, 17, 0.24) !important;
   text-align: left;
 }
 
 /* =============================================================================
-   11. BACK TO TOP
+   12. BACK TO TOP
    ============================================================================= */
 
 body.home #fixSocial .gotop img {
@@ -800,7 +955,7 @@ body.home #fixSocial .gotop img:hover {
 }
 
 /* =============================================================================
-   12. SCROLL REVEAL ANIMATIONS
+  13. SCROLL REVEAL ANIMATIONS
    ============================================================================= */
 
 [data-reveal] {
@@ -830,16 +985,20 @@ body.home #fixSocial .gotop img:hover {
 }
 
 /* =============================================================================
-   13. RESPONSIVE
+   14. RESPONSIVE
    ============================================================================= */
 
 @media (max-width: 1024px) {
   body.home .mogs-accent {
-    display: none;
+    width: 200px;
   }
 
   body.home .topics-grid {
     grid-template-columns: repeat(2, 1fr);
+  }
+
+  body.home .showcase-slider {
+    grid-auto-columns: minmax(320px, 56vw);
   }
 }
 
@@ -897,8 +1056,37 @@ body.home #fixSocial .gotop img:hover {
     padding: 0 24px;
   }
 
+  body.home .about-layout,
+  body.home .showcase-intro {
+    grid-template-columns: 1fr;
+  }
+
+  body.home .mogs-accent {
+    width: 160px;
+    justify-self: start;
+  }
+
+  body.home .showcase-section {
+    padding: 96px 0;
+  }
+
+  body.home .showcase-slider {
+    grid-auto-columns: 82vw;
+  }
+
+  body.home .showcase-headline {
+    font-size: clamp(2.3rem, 8vw, 3.2rem);
+  }
+
+  body.home .showcase-lead,
+  body.home .showcase-copy p {
+    font-size: 1rem;
+    line-height: 1.85;
+  }
+
   body.home .about-section,
   body.home .biz-section,
+  body.home .showcase-section,
   body.home .topics-section,
   body.home .info-section {
     padding: 88px 0 80px;
@@ -914,6 +1102,11 @@ body.home #fixSocial .gotop img:hover {
 
   body.home .about-headline {
     font-size: clamp(2.4rem, 8vw, 3.2rem) !important;
+  }
+
+  body.home .biz-desc {
+    font-size: 1.05rem;
+    line-height: 1.8;
   }
 
   body.home .biz-row {
@@ -941,6 +1134,20 @@ body.home #fixSocial .gotop img:hover {
 }
 
 @media (max-width: 480px) {
+  body.home .about-layout {
+    gap: 24px;
+  }
+
+  body.home .showcase-slider {
+    grid-auto-columns: 88vw;
+    gap: 16px;
+  }
+
+  body.home .showcase-slide {
+    padding: 14px;
+    border-radius: 22px;
+  }
+
   body.home .hero-tagline {
     font-size: clamp(3.2rem, 18vw, 5.2rem);
     line-height: 1.04;

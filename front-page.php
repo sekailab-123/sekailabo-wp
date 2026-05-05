@@ -86,11 +86,60 @@
             </div>
         </section>
 
+        <!-- ===== SHOWCASE ===== -->
+        <section class="fp-section showcase-section" id="showcase">
+            <div class="fp-inner">
+                <div class="section-eyebrow" data-reveal>
+                    <span class="section-index">02</span>
+                    <span class="section-label">SHOWCASE</span>
+                </div>
+                <div class="showcase-intro" data-reveal data-reveal-delay="80">
+                    <div>
+                        <h2 class="showcase-headline">視点を切り替えるたびに、<br>ブランドの輪郭は深くなる。</h2>
+                        <p class="showcase-lead">ここは後ほど差し替えられる仮テキストです。映像のムード、静止画の強度、SNS の瞬発力。SEKAILABO' が扱う複数のレイヤーを、ひとつの温度感で束ねるためのイメージスライドです。</p>
+                    </div>
+                    <p class="showcase-caption">Drag or scroll horizontally</p>
+                </div>
+                <div class="showcase-slider" data-reveal>
+                    <article class="showcase-slide">
+                        <div class="showcase-media">
+                            <img src="<?php echo get_template_directory_uri(); ?>/img/thema/editorial.png" alt="Editorial placeholder">
+                        </div>
+                        <div class="showcase-copy">
+                            <span class="showcase-num">01</span>
+                            <h3>Editorial Framing</h3>
+                            <p>ブランドの空気感を一枚で伝えるための、余白とタイポグラフィの設計。</p>
+                        </div>
+                    </article>
+                    <article class="showcase-slide">
+                        <div class="showcase-media">
+                            <img src="<?php echo get_template_directory_uri(); ?>/img/thema/motion.png" alt="Motion placeholder">
+                        </div>
+                        <div class="showcase-copy">
+                            <span class="showcase-num">02</span>
+                            <h3>Motion Narrative</h3>
+                            <p>スクロールの速度や視線の移動まで含めて、体験のストーリーを編集する。</p>
+                        </div>
+                    </article>
+                    <article class="showcase-slide">
+                        <div class="showcase-media">
+                            <img src="<?php echo get_template_directory_uri(); ?>/img/thema/showcase.png" alt="Showcase placeholder">
+                        </div>
+                        <div class="showcase-copy">
+                            <span class="showcase-num">03</span>
+                            <h3>Community Heat</h3>
+                            <p>SNS やオフラインの熱量を横断しながら、共感が続く導線を組み立てる。</p>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
         <!-- ===== BUSINESS ===== -->
         <section class="fp-section biz-section" id="service">
             <div class="fp-inner">
                 <div class="section-eyebrow" data-reveal>
-                    <span class="section-index">02</span>
+                    <span class="section-index">03</span>
                     <span class="section-label">BUSINESS</span>
                 </div>
                 <ul class="biz-list">
@@ -135,7 +184,7 @@
         <section class="fp-section topics-section" id="blog">
             <div class="fp-inner">
                 <div class="section-eyebrow" data-reveal>
-                    <span class="section-index">03</span>
+                    <span class="section-index">04</span>
                     <span class="section-label">TOPICS</span>
                 </div>
                 <div class="topics-grid" data-reveal>
@@ -179,7 +228,7 @@
         <section class="fp-section info-section" id="info">
             <div class="fp-inner">
                 <div class="section-eyebrow" data-reveal>
-                    <span class="section-index">04</span>
+                    <span class="section-index">05</span>
                     <span class="section-label">ABOUT US</span>
                 </div>
                 <div class="info-grid" data-reveal>
