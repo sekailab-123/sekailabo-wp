@@ -12,6 +12,8 @@ jobs:
     steps:
       - name: リポジトリをチェックアウト
         uses: actions/checkout@v4
+        with:
+          lfs: true
 
       - name: FTP経由でシンレンタルサーバーにデプロイ
         uses: SamKirkland/FTP-Deploy-Action@v4.3.5

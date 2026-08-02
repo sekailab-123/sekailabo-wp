@@ -265,8 +265,7 @@
 
     <div class="mainback">
         <video id="bgvid" autoplay muted loop playsinline>
-            <source src="<?php echo get_template_directory_uri(); ?>/しゅんどる.mov" type="video/quicktime">
-            <source src="<?php echo get_template_directory_uri(); ?>/しゅんどる.mov" type="video/mp4">
+            <source src="<?php echo get_template_directory_uri(); ?>/bg_mv.mp4" type="video/mp4">
         </video>
     </div>
 
