@@ -86,60 +86,11 @@
             </div>
         </section>
 
-        <!-- ===== SHOWCASE ===== -->
-        <section class="fp-section showcase-section" id="showcase">
-            <div class="fp-inner">
-                <div class="section-eyebrow" data-reveal>
-                    <span class="section-index">02</span>
-                    <span class="section-label">SHOWCASE</span>
-                </div>
-                <div class="showcase-intro" data-reveal data-reveal-delay="80">
-                    <div>
-                        <h2 class="showcase-headline">視点を切り替えるたびに、<br>ブランドの輪郭は深くなる。</h2>
-                        <p class="showcase-lead">ここは後ほど差し替えられる仮テキストです。映像のムード、静止画の強度、SNS の瞬発力。SEKAILABO' が扱う複数のレイヤーを、ひとつの温度感で束ねるためのイメージスライドです。</p>
-                    </div>
-                    <p class="showcase-caption">Drag or scroll horizontally</p>
-                </div>
-                <div class="showcase-slider" data-reveal>
-                    <article class="showcase-slide">
-                        <div class="showcase-media">
-                            <img src="<?php echo get_template_directory_uri(); ?>/img/thema/editorial.png" alt="Editorial placeholder">
-                        </div>
-                        <div class="showcase-copy">
-                            <span class="showcase-num">01</span>
-                            <h3>Editorial Framing</h3>
-                            <p>ブランドの空気感を一枚で伝えるための、余白とタイポグラフィの設計。</p>
-                        </div>
-                    </article>
-                    <article class="showcase-slide">
-                        <div class="showcase-media">
-                            <img src="<?php echo get_template_directory_uri(); ?>/img/thema/motion.png" alt="Motion placeholder">
-                        </div>
-                        <div class="showcase-copy">
-                            <span class="showcase-num">02</span>
-                            <h3>Motion Narrative</h3>
-                            <p>スクロールの速度や視線の移動まで含めて、体験のストーリーを編集する。</p>
-                        </div>
-                    </article>
-                    <article class="showcase-slide">
-                        <div class="showcase-media">
-                            <img src="<?php echo get_template_directory_uri(); ?>/img/thema/showcase.png" alt="Showcase placeholder">
-                        </div>
-                        <div class="showcase-copy">
-                            <span class="showcase-num">03</span>
-                            <h3>Community Heat</h3>
-                            <p>SNS やオフラインの熱量を横断しながら、共感が続く導線を組み立てる。</p>
-                        </div>
-                    </article>
-                </div>
-            </div>
-        </section>
-
         <!-- ===== BUSINESS ===== -->
         <section class="fp-section biz-section" id="service">
             <div class="fp-inner">
                 <div class="section-eyebrow" data-reveal>
-                    <span class="section-index">03</span>
+                    <span class="section-index">02</span>
                     <span class="section-label">BUSINESS</span>
                 </div>
                 <ul class="biz-list">
@@ -177,6 +128,26 @@
                     </li>
                 </ul>
                 <p class="biz-philosophy" data-reveal>MOGS で磨いた観察眼と熱量を、企画・制作・運用を横断するクリエイティブへ接続しています。</p>
+            </div>
+        </section>
+
+        <!-- ===== REEL ===== -->
+        <section class="fp-section showcase-section" id="showcase">
+            <div class="fp-inner reel-layout">
+                <div class="reel-copy" data-reveal>
+                    <div class="section-eyebrow">
+                        <span class="section-index">03</span>
+                        <span class="section-label">REEL</span>
+                    </div>
+                    <h2 class="showcase-headline">映像で、<br>熱量の輪郭をつくる。</h2>
+                    <p class="showcase-lead">一瞬で心を動かす視点と、手触りのあるストーリー。SNSで生まれる熱量を、ブランドの体験として丁寧に編み直します。</p>
+                    <p class="reel-note">Sound off / Scroll to play</p>
+                </div>
+                <div class="reel-media" data-reveal data-reveal-delay="120">
+                    <video class="reel-video" muted loop playsinline preload="none" aria-label="SEKAILABO' reel" data-reel-video>
+                        <source src="<?php echo get_template_directory_uri(); ?>/bg_mv.mp4" type="video/mp4">
+                    </video>
+                </div>
             </div>
         </section>
 
@@ -262,11 +233,5 @@
         </div>
 
     </div><!-- /.animsition -->
-
-    <div class="mainback">
-        <video id="bgvid" autoplay muted loop playsinline>
-            <source src="<?php echo get_template_directory_uri(); ?>/bg_mv.mp4" type="video/mp4">
-        </video>
-    </div>
 
     <?php get_footer(); ?>

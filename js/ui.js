@@ -268,6 +268,31 @@
 
 		// animsition の inDuration (1500ms) + 余裕を持って 1700ms 後に起動
 		setTimeout(initReveal, 1700);
+
+		// ===== REEL VIDEO =====
+		// 縦動画は専用セクション内でのみ再生し、画面外では停止する。
+		function initReelVideo() {
+			var video = document.querySelector('[data-reel-video]');
+			if (!video || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+			if (!('IntersectionObserver' in window)) {
+				video.play().catch(function() {});
+				return;
+			}
+
+			var videoObserver = new IntersectionObserver(function(entries) {
+				entries.forEach(function(entry) {
+					if (entry.isIntersecting) {
+						video.play().catch(function() {});
+					} else {
+						video.pause();
+					}
+				});
+			}, { threshold: 0.35 });
+
+			videoObserver.observe(video);
+		}
+		initReelVideo();
 	    jQuery(".animsition").animsition({
 	        inClass: 'fade-in',
 	        outClass: 'fade-out',

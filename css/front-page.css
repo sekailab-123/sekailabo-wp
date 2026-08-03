@@ -1178,3 +1178,142 @@ body.home #fixSocial .gotop img:hover {
     line-height: 1.06;
   }
 }
+
+/* =============================================================================
+   15. REVIEW REMEDIATION — one focal layer per section
+   ============================================================================= */
+
+body.home {
+  background: #f5f0e8 !important;
+}
+
+/* The hero is intentionally static. Portrait video is presented in its native
+   ratio in the Reel section instead of being enlarged as a desktop background. */
+body.home #mainvisual {
+  isolation: isolate;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 78% 20%, rgba(143, 173, 187, 0.2), transparent 28%),
+    radial-gradient(circle at 12% 88%, rgba(184, 136, 96, 0.14), transparent 30%),
+    linear-gradient(135deg, #071017 0%, #101c25 52%, #18242a 100%);
+}
+
+body.home #mainvisual::before {
+  inset: 0;
+  border-radius: 0;
+  background: linear-gradient(110deg, rgba(3, 8, 13, 0.1), rgba(3, 8, 13, 0.62));
+  filter: none;
+}
+
+body.home #mainvisual::after,
+body.home #main_title::before {
+  display: none;
+}
+
+body.home #main_title {
+  align-items: flex-start;
+  max-width: 980px;
+  text-align: left;
+}
+
+body.home .hero-tagline,
+body.home .hero-lead {
+  text-align: left;
+  text-shadow: none;
+}
+
+body.home .showcase-section,
+body.home .topics-section {
+  background: #0b1118;
+  border-top: 1px solid rgba(227, 216, 198, 0.12);
+}
+
+body.home .showcase-section {
+  padding: 136px 0;
+}
+
+body.home .reel-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(260px, 380px);
+  gap: clamp(48px, 9vw, 132px);
+  align-items: center;
+}
+
+body.home .reel-copy .section-eyebrow {
+  margin-bottom: 44px;
+}
+
+body.home .reel-copy .section-index {
+  color: rgba(230, 228, 240, 0.14) !important;
+}
+
+body.home .reel-media {
+  width: min(100%, 380px);
+  justify-self: end;
+  overflow: hidden;
+  aspect-ratio: 9 / 16;
+  background: #05080b;
+  border: 1px solid rgba(227, 216, 198, 0.18);
+  box-shadow: 22px 28px 0 rgba(184, 136, 96, 0.18);
+}
+
+body.home .reel-video {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+body.home .reel-note {
+  margin: 40px 0 0;
+  font-family: "Raleway", sans-serif;
+  font-size: 0.68rem;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: rgba(230, 228, 240, 0.45) !important;
+}
+
+body.home .topic-card,
+body.home .showcase-slide {
+  background: #141d26;
+}
+
+@media (max-width: 768px) {
+  body.home #main_title,
+  body.home .hero-tagline,
+  body.home .hero-lead {
+    align-items: center;
+    text-align: center;
+  }
+
+  body.home .reel-layout {
+    grid-template-columns: 1fr;
+    gap: 44px;
+  }
+
+  body.home .reel-media {
+    width: min(100%, 340px);
+    justify-self: start;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  body.home .reel-video {
+    display: none;
+  }
+
+  body.home .reel-media {
+    background:
+      linear-gradient(rgba(5, 8, 11, 0.28), rgba(5, 8, 11, 0.5)),
+      url("../img/thema/motion.png") center / cover;
+  }
+}
