@@ -1239,6 +1239,32 @@ body.home .reel-layout {
   align-items: center;
 }
 
+body.home .reel-copy {
+  min-width: 0;
+}
+
+/* Reset legacy absolute heading styles that otherwise overlap the Reel copy. */
+body.home .reel-copy .showcase-headline,
+body.home .reel-copy .showcase-lead {
+  position: static;
+  width: auto;
+  height: auto;
+  padding: 0;
+  border: 0;
+  text-align: left;
+}
+
+body.home .reel-copy .showcase-headline {
+  max-width: 640px;
+  margin: 0 0 28px;
+  font-size: clamp(3.1rem, 5.2vw, 5.8rem);
+}
+
+body.home .reel-copy .showcase-lead {
+  max-width: 590px;
+  margin: 0;
+}
+
 body.home .reel-copy .section-eyebrow {
   margin-bottom: 44px;
 }
@@ -1289,6 +1315,11 @@ body.home .showcase-slide {
   body.home .reel-layout {
     grid-template-columns: 1fr;
     gap: 44px;
+  }
+
+  body.home .reel-copy .showcase-headline,
+  body.home .reel-copy .showcase-lead {
+    text-align: center;
   }
 
   body.home .reel-media {

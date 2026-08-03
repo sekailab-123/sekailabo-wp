@@ -144,7 +144,7 @@
                     <p class="reel-note">Sound off / Scroll to play</p>
                 </div>
                 <div class="reel-media" data-reveal data-reveal-delay="120">
-                    <video class="reel-video" muted loop playsinline preload="none" aria-label="SEKAILABO' reel" data-reel-video>
+                    <video class="reel-video" autoplay muted loop playsinline preload="metadata" poster="<?php echo get_template_directory_uri(); ?>/img/hero-reel-poster.jpg" aria-label="SEKAILABO' reel" data-reel-video>
                         <source src="<?php echo get_template_directory_uri(); ?>/bg_mv.mp4" type="video/mp4">
                     </video>
                 </div>
