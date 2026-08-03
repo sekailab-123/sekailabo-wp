@@ -1193,16 +1193,25 @@ body.home #mainvisual {
   isolation: isolate;
   overflow: hidden;
   background:
-    radial-gradient(circle at 78% 20%, rgba(143, 173, 187, 0.2), transparent 28%),
-    radial-gradient(circle at 12% 88%, rgba(184, 136, 96, 0.14), transparent 30%),
-    linear-gradient(135deg, #071017 0%, #101c25 52%, #18242a 100%);
+    linear-gradient(90deg, rgba(5, 12, 18, 0.86) 0%, rgba(5, 12, 18, 0.56) 34%, rgba(5, 12, 18, 0.12) 68%, rgba(5, 12, 18, 0.18) 100%),
+    url("../img/hero-key-visual.jpg") center / cover no-repeat,
+    #101c25;
 }
 
 body.home #mainvisual::before {
   inset: 0;
   border-radius: 0;
-  background: linear-gradient(110deg, rgba(3, 8, 13, 0.1), rgba(3, 8, 13, 0.62));
+  background: linear-gradient(180deg, rgba(3, 8, 13, 0.2), rgba(3, 8, 13, 0.05) 54%, rgba(3, 8, 13, 0.28));
   filter: none;
+}
+
+/* Keep the logo inside the header at desktop sizes. */
+body.home #pcGN h1 {
+  width: 164px;
+  height: 36px;
+  top: 18px;
+  left: 24px;
+  background-size: contain;
 }
 
 body.home #mainvisual::after,
