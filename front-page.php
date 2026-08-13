@@ -6,9 +6,9 @@
         <!-- ===== HERO ===== -->
         <div id="mainvisual">
             <div id="main_title">
-                <p class="hero-kicker">( SEKAILABO' / CREATIVE DIRECTION )</p>
-                <h2 class="hero-tagline">感情を編み、<br>体験をデザインする。</h2>
-                <p class="hero-lead">映像、SNS、AI を横断しながら、ブランドとコミュニティの熱量をかたちにする。<br>MOGS で育った実感値を、企画から実装まで接続する。</p>
+                <p class="hero-kicker">( SEKAILABO' / BRAND EXPERIENCE &amp; SYSTEM DESIGN )</p>
+                <h2 class="hero-tagline">見つけた課題を、<br>伝わる体験と、動く仕組みに。</h2>
+                <p class="hero-lead">SEKAILABO' は、現場の声とデータをもとに、ブランド表現・顧客体験・業務システムへ変換するチームです。企画から制作、実装、運用までを横断して伴走します。</p>
             </div>
             <div class="hero-scroll">
                 <span class="scroll-line"></span>
@@ -76,13 +76,49 @@
                 </div>
                 <div class="about-layout" data-reveal data-reveal-delay="100">
                     <div class="about-text">
-                        <h2 class="about-headline">福岡の路地裏から、<br>世界へ。</h2>
-                        <p class="about-lead">MOGS を起点に、SNS・映像・AI を横断しながら、ブランドの世界観を立ち上げる。0.1 秒で心が動く表現と、現場に根づく運用設計までを一気通貫で手がけています。</p>
+                        <h2 class="about-headline">現場を見て、<br>データでほどき、<br>表現と仕組みに変える。</h2>
+                        <p class="about-lead">私たちの価値は、机上の企画だけで終わらせないこと。実際の現場で起きていることを観察し、声や行動をデータで理解し、伝わる表現と動き続けるシステムへ落とし込みます。</p>
                         <span class="about-rule"></span>
-                        <p class="about-sub">肩肘を張らずに試し、対話しながら磨いていく。その柔らかな熱量と信頼感が、SEKAILABO' のものづくりの土台です。</p>
+                        <p class="about-sub">グループで運営する MOGS も、飲食・ホスピタリティの現場感覚に触れ続ける代表的なプロジェクトのひとつです。そこで得た問いを、ブランドづくりや顧客体験、業務改善の設計へ自然につなげています。</p>
                     </div>
                     <img class="mogs-accent" src="<?php echo get_template_directory_uri(); ?>/img/mogs.png" alt="MOGS">
                 </div>
+            </div>
+        </section>
+
+        <!-- ===== APPROACH ===== -->
+        <section class="fp-section approach-section" id="approach" aria-labelledby="approach-title">
+            <div class="fp-inner">
+                <div class="section-eyebrow" data-reveal>
+                    <span class="section-index">02</span>
+                    <span class="section-label">APPROACH</span>
+                </div>
+                <div class="approach-intro" data-reveal data-reveal-delay="100">
+                    <h2 class="approach-headline" id="approach-title">FIELD / DATA / EXPERIENCE / SYSTEM</h2>
+                    <p class="approach-lead">現場から見つけた違和感を、整理された課題へ。課題を、伝わる体験へ。体験を、運用できる仕組みへ。SEKAILABO' はこの関係を往復しながら、実装まで進めます。</p>
+                </div>
+                <ol class="approach-list">
+                    <li class="approach-step" data-reveal>
+                        <span class="approach-num">01</span>
+                        <h3>FIELD</h3>
+                        <p>MOGS などの実プロジェクトを通じて、店頭・SNS・運用の現場で起きている声や行動を観察します。</p>
+                    </li>
+                    <li class="approach-step" data-reveal>
+                        <span class="approach-num">02</span>
+                        <h3>DATA</h3>
+                        <p>投稿反応、導線、業務フロー、顧客接点を構造化し、課題と優先順位を見える状態にします。</p>
+                    </li>
+                    <li class="approach-step" data-reveal>
+                        <span class="approach-num">03</span>
+                        <h3>EXPERIENCE</h3>
+                        <p>ブランドの言葉、SNS企画、店舗・サービスの顧客体験として、伝わり方と使われ方を設計します。</p>
+                    </li>
+                    <li class="approach-step" data-reveal>
+                        <span class="approach-num">04</span>
+                        <h3>SYSTEM</h3>
+                        <p>AI、Web、API、自動化を組み合わせ、制作物や施策が継続して動く運用基盤へ実装します。</p>
+                    </li>
+                </ol>
             </div>
         </section>
 
@@ -90,44 +126,52 @@
         <section class="fp-section biz-section" id="service">
             <div class="fp-inner">
                 <div class="section-eyebrow" data-reveal>
-                    <span class="section-index">02</span>
+                    <span class="section-index">03</span>
                     <span class="section-label">BUSINESS</span>
                 </div>
                 <ul class="biz-list">
                     <li class="biz-row" data-reveal>
                         <span class="biz-num">01</span>
                         <div class="biz-content">
-                            <h3>Gourmet Media &amp; Influence</h3>
-                            <p class="biz-ja">メディア事業</p>
-                            <p class="biz-desc">美食の街・福岡を拠点に、グルメSNSメディア『MOGS』を運営。「0.1秒で指を止める」クリエイティブとAI技術を駆使したナラティブで、ユーザーの「次の一軒」を創り出します。</p>
+                            <h3>Brand &amp; Content</h3>
+                            <p class="biz-ja">ブランド・SNS・ショート動画</p>
+                            <p class="biz-desc">ブランドの言葉、投稿企画、SNS運用、ショート動画制作を一貫して設計。伝えたい価値が顧客に届く表現へ整えます。</p>
                         </div>
                     </li>
                     <li class="biz-row" data-reveal>
                         <span class="biz-num">02</span>
                         <div class="biz-content">
-                            <h3>Restaurant DX Support</h3>
-                            <p class="biz-ja">飲食DX支援事業</p>
-                            <p class="biz-desc">システム導入が目的ではなく、店主・スタッフの「負担」を減らし、客の「感動」を増やすためのDXを支援。LINE連携ソリューションで順番待ち管理やロイヤリティ施策を実現します。</p>
+                            <h3>Customer Experience</h3>
+                            <p class="biz-ja">店舗・飲食店の顧客体験設計</p>
+                            <p class="biz-desc">来店前後の導線、SNSプロモーション、再来店施策、運用伴走を設計。MOGPASS など、現場で使われる接点づくりにも取り組みます。</p>
                         </div>
                     </li>
                     <li class="biz-row" data-reveal>
                         <span class="biz-num">03</span>
                         <div class="biz-content">
-                            <h3>Creative &amp; SNS Marketing</h3>
-                            <p class="biz-ja">クリエイティブ・SNS運用事業</p>
-                            <p class="biz-desc">TikTok・Instagram Reels等のショート動画特化型マーケティングで、SNSアカウントを「ファンとの遊び場」へ。ロゴからトーン&amp;マナーまで一貫したブランドストーリーを構築します。</p>
+                            <h3>Digital Operations</h3>
+                            <p class="biz-ja">Web・AI・API・自動化</p>
+                            <p class="biz-desc">Webサイト、AI活用、API連携、自動化を組み合わせ、軽量なサービスや業務システムを素早く実装します。</p>
                         </div>
                     </li>
                     <li class="biz-row" data-reveal>
                         <span class="biz-num">04</span>
                         <div class="biz-content">
-                            <h3>EC &amp; Advertising Strategy</h3>
-                            <p class="biz-ja">EC・広告戦略事業</p>
-                            <p class="biz-desc">楽天・Amazon等のプラットフォーム最適化からRPP広告のデータドリブン運用まで、ECサイトの立ち上げ〜利益最大化を網羅的にサポート。海外市場を見据えたクロスボーダーECも支援します。</p>
+                            <h3>Growth Strategy</h3>
+                            <p class="biz-ja">EC・広告・KPI / データ設計</p>
+                            <p class="biz-desc">EC、広告運用、KPI設計、データ分析を独立した専門領域として支援。売上と運用判断につながる改善サイクルをつくります。</p>
                         </div>
                     </li>
                 </ul>
-                <p class="biz-philosophy" data-reveal>MOGS で磨いた観察眼と熱量を、企画・制作・運用を横断するクリエイティブへ接続しています。</p>
+                <p class="biz-philosophy" data-reveal>現場で見つけた課題を、表現・体験・仕組みのどこからでも実装へ接続します。</p>
+                <div class="mogs-project" data-reveal>
+                    <div class="mogs-project-copy">
+                        <p class="mogs-project-kicker">REPRESENTATIVE PROJECT</p>
+                        <h3>MOGS</h3>
+                        <p>MOGS は、グループで運営するグルメSNSアカウントです。福岡の飲食店を紹介し、TikTok をはじめとするソーシャルプラットフォームで発信しています。旧名称は「味酒乱」。編集ルールを持って運営しながら、飲食店向けのシステムづくりにも取り組み、年内フォロワー1万人を目指しています。</p>
+                    </div>
+                    <a href="https://sekailabo.com/links/" class="mogs-project-link" target="_blank" rel="noopener noreferrer">MOGS LINKS</a>
+                </div>
             </div>
         </section>
 
@@ -136,7 +180,7 @@
             <div class="fp-inner reel-layout">
                 <div class="reel-copy" data-reveal>
                     <div class="section-eyebrow">
-                        <span class="section-index">03</span>
+                        <span class="section-index">04</span>
                         <span class="section-label">REEL</span>
                     </div>
                     <h2 class="showcase-headline">映像で、<br>熱量の輪郭をつくる。</h2>
@@ -155,7 +199,7 @@
         <section class="fp-section topics-section" id="blog">
             <div class="fp-inner">
                 <div class="section-eyebrow" data-reveal>
-                    <span class="section-index">04</span>
+                    <span class="section-index">05</span>
                     <span class="section-label">TOPICS</span>
                 </div>
                 <div class="topics-grid" data-reveal>
@@ -199,7 +243,7 @@
         <section class="fp-section info-section" id="info">
             <div class="fp-inner">
                 <div class="section-eyebrow" data-reveal>
-                    <span class="section-index">05</span>
+                    <span class="section-index">06</span>
                     <span class="section-label">ABOUT US</span>
                 </div>
                 <div class="info-grid" data-reveal>
@@ -210,11 +254,10 @@
                     </div>
                     <div class="info-col">
                         <p>[ 事業内容 ]<br>
-                            ・WEBコンサルタント事業<br>
-                            ・メディア事業<br>
-                            ・飲食DX支援事業<br>
-                            ・クリエイティブ・SNS運用事業<br>
-                            ・EC・広告戦略事業
+                            ・Brand &amp; Content<br>
+                            ・Customer Experience<br>
+                            ・Digital Operations<br>
+                            ・Growth Strategy
                         </p>
                     </div>
                 </div>
