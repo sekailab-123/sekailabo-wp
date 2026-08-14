@@ -1335,6 +1335,7 @@ body.home {
   --sl-line: rgba(38, 50, 56, 0.14);
   background: var(--sl-paper) !important;
   color: var(--sl-ink);
+  font-family: "Noto Sans JP", sans-serif;
 }
 
 body.home .animsition {
@@ -1346,8 +1347,22 @@ body.home a {
 }
 
 body.home #naviBox {
-  background: rgba(23, 37, 42, 0.86);
-  border-bottom-color: rgba(244, 241, 233, 0.12);
+  background: rgba(15, 25, 29, 0.9);
+  border-bottom-color: rgba(244, 241, 233, 0.18);
+}
+
+body.home #pcGN h1 {
+  filter: brightness(0) invert(1);
+}
+
+body.home #navi1 a,
+body.home #navi2 a {
+  color: rgba(244, 241, 233, 0.8) !important;
+}
+
+body.home #navi1 a:hover,
+body.home #navi2 a:hover {
+  color: #fffaf2 !important;
 }
 
 body.home #spGN,
@@ -1357,7 +1372,7 @@ body.home #navibar {
 
 body.home #mainvisual {
   background:
-    linear-gradient(90deg, rgba(23, 37, 42, 0.9) 0%, rgba(23, 37, 42, 0.66) 38%, rgba(23, 37, 42, 0.18) 72%, rgba(23, 37, 42, 0.2) 100%),
+    linear-gradient(90deg, rgba(13, 22, 26, 0.95) 0%, rgba(13, 22, 26, 0.76) 36%, rgba(13, 22, 26, 0.24) 63%, rgba(13, 22, 26, 0.08) 100%),
     url("../img/hero-key-visual.jpg") center / cover no-repeat,
     var(--sl-charcoal);
 }
@@ -1368,21 +1383,78 @@ body.home #mainvisual::before {
 
 body.home .hero-kicker {
   color: rgba(244, 241, 233, 0.74) !important;
+  opacity: 0;
+  transform: translateY(16px);
+  animation: heroEditorialReveal 0.7s cubic-bezier(0.22, 1, 0.36, 1) 0.18s forwards;
 }
 
 body.home .hero-tagline {
-  font-family: "Noto Sans JP", sans-serif;
+  font-family: "Yu Mincho", "Hiragino Mincho ProN", "Noto Serif JP", serif;
   font-weight: 500;
-  font-size: clamp(3.8rem, 7.4vw, 7.8rem);
-  line-height: 1.18;
+  font-size: clamp(3.4rem, 6.4vw, 6.8rem);
+  line-height: 1.22;
   letter-spacing: 0.02em;
   color: var(--sl-paper) !important;
-  max-width: 980px;
+  max-width: 760px;
+  opacity: 0;
+  transform: translateY(18px);
+  animation: heroEditorialReveal 0.82s cubic-bezier(0.22, 1, 0.36, 1) 0.34s forwards;
 }
 
 body.home .hero-lead {
-  max-width: 780px;
+  max-width: 620px;
   color: rgba(244, 241, 233, 0.86) !important;
+  opacity: 0;
+  transform: translateY(16px);
+  animation: heroEditorialReveal 0.76s cubic-bezier(0.22, 1, 0.36, 1) 0.54s forwards;
+}
+
+body.home #main_title {
+  width: min(54vw, 680px);
+  max-width: 680px;
+  padding: clamp(28px, 4.2vw, 52px);
+  background: linear-gradient(90deg, rgba(13, 22, 26, 0.82), rgba(13, 22, 26, 0.54));
+  border-left: 1px solid rgba(244, 241, 233, 0.24);
+  box-shadow: 0 24px 70px rgba(3, 8, 13, 0.18);
+}
+
+body.home .hero-meta {
+  position: absolute;
+  right: clamp(28px, 5vw, 74px);
+  bottom: clamp(80px, 9vw, 118px);
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  font-family: "Raleway", sans-serif;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.28em;
+  color: rgba(244, 241, 233, 0.78);
+  text-transform: uppercase;
+  opacity: 0;
+  transform: translateY(14px);
+  animation: heroEditorialReveal 0.72s cubic-bezier(0.22, 1, 0.36, 1) 0.74s forwards;
+}
+
+body.home .hero-meta span {
+  display: inline-flex;
+  align-items: center;
+}
+
+body.home .hero-meta span + span::before {
+  content: "";
+  width: 34px;
+  height: 1px;
+  margin-right: 18px;
+  background: rgba(184, 92, 56, 0.82);
+}
+
+@keyframes heroEditorialReveal {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 body.home .scroll-line {
@@ -1425,20 +1497,39 @@ body.home .info-section .section-index {
 }
 
 body.home .about-headline,
-body.home .approach-headline {
-  font-family: "Noto Sans JP", sans-serif;
+body.home .approach-headline,
+body.home .showcase-headline,
+body.home .biz-philosophy {
+  font-family: "Yu Mincho", "Hiragino Mincho ProN", "Noto Serif JP", serif;
   font-weight: 500;
   letter-spacing: 0.03em;
+}
+
+body.home .about-headline,
+body.home .approach-headline,
+body.home .biz-philosophy {
   color: var(--sl-charcoal) !important;
 }
 
 body.home .about-headline {
-  font-size: clamp(2.8rem, 4.6vw, 5.2rem);
+  max-width: 12em !important;
+  font-size: clamp(3rem, 4vw, 4.4rem);
   line-height: 1.35;
+  margin-bottom: 48px;
 }
 
 body.home .about-lead,
-body.home .about-sub,
+body.home .about-sub {
+  max-width: 42rem;
+  font-size: clamp(1.05rem, 1.08vw, 1.14rem);
+  line-height: 2;
+  color: rgba(38, 50, 56, 0.82) !important;
+}
+
+body.home .about-sub {
+  color: rgba(38, 50, 56, 0.72) !important;
+}
+
 body.home .approach-lead,
 body.home .approach-step p,
 body.home .biz-desc,
@@ -1455,7 +1546,10 @@ body.home .about-rule {
 
 body.home .mogs-accent {
   filter: none;
-  opacity: 0.82;
+  opacity: 0.58;
+  width: min(100%, 176px);
+  align-self: end;
+  margin-bottom: 12px;
 }
 
 body.home .approach-intro {
@@ -1570,7 +1664,6 @@ body.home .biz-philosophy {
   border-color: rgba(107, 142, 138, 0.2);
   border-radius: 8px;
   color: var(--sl-ink) !important;
-  font-family: "Noto Sans JP", sans-serif;
   letter-spacing: 0.08em;
 }
 
@@ -1657,6 +1750,10 @@ body.home .reel-media {
   box-shadow: 22px 28px 0 rgba(184, 92, 56, 0.32);
 }
 
+body.home .reel-copy .showcase-headline {
+  color: var(--sl-paper) !important;
+}
+
 body.home .topic-card,
 body.home .showcase-slide {
   background: rgba(244, 241, 233, 0.06);
@@ -1692,6 +1789,35 @@ body.home .fp-copyright {
   body.home .hero-lead {
     align-items: center;
     text-align: center;
+  }
+
+  body.home #mainvisual {
+    background:
+      linear-gradient(180deg, rgba(13, 22, 26, 0.82) 0%, rgba(13, 22, 26, 0.56) 45%, rgba(13, 22, 26, 0.24) 100%),
+      url("../img/hero-key-visual.jpg") center / cover no-repeat,
+      var(--sl-charcoal);
+  }
+
+  body.home #main_title {
+    width: 100%;
+    max-width: 520px;
+    padding: 24px 20px;
+    background: rgba(13, 22, 26, 0.68);
+  }
+
+  body.home .hero-meta {
+    left: 24px;
+    right: 24px;
+    bottom: 68px;
+    justify-content: center;
+    gap: 12px;
+    font-size: 0.64rem;
+    letter-spacing: 0.2em;
+  }
+
+  body.home .hero-meta span + span::before {
+    width: 22px;
+    margin-right: 12px;
   }
 
   body.home .reel-layout {
@@ -1742,6 +1868,10 @@ body.home .fp-copyright {
     font-size: clamp(1.9rem, 7vw, 2.7rem);
   }
 
+  body.home .about-headline {
+    max-width: 11em !important;
+  }
+
   body.home .mogs-project {
     align-items: start;
   }
@@ -1755,6 +1885,15 @@ body.home .fp-copyright {
 @media (max-width: 480px) {
   body.home .hero-tagline {
     font-size: clamp(2.7rem, 12vw, 4rem);
+  }
+
+  body.home .hero-meta {
+    flex-wrap: wrap;
+    bottom: 56px;
+  }
+
+  body.home .hero-meta span + span::before {
+    width: 16px;
   }
 
   body.home .approach-step {
@@ -1778,6 +1917,14 @@ body.home .fp-copyright {
 
   body.home .reel-video {
     display: none;
+  }
+
+  body.home .hero-kicker,
+  body.home .hero-tagline,
+  body.home .hero-lead,
+  body.home .hero-meta {
+    opacity: 1;
+    transform: none;
   }
 
   body.home .reel-media {

@@ -10,6 +10,11 @@
                 <h2 class="hero-tagline">見つけた課題を、<br>伝わる体験と、動く仕組みに。</h2>
                 <p class="hero-lead">SEKAILABO' は、現場の声とデータをもとに、ブランド表現・顧客体験・業務システムへ変換するチームです。企画から制作、実装、運用までを横断して伴走します。</p>
             </div>
+            <div class="hero-meta" aria-hidden="true">
+                <span>FIELD</span>
+                <span>DATA</span>
+                <span>SYSTEM</span>
+            </div>
             <div class="hero-scroll">
                 <span class="scroll-line"></span>
                 <span class="scroll-text">SCROLL</span>
@@ -76,7 +81,7 @@
                 </div>
                 <div class="about-layout" data-reveal data-reveal-delay="100">
                     <div class="about-text">
-                        <h2 class="about-headline">現場を見て、<br>データでほどき、<br>表現と仕組みに変える。</h2>
+                        <h2 class="about-headline">現場を見て、<br>データでほどき、<br>表現と仕組みに<br class="about-headline-break">変える。</h2>
                         <p class="about-lead">私たちの価値は、机上の企画だけで終わらせないこと。実際の現場で起きていることを観察し、声や行動をデータで理解し、伝わる表現と動き続けるシステムへ落とし込みます。</p>
                         <span class="about-rule"></span>
                         <p class="about-sub">グループで運営する MOGS も、飲食・ホスピタリティの現場感覚に触れ続ける代表的なプロジェクトのひとつです。そこで得た問いを、ブランドづくりや顧客体験、業務改善の設計へ自然につなげています。</p>
