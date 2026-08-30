@@ -153,8 +153,8 @@
   let draftId = localStorage.getItem(`${key}-draft-id`) || '';
   let sessionId = requestedSessionId && /^[a-zA-Z0-9-]{20,80}$/.test(requestedSessionId) ? requestedSessionId : localStorage.getItem(sessionKey);
   if (!sessionId) { sessionId = crypto.randomUUID ? crypto.randomUUID() : `${Date.now()}-${Math.random().toString(36).slice(2)}`; localStorage.setItem(sessionKey, sessionId); }
-  let clientId = localStorage.getItem(clientKey);
-  if (!clientId) { clientId = crypto.randomUUID ? crypto.randomUUID() : `${Date.now()}-${Math.random().toString(36).slice(2)}`; localStorage.setItem(clientKey, clientId); }
+  let clientId = sessionStorage.getItem(clientKey);
+  if (!clientId) { clientId = crypto.randomUUID ? crypto.randomUUID() : `${Date.now()}-${Math.random().toString(36).slice(2)}`; sessionStorage.setItem(clientKey, clientId); }
   let firebaseRef = null;
   let applyingRemoteUpdate = false;
   const getValues = () => { const data = new FormData(form); const values = {}; for (const [name, value] of data.entries()) { if (!['action', 'toraji_hearing_nonce', 'website'].includes(name)) { (values[name] ||= []).push(value); } } return values; };
