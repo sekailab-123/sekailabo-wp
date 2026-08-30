@@ -385,6 +385,80 @@ add_action('admin_post_toraji_kyushu_hearing_submit', 'sekailabo_handle_toraji_k
 add_action('admin_post_nopriv_toraji_kyushu_hearing_submit', 'sekailabo_handle_toraji_kyushu_hearing_submit');
 
 /**
+ * Keep in-progress hearing sheets in WordPress so the site owner can confirm
+ * progress before the respondent presses the final send button.
+ */
+function sekailabo_register_toraji_hearing_drafts()
+{
+    register_post_type('toraji_hearing_draft', array(
+        'labels' => array(
+            'name' => 'トラジヒアリング下書き',
+            'singular_name' => 'トラジヒアリング下書き',
+            'menu_name' => 'トラジ下書き',
+        ),
+        'public' => false,
+        'show_ui' => true,
+        'show_in_menu' => true,
+        'supports' => array('title', 'editor'),
+        'capability_type' => 'post',
+        'map_meta_cap' => true,
+    ));
+}
+add_action('init', 'sekailabo_register_toraji_hearing_drafts');
+
+function sekailabo_handle_toraji_hearing_autosave()
+{
+    $nonce = isset($_POST['nonce']) ? sanitize_text_field(wp_unslash($_POST['nonce'])) : '';
+    $session_id = isset($_POST['session_id']) ? sanitize_text_field(wp_unslash($_POST['session_id'])) : '';
+    $raw_data = isset($_POST['data']) ? wp_unslash($_POST['data']) : '';
+
+    if (!wp_verify_nonce($nonce, 'toraji_hearing_autosave') || !preg_match('/^[a-zA-Z0-9-]{20,80}$/', $session_id)) {
+        wp_send_json_error(array('message' => 'Invalid request.'), 400);
+    }
+
+    $data = json_decode($raw_data, true);
+    if (!is_array($data)) {
+        wp_send_json_error(array('message' => 'Invalid data.'), 400);
+    }
+
+    $data = map_deep($data, 'sanitize_textarea_field');
+    $content = wp_json_encode($data, JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT);
+    if ($content === false || strlen($content) > 100000) {
+        wp_send_json_error(array('message' => 'Data is too large.'), 400);
+    }
+
+    $post_id = isset($_POST['draft_id']) ? absint($_POST['draft_id']) : 0;
+    $post = $post_id ? get_post($post_id) : null;
+    $post_args = array(
+        'post_type' => 'toraji_hearing_draft',
+        'post_status' => 'draft',
+        'post_title' => '自動保存 ' . current_time('Y-m-d H:i:s'),
+        'post_content' => $content,
+    );
+
+    if ($post && $post->post_type === 'toraji_hearing_draft' && hash_equals((string) get_post_meta($post_id, '_toraji_session_id', true), $session_id)) {
+        $post_args['ID'] = $post_id;
+        $result = wp_update_post($post_args, true);
+    } else {
+        $result = wp_insert_post($post_args, true);
+        if (!is_wp_error($result)) {
+            update_post_meta($result, '_toraji_session_id', $session_id);
+        }
+    }
+
+    if (is_wp_error($result)) {
+        wp_send_json_error(array('message' => 'Could not save draft.'), 500);
+    }
+
+    wp_send_json_success(array(
+        'draft_id' => (string) $result,
+        'saved_at' => current_time('H:i'),
+    ));
+}
+add_action('wp_ajax_toraji_hearing_autosave', 'sekailabo_handle_toraji_hearing_autosave');
+add_action('wp_ajax_nopriv_toraji_hearing_autosave', 'sekailabo_handle_toraji_hearing_autosave');
+
+/**
  * Serve the hearing sheet at a stable URL without requiring a WordPress page
  * to be created in the production database.
  */

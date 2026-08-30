@@ -4,13 +4,21 @@
  * Template Post Type: page
  */
 
-get_header();
-?>
+?><!doctype html>
+<html <?php language_attributes(); ?>>
+<head>
+  <meta charset="<?php bloginfo('charset'); ?>">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>トラジ 九州新店舗｜初回採用ヒアリングシート</title>
+  <?php wp_head(); ?>
+</head>
+<body <?php body_class('toraji-hearing-page'); ?>>
+<?php wp_body_open(); ?>
 <style>
   :root { --toraji-ink:#202020; --toraji-muted:#68645f; --toraji-line:#dcd7d0; --toraji-paper:#fffdf9; --toraji-accent:#8a2e20; --toraji-soft:#f7f1ea; }
-  body { background:#eee9e2; }
-  .toraji-sheet { max-width:980px; margin:28px auto 56px; padding:46px 54px 64px; background:var(--toraji-paper); box-shadow:0 2px 20px #00000012; color:var(--toraji-ink); font-family:-apple-system,BlinkMacSystemFont,"Hiragino Sans","Yu Gothic",Meiryo,sans-serif; line-height:1.65; }
-  .toraji-sheet * { box-sizing:border-box; }
+  body.toraji-hearing-page { margin:0; background:#eee9e2; }
+  .toraji-sheet { max-width:980px; margin:28px auto 56px; padding:46px 54px 64px; background:var(--toraji-paper); box-shadow:0 2px 20px #00000012; color:var(--toraji-ink); font-family:-apple-system,BlinkMacSystemFont,"Hiragino Sans","Yu Gothic",Meiryo,sans-serif; line-height:1.65; text-align:left!important; }
+  .toraji-sheet, .toraji-sheet * { box-sizing:border-box; text-align:left!important; }
   .toraji-sheet__header { border-bottom:3px solid var(--toraji-accent); padding-bottom:20px; margin-bottom:24px; }
   .toraji-sheet__eyebrow { color:var(--toraji-accent); font-size:12px; letter-spacing:.12em; font-weight:800; }
   .toraji-sheet h1 { margin:5px 0 7px; font-size:30px; line-height:1.45; letter-spacing:.03em; }
@@ -53,11 +61,7 @@ get_header();
   @media print { body { background:#fff; } .toraji-sheet { box-shadow:none; margin:0; max-width:none; padding:12mm; } .toraji-submit { display:none; } .toraji-question,.toraji-fact { break-inside:avoid; } }
 </style>
 <main class="toraji-sheet" id="toraji-hearing">
-  <header class="toraji-sheet__header">
-    <div class="toraji-sheet__eyebrow">RECRUITMENT FIRST MEETING</div>
-    <h1>トラジ 九州新店舗｜初回採用ヒアリングシート</h1>
-    <p class="toraji-sheet__lead">来年オープン予定の九州新店舗にむけた、採用サイト制作の初回打ち合わせ用シートです（目安：45〜60分）。</p>
-  </header>
+
   <?php if (isset($_GET['toraji_sent'])) : ?>
     <p class="toraji-success" role="status">送信しました。内容はサイト管理者へメールで共有されています。</p>
   <?php elseif (isset($_GET['toraji_error'])) : ?>
@@ -67,6 +71,7 @@ get_header();
   <form method="post" action="<?php echo esc_url(admin_url('admin-post.php')); ?>">
     <input type="hidden" name="action" value="toraji_kyushu_hearing_submit">
     <?php wp_nonce_field('toraji_kyushu_hearing_submit', 'toraji_hearing_nonce'); ?>
+    <input type="hidden" id="toraji-autosave-nonce" value="<?php echo esc_attr(wp_create_nonce('toraji_hearing_autosave')); ?>">
     <p class="toraji-honeypot"><label>この欄は空欄のままにしてください <input type="text" name="website" autocomplete="off" tabindex="-1"></label></p>
 
     <section class="toraji-sheet__section">
@@ -127,19 +132,28 @@ get_header();
     </section>
     <div class="toraji-submit"><span class="toraji-status" id="toraji-save-status" aria-live="polite"></span><button type="button" class="toraji-print">印刷・PDF保存</button><button type="submit">内容を送信</button></div>
   </form>
-  <footer>※入力内容はこの端末に自動保存されます。「内容を送信」を押すと、サイト管理者にもメールで送信されます。</footer>
+  <footer>※入力内容はこの端末とサーバーに自動保存されます。「内容を送信」を押すと、サイト管理者にもメールで送信されます。</footer>
 </main>
 <script>
 (() => {
   const key = 'toraji-kyushu-newstore-intake-v3';
+  const sessionKey = `${key}-session`;
   const form = document.querySelector('#toraji-hearing form');
   const status = document.getElementById('toraji-save-status');
   const fields = [...form.querySelectorAll('input:not([type="hidden"]):not([name="website"]), textarea')];
-  const save = () => { const data = new FormData(form); const values = {}; for (const [key, value] of data.entries()) { if (key !== 'toraji_hearing_nonce') { (values[key] ||= []).push(value); } } localStorage.setItem(key, JSON.stringify(values)); status.textContent = 'この端末に保存しました'; setTimeout(() => status.textContent = '', 1800); };
+  let autosaveTimer;
+  let draftId = localStorage.getItem(`${key}-draft-id`) || '';
+  let sessionId = localStorage.getItem(sessionKey);
+  if (!sessionId) { sessionId = crypto.randomUUID ? crypto.randomUUID() : `${Date.now()}-${Math.random().toString(36).slice(2)}`; localStorage.setItem(sessionKey, sessionId); }
+  const getValues = () => { const data = new FormData(form); const values = {}; for (const [name, value] of data.entries()) { if (!['action', 'toraji_hearing_nonce', 'website'].includes(name)) { (values[name] ||= []).push(value); } } return values; };
+  const saveServer = async (values) => { try { const body = new URLSearchParams({ action: 'toraji_hearing_autosave', nonce: document.getElementById('toraji-autosave-nonce').value, session_id: sessionId, draft_id: draftId, data: JSON.stringify(values) }); const response = await fetch('<?php echo esc_url(admin_url('admin-ajax.php')); ?>', { method: 'POST', headers: { 'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8' }, body }); const result = await response.json(); if (!result.success) throw new Error(); draftId = result.data.draft_id; localStorage.setItem(`${key}-draft-id`, draftId); status.textContent = 'この端末・サーバーに自動保存しました'; } catch (error) { status.textContent = 'この端末に保存しました（サーバー保存を再試行します）'; } };
+  const save = () => { const values = getValues(); localStorage.setItem(key, JSON.stringify(values)); status.textContent = '保存中…'; clearTimeout(autosaveTimer); autosaveTimer = setTimeout(() => saveServer(values), 900); };
   try { const values = JSON.parse(localStorage.getItem(key) || '{}'); fields.forEach(field => { const saved = values[field.name] || []; if (field.type === 'checkbox' || field.type === 'radio') field.checked = saved.includes(field.value); else if (saved[0] !== undefined) field.value = saved[0]; }); } catch (e) {}
   fields.forEach(field => { field.addEventListener('input', save); field.addEventListener('change', save); });
-  form.addEventListener('submit', () => localStorage.removeItem(key));
+  form.addEventListener('submit', () => { localStorage.removeItem(key); localStorage.removeItem(`${key}-draft-id`); });
   document.querySelector('.toraji-print').addEventListener('click', () => window.print());
 })();
 </script>
-<?php get_footer(); ?>
+<?php wp_footer(); ?>
+</body>
+</html>
