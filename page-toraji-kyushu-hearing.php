@@ -75,9 +75,7 @@
     <p class="toraji-success" role="alert">送信できませんでした。時間をおいて再度お試しください。</p>
   <?php endif; ?>
   <aside class="toraji-sheet__guide"><strong>今回のゴール：</strong>「新店舗がいつ・どこに・どんな体制でオープンするか」と「サイトの対象範囲」を確定します。初回では原稿表現より、スコープ・スケジュール・優先職種・素材の有無を押さえてください。</aside>
-  <form method="post" action="<?php echo esc_url(admin_url('admin-post.php')); ?>">
-    <input type="hidden" name="action" value="toraji_kyushu_hearing_submit">
-    <?php wp_nonce_field('toraji_kyushu_hearing_submit', 'toraji_hearing_nonce'); ?>
+  <form>
     <input type="hidden" id="toraji-autosave-nonce" value="<?php echo esc_attr(wp_create_nonce('toraji_hearing_autosave')); ?>">
     <p class="toraji-honeypot"><label>この欄は空欄のままにしてください <input type="text" name="website" autocomplete="off" tabindex="-1"></label></p>
 
@@ -132,14 +130,9 @@
       <div class="toraji-question"><p class="toraji-question__title">応募窓口はどうしますか？</p><input type="text" name="application_channel" placeholder="電話／LINE／フォーム、東京本社か九州窓口か"></div>
     </section>
 
-    <section class="toraji-decision">
-      <h2>打ち合わせ終了時の決定事項</h2><div class="toraji-table-wrap"><table><thead><tr><th>決めること</th><th>決定内容</th><th>担当</th><th>期限</th></tr></thead><tbody>
-      <?php foreach (array('サイトのスコープ（A/B/C）','サイト制作の納期（公開希望日）','その納期の位置づけ（ティザー／先行エントリー／本番）','募集職種・人数・優先ポジション','オープンまでの逆算スケジュール（募集→採用→研修→OPEN）','撮影・素材の準備（天神店の代用可否含む）','予算・決裁ルート・次回打ち合わせ') as $index => $decision) : ?><tr><td><?php echo esc_html($decision); ?></td><td><input type="text" name="decisions[<?php echo $index; ?>][content]"></td><td><input type="text" name="decisions[<?php echo $index; ?>][owner]"></td><td><input type="text" name="decisions[<?php echo $index; ?>][due]"></td></tr><?php endforeach; ?>
-      </tbody></table></div>
-    </section>
-    <div class="toraji-submit"><span class="toraji-status" id="toraji-save-status" aria-live="polite"></span><button type="button" class="toraji-secondary toraji-watch-link">確認用URLをコピー</button><button type="submit">内容を送信</button></div>
+    <div class="toraji-submit"><span class="toraji-status" id="toraji-save-status" aria-live="polite"></span><button type="button" class="toraji-secondary toraji-watch-link">確認用URLをコピー</button></div>
   </form>
-  <footer>※入力内容はこの端末とサーバーに自動保存されます。「内容を送信」を押すと、サイト管理者にもメールで送信されます。</footer>
+  <footer>※入力内容はこの端末・サーバー・Firebaseへ自動保存され、確認用URLを開いた画面にもリアルタイムで反映されます。</footer>
 </main>
 <script>
 (() => {
@@ -168,7 +161,7 @@
   const save = () => { if (applyingRemoteUpdate || isWatchMode) return; const values = getValues(); localStorage.setItem(key, JSON.stringify(values)); status.textContent = '保存中…'; clearTimeout(autosaveTimer); autosaveTimer = setTimeout(() => { saveServer(values); syncFirebase(values); }, 900); };
   if (!isWatchMode) { try { const values = JSON.parse(localStorage.getItem(key) || '{}'); applyValues(values); } catch (e) {} }
   fields.forEach(field => { field.addEventListener('input', save); field.addEventListener('change', save); });
-  form.addEventListener('submit', () => { localStorage.removeItem(key); localStorage.removeItem(`${key}-draft-id`); });
+  form.addEventListener('submit', event => event.preventDefault());
 
   document.querySelector('.toraji-watch-link').addEventListener('click', async () => { const url = `${location.origin}${location.pathname}?session=${encodeURIComponent(sessionId)}&mode=watch`; try { await navigator.clipboard.writeText(url); status.textContent = '確認用URLをコピーしました'; } catch (error) { prompt('確認用URLをコピーしてください', url); } });
   initFirebase();
