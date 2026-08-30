@@ -11,6 +11,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>トラジ 九州新店舗｜初回採用ヒアリングシート</title>
   <?php wp_head(); ?>
+  <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-database-compat.js"></script>
 </head>
 <body <?php body_class('toraji-hearing-page'); ?>>
 <?php wp_body_open(); ?>
@@ -53,6 +56,7 @@
   .toraji-sheet td input { min-width:110px; }
   .toraji-submit { display:flex; justify-content:flex-end; gap:12px; align-items:center; margin-top:28px; }
   .toraji-submit button { appearance:none; border:0; background:var(--toraji-accent); color:#fff; border-radius:5px; padding:11px 18px; font:inherit; font-weight:700; cursor:pointer; }
+  .toraji-submit button.toraji-secondary { background:#625e59; }
   .toraji-status { color:#326b42; font-size:13px; margin-right:auto; }
   .toraji-success { margin:0 0 20px; padding:12px 15px; background:#edf7ef; border-left:4px solid #326b42; color:#245534; }
   .toraji-honeypot { position:absolute!important; width:1px!important; height:1px!important; overflow:hidden!important; clip:rect(1px,1px,1px,1px)!important; white-space:nowrap!important; }
@@ -130,7 +134,7 @@
       <?php foreach (array('サイトのスコープ（A/B/C）','サイト制作の納期（公開希望日）','その納期の位置づけ（ティザー／先行エントリー／本番）','募集職種・人数・優先ポジション','オープンまでの逆算スケジュール（募集→採用→研修→OPEN）','撮影・素材の準備（天神店の代用可否含む）','予算・決裁ルート・次回打ち合わせ') as $index => $decision) : ?><tr><td><?php echo esc_html($decision); ?></td><td><input type="text" name="decisions[<?php echo $index; ?>][content]"></td><td><input type="text" name="decisions[<?php echo $index; ?>][owner]"></td><td><input type="text" name="decisions[<?php echo $index; ?>][due]"></td></tr><?php endforeach; ?>
       </tbody></table></div>
     </section>
-    <div class="toraji-submit"><span class="toraji-status" id="toraji-save-status" aria-live="polite"></span><button type="button" class="toraji-print">印刷・PDF保存</button><button type="submit">内容を送信</button></div>
+    <div class="toraji-submit"><span class="toraji-status" id="toraji-save-status" aria-live="polite"></span><button type="button" class="toraji-secondary toraji-watch-link">確認用URLをコピー</button><button type="button" class="toraji-secondary toraji-print">印刷・PDF保存</button><button type="submit">内容を送信</button></div>
   </form>
   <footer>※入力内容はこの端末とサーバーに自動保存されます。「内容を送信」を押すと、サイト管理者にもメールで送信されます。</footer>
 </main>
@@ -138,20 +142,33 @@
 (() => {
   const key = 'toraji-kyushu-newstore-intake-v3';
   const sessionKey = `${key}-session`;
+  const clientKey = `${key}-client`;
+  const params = new URLSearchParams(location.search);
+  const requestedSessionId = params.get('session');
+  const isWatchMode = params.get('mode') === 'watch';
   const form = document.querySelector('#toraji-hearing form');
   const status = document.getElementById('toraji-save-status');
   const fields = [...form.querySelectorAll('input:not([type="hidden"]):not([name="website"]), textarea')];
   let autosaveTimer;
   let draftId = localStorage.getItem(`${key}-draft-id`) || '';
-  let sessionId = localStorage.getItem(sessionKey);
+  let sessionId = requestedSessionId && /^[a-zA-Z0-9-]{20,80}$/.test(requestedSessionId) ? requestedSessionId : localStorage.getItem(sessionKey);
   if (!sessionId) { sessionId = crypto.randomUUID ? crypto.randomUUID() : `${Date.now()}-${Math.random().toString(36).slice(2)}`; localStorage.setItem(sessionKey, sessionId); }
+  let clientId = localStorage.getItem(clientKey);
+  if (!clientId) { clientId = crypto.randomUUID ? crypto.randomUUID() : `${Date.now()}-${Math.random().toString(36).slice(2)}`; localStorage.setItem(clientKey, clientId); }
+  let firebaseRef = null;
+  let applyingRemoteUpdate = false;
   const getValues = () => { const data = new FormData(form); const values = {}; for (const [name, value] of data.entries()) { if (!['action', 'toraji_hearing_nonce', 'website'].includes(name)) { (values[name] ||= []).push(value); } } return values; };
+  const applyValues = (values) => { applyingRemoteUpdate = true; fields.forEach(field => { const saved = values[field.name] || []; if (field.type === 'checkbox' || field.type === 'radio') field.checked = saved.includes(field.value); else if (saved[0] !== undefined) field.value = saved[0]; }); applyingRemoteUpdate = false; };
+  const syncFirebase = async (values) => { if (!firebaseRef || applyingRemoteUpdate || isWatchMode) return; try { await firebaseRef.set({ values, updatedAt: firebase.database.ServerValue.TIMESTAMP, updatedBy: clientId }); status.textContent = 'この端末・Firebaseに自動保存しました'; } catch (error) { console.error('[Firebase] sync failed:', error); status.textContent = 'この端末に保存しました（Firebase同期を再試行します）'; } };
+  const initFirebase = async () => { const firebaseConfig = { apiKey: 'AIzaSyBD7gqJMZpeZq-ahKhn5n1dr6N0RMlnrmc', authDomain: 'sekailabo-form.firebaseapp.com', databaseURL: 'https://sekailabo-form-default-rtdb.asia-southeast1.firebasedatabase.app', projectId: 'sekailabo-form', storageBucket: 'sekailabo-form.firebasestorage.app', messagingSenderId: '827946492025', appId: '1:827946492025:web:214529988fd27e4be1f4a8' }; try { if (!firebase.apps.length) firebase.initializeApp(firebaseConfig); await firebase.auth().signInAnonymously(); firebaseRef = firebase.database().ref(`forms/toraji-kyushu/${sessionId}`); const initial = await firebaseRef.once('value'); if (initial.exists() && initial.val().values) applyValues(initial.val().values); firebaseRef.on('value', snapshot => { const data = snapshot.val(); if (!data || !data.values || data.updatedBy === clientId) return; applyValues(data.values); status.textContent = 'Firebaseから更新を反映しました'; }); if (isWatchMode) { fields.forEach(field => field.disabled = true); document.querySelector('.toraji-watch-link').style.display = 'none'; document.querySelector('.toraji-submit button[type="submit"]').style.display = 'none'; status.textContent = 'リアルタイム確認中'; } else if (!initial.exists()) { syncFirebase(getValues()); } } catch (error) { console.error('[Firebase] initialization failed:', error); status.textContent = 'この端末・サーバーに保存中（Firebase接続を確認中）'; } };
   const saveServer = async (values) => { try { const body = new URLSearchParams({ action: 'toraji_hearing_autosave', nonce: document.getElementById('toraji-autosave-nonce').value, session_id: sessionId, draft_id: draftId, data: JSON.stringify(values) }); const response = await fetch('<?php echo esc_url(admin_url('admin-ajax.php')); ?>', { method: 'POST', headers: { 'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8' }, body }); const result = await response.json(); if (!result.success) throw new Error(); draftId = result.data.draft_id; localStorage.setItem(`${key}-draft-id`, draftId); status.textContent = 'この端末・サーバーに自動保存しました'; } catch (error) { status.textContent = 'この端末に保存しました（サーバー保存を再試行します）'; } };
-  const save = () => { const values = getValues(); localStorage.setItem(key, JSON.stringify(values)); status.textContent = '保存中…'; clearTimeout(autosaveTimer); autosaveTimer = setTimeout(() => saveServer(values), 900); };
-  try { const values = JSON.parse(localStorage.getItem(key) || '{}'); fields.forEach(field => { const saved = values[field.name] || []; if (field.type === 'checkbox' || field.type === 'radio') field.checked = saved.includes(field.value); else if (saved[0] !== undefined) field.value = saved[0]; }); } catch (e) {}
+  const save = () => { if (applyingRemoteUpdate || isWatchMode) return; const values = getValues(); localStorage.setItem(key, JSON.stringify(values)); status.textContent = '保存中…'; clearTimeout(autosaveTimer); autosaveTimer = setTimeout(() => { saveServer(values); syncFirebase(values); }, 900); };
+  if (!isWatchMode) { try { const values = JSON.parse(localStorage.getItem(key) || '{}'); applyValues(values); } catch (e) {} }
   fields.forEach(field => { field.addEventListener('input', save); field.addEventListener('change', save); });
   form.addEventListener('submit', () => { localStorage.removeItem(key); localStorage.removeItem(`${key}-draft-id`); });
   document.querySelector('.toraji-print').addEventListener('click', () => window.print());
+  document.querySelector('.toraji-watch-link').addEventListener('click', async () => { const url = `${location.origin}${location.pathname}?session=${encodeURIComponent(sessionId)}&mode=watch`; try { await navigator.clipboard.writeText(url); status.textContent = '確認用URLをコピーしました'; } catch (error) { prompt('確認用URLをコピーしてください', url); } });
+  initFirebase();
 })();
 </script>
 <?php wp_footer(); ?>
