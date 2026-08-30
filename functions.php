@@ -281,4 +281,128 @@ add_action('publish_shops', 'add_defaultcategory_automatically2'); //★publish_
 
 //アイキャッチ画像
 add_theme_support('post-thumbnails');
+
+/**
+ * Send the Toraji Kyushu new-store hearing sheet to the WordPress site administrator.
+ * The destination is configured in WordPress: Settings > General > Administration Email Address.
+ */
+function sekailabo_handle_toraji_kyushu_hearing_submit()
+{
+    $redirect_url = wp_get_referer() ?: home_url('/');
+    $redirect_url = remove_query_arg(array('toraji_sent', 'toraji_error'), $redirect_url);
+
+    if (
+        !isset($_POST['toraji_hearing_nonce'])
+        || !wp_verify_nonce(sanitize_text_field(wp_unslash($_POST['toraji_hearing_nonce'])), 'toraji_kyushu_hearing_submit')
+        || !empty($_POST['website'])
+    ) {
+        wp_safe_redirect(add_query_arg('toraji_error', '1', $redirect_url) . '#toraji-hearing');
+        exit;
+    }
+
+    $labels = array(
+        'fact_opening' => '九州新店舗オープン予定',
+        'fact_target' => 'サイトの主対象',
+        'fact_release' => '10月公開意向',
+        'fact_notes' => '相違点・補足',
+        'store_location' => '店舗名・所在地（エリア）',
+        'opening_date' => 'オープン予定日',
+        'opening_confidence' => 'オープン予定日の確度',
+        'opening_background' => '出店の背景',
+        'site_deadline' => 'サイト公開希望日',
+        'scope' => 'サイトの対象範囲',
+        'site_relationship' => '既存店・公式リクルートサイトとの関係',
+        'regional_difference' => '既存店舗と打ち出しを変えたい点',
+        'positions' => '募集職種・予定人数',
+        'priority_position' => '優先採用ポジション',
+        'fulltime_needed' => '正社員・店長候補などの募集',
+        'fulltime_details' => '正社員・店長候補などの人数・時期',
+        'personas' => '採用したい人物像',
+        'persona_notes' => '人物像の補足',
+        'benefits' => '共通で出せる待遇・条件',
+        'salary_range' => '給与水準の目安',
+        'tenjin_assets' => '天神店の資産で活かせる点',
+        'brand_message' => '新店舗で伝えたいトラジらしさ',
+        'competitive_difference' => '競合と比べた違い',
+        'photo_plan' => '撮影・写真利用の予定',
+        'application_channel' => '応募窓口',
+        'decisions' => '打ち合わせ終了時の決定事項',
+    );
+
+    $fields = array();
+    foreach ($labels as $key => $label) {
+        if (!isset($_POST[$key]) || $_POST[$key] === '') {
+            continue;
+        }
+
+        $value = wp_unslash($_POST[$key]);
+        if (is_array($value)) {
+            if ($key === 'decisions') {
+                $decision_labels = array(
+                    'サイトのスコープ（A/B/C）',
+                    'サイト制作の納期（公開希望日）',
+                    'その納期の位置づけ（ティザー／先行エントリー／本番）',
+                    '募集職種・人数・優先ポジション',
+                    'オープンまでの逆算スケジュール（募集→採用→研修→OPEN）',
+                    '撮影・素材の準備（天神店の代用可否含む）',
+                    '予算・決裁ルート・次回打ち合わせ',
+                );
+                $rows = array();
+                foreach ($value as $index => $decision) {
+                    $content = isset($decision['content']) ? sanitize_text_field($decision['content']) : '';
+                    $owner = isset($decision['owner']) ? sanitize_text_field($decision['owner']) : '';
+                    $due = isset($decision['due']) ? sanitize_text_field($decision['due']) : '';
+                    if ($content !== '' || $owner !== '' || $due !== '') {
+                        $rows[] = ($decision_labels[$index] ?? '決定事項') . "\n決定内容: {$content}\n担当: {$owner}\n期限: {$due}";
+                    }
+                }
+                $clean_value = implode("\n\n", $rows);
+            } else {
+                $clean_value = implode('、', array_map('sanitize_text_field', $value));
+            }
+        } else {
+            $clean_value = sanitize_textarea_field($value);
+        }
+
+        if ($clean_value !== '') {
+            $fields[] = "■ {$label}\n{$clean_value}";
+        }
+    }
+
+    if (empty($fields)) {
+        wp_safe_redirect(add_query_arg('toraji_error', '1', $redirect_url) . '#toraji-hearing');
+        exit;
+    }
+
+    $subject = '【トラジ 九州新店舗】初回採用ヒアリングシート';
+    $message = "トラジ 九州新店舗｜初回採用ヒアリングシートが送信されました。\n\n" . implode("\n\n", $fields);
+    $sent = wp_mail(get_option('admin_email'), $subject, $message, array('Content-Type: text/plain; charset=UTF-8'));
+
+    wp_safe_redirect(add_query_arg($sent ? 'toraji_sent' : 'toraji_error', '1', $redirect_url) . '#toraji-hearing');
+    exit;
+}
+add_action('admin_post_toraji_kyushu_hearing_submit', 'sekailabo_handle_toraji_kyushu_hearing_submit');
+add_action('admin_post_nopriv_toraji_kyushu_hearing_submit', 'sekailabo_handle_toraji_kyushu_hearing_submit');
+
+/**
+ * Serve the hearing sheet at a stable URL without requiring a WordPress page
+ * to be created in the production database.
+ */
+function sekailabo_toraji_kyushu_hearing_template($template)
+{
+    $request_path = trim((string) parse_url($_SERVER['REQUEST_URI'] ?? '/', PHP_URL_PATH), '/');
+
+    if ($request_path !== 'toraji-kyushu-hearing') {
+        return $template;
+    }
+
+    global $wp_query;
+    if ($wp_query) {
+        $wp_query->is_404 = false;
+    }
+    status_header(200);
+
+    return get_template_directory() . '/page-toraji-kyushu-hearing.php';
+}
+add_filter('template_include', 'sekailabo_toraji_kyushu_hearing_template');
 ?>
