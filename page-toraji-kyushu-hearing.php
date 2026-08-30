@@ -65,7 +65,10 @@
   @media print { body { background:#fff; } .toraji-sheet { box-shadow:none; margin:0; max-width:none; padding:12mm; } .toraji-submit { display:none; } .toraji-question,.toraji-fact { break-inside:avoid; } }
 </style>
 <main class="toraji-sheet" id="toraji-hearing">
-
+  <header class="toraji-sheet__header">
+    <h1>トラジ様｜求人初回ヒアリングシート</h1>
+    <p class="toraji-sheet__lead">九州新店舗の採用サイト制作に向けた初回ヒアリングです。</p>
+  </header>
   <?php if (isset($_GET['toraji_sent'])) : ?>
     <p class="toraji-success" role="status">送信しました。内容はサイト管理者へメールで共有されています。</p>
   <?php elseif (isset($_GET['toraji_error'])) : ?>
@@ -134,7 +137,7 @@
       <?php foreach (array('サイトのスコープ（A/B/C）','サイト制作の納期（公開希望日）','その納期の位置づけ（ティザー／先行エントリー／本番）','募集職種・人数・優先ポジション','オープンまでの逆算スケジュール（募集→採用→研修→OPEN）','撮影・素材の準備（天神店の代用可否含む）','予算・決裁ルート・次回打ち合わせ') as $index => $decision) : ?><tr><td><?php echo esc_html($decision); ?></td><td><input type="text" name="decisions[<?php echo $index; ?>][content]"></td><td><input type="text" name="decisions[<?php echo $index; ?>][owner]"></td><td><input type="text" name="decisions[<?php echo $index; ?>][due]"></td></tr><?php endforeach; ?>
       </tbody></table></div>
     </section>
-    <div class="toraji-submit"><span class="toraji-status" id="toraji-save-status" aria-live="polite"></span><button type="button" class="toraji-secondary toraji-watch-link">確認用URLをコピー</button><button type="button" class="toraji-secondary toraji-print">印刷・PDF保存</button><button type="submit">内容を送信</button></div>
+    <div class="toraji-submit"><span class="toraji-status" id="toraji-save-status" aria-live="polite"></span><button type="button" class="toraji-secondary toraji-watch-link">確認用URLをコピー</button><button type="submit">内容を送信</button></div>
   </form>
   <footer>※入力内容はこの端末とサーバーに自動保存されます。「内容を送信」を押すと、サイト管理者にもメールで送信されます。</footer>
 </main>
@@ -166,7 +169,7 @@
   if (!isWatchMode) { try { const values = JSON.parse(localStorage.getItem(key) || '{}'); applyValues(values); } catch (e) {} }
   fields.forEach(field => { field.addEventListener('input', save); field.addEventListener('change', save); });
   form.addEventListener('submit', () => { localStorage.removeItem(key); localStorage.removeItem(`${key}-draft-id`); });
-  document.querySelector('.toraji-print').addEventListener('click', () => window.print());
+
   document.querySelector('.toraji-watch-link').addEventListener('click', async () => { const url = `${location.origin}${location.pathname}?session=${encodeURIComponent(sessionId)}&mode=watch`; try { await navigator.clipboard.writeText(url); status.textContent = '確認用URLをコピーしました'; } catch (error) { prompt('確認用URLをコピーしてください', url); } });
   initFirebase();
 })();
