@@ -1,7 +1,7 @@
 <?php get_header(); ?>
 
 <body <?php body_class(); ?> data-rsssl="1">
-    <div class="animsition sl-home">
+    <div class="sl-home">
         <header class="sl-site-header">
             <a class="sl-logo-plate" href="<?php echo esc_url(home_url('/')); ?>" aria-label="SEKAILABO' トップページ">
                 <img src="<?php echo esc_url(get_template_directory_uri()); ?>/img/SEKAILABO%27.png" alt="SEKAILABO'">

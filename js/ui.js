@@ -314,6 +314,7 @@
 			if (reduceMotion || !('IntersectionObserver' in window)) {
 				revealItems.forEach(reveal);
 			} else {
+				home.classList.add('sl-motion-ready');
 				var revealObserver = new IntersectionObserver(function(entries) {
 					entries.forEach(function(entry) {
 						if (entry.isIntersecting) {
@@ -322,7 +323,13 @@
 						}
 					});
 				}, { threshold: 0.12, rootMargin: '0px 0px -24px 0px' });
-				revealItems.forEach(function(item) { revealObserver.observe(item); });
+				revealItems.forEach(function(item) {
+					revealObserver.observe(item);
+					var rect = item.getBoundingClientRect();
+					if (rect.top < window.innerHeight && rect.bottom > 0) {
+						reveal(item);
+					}
+				});
 			}
 
 			var mobileNav = home.querySelector('.sl-mobile-nav');
