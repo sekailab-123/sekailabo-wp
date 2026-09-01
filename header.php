@@ -111,7 +111,7 @@
     <?php if ( is_front_page() ) : ?>
     <link
       rel="stylesheet"
-      href="<?php echo get_template_directory_uri(); ?>/css/front-page.css"
+      href="<?php echo esc_url(get_template_directory_uri() . '/css/front-page.css?ver=' . filemtime(get_template_directory() . '/css/front-page.css')); ?>"
     />
     <?php endif; ?>
 
