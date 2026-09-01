@@ -1,285 +1,178 @@
 <?php get_header(); ?>
 
-<body <?php body_class(); ?> data-rsssl=1>
-    <div class="animsition">
+<body <?php body_class(); ?> data-rsssl="1">
+    <div class="animsition sl-home">
+        <header class="sl-site-header">
+            <a class="sl-logo-plate" href="<?php echo esc_url(home_url('/')); ?>" aria-label="SEKAILABO' トップページ">
+                <img src="<?php echo esc_url(get_template_directory_uri()); ?>/img/SEKAILABO%27.png" alt="SEKAILABO'">
+            </a>
+            <nav class="sl-nav" aria-label="メインナビゲーション">
+                <a href="#connect">CONNECT</a>
+                <a href="#method">METHOD</a>
+                <a href="#services">SERVICES</a>
+                <a href="#journal">JOURNAL</a>
+                <a class="sl-nav-contact" href="<?php echo esc_url(home_url('/contact/')); ?>">CONTACT <span aria-hidden="true">↗</span></a>
+            </nav>
+            <details class="sl-mobile-nav">
+                <summary><span>MENU</span><span class="sl-menu-mark" aria-hidden="true"></span></summary>
+                <nav aria-label="モバイルナビゲーション">
+                    <a href="#connect">CONNECT</a>
+                    <a href="#method">METHOD</a>
+                    <a href="#services">SERVICES</a>
+                    <a href="#journal">JOURNAL</a>
+                    <a href="<?php echo esc_url(home_url('/contact/')); ?>">CONTACT ↗</a>
+                </nav>
+            </details>
+        </header>
 
-        <!-- ===== HERO ===== -->
-        <div id="mainvisual">
-            <div id="main_title">
-                <p class="hero-kicker">( SEKAILABO' / BRAND EXPERIENCE &amp; SYSTEM DESIGN )</p>
-                <h2 class="hero-tagline">見つけた課題を、<br>伝わる体験と、動く仕組みに。</h2>
-                <p class="hero-lead">SEKAILABO' は、現場の声とデータをもとに、ブランド表現・顧客体験・業務システムへ変換するチームです。企画から制作、実装、運用までを横断して伴走します。</p>
-            </div>
-            <div class="hero-meta" aria-hidden="true">
-                <span>FIELD</span>
-                <span>DATA</span>
-                <span>SYSTEM</span>
-            </div>
-            <div class="hero-scroll">
-                <span class="scroll-line"></span>
-                <span class="scroll-text">SCROLL</span>
-            </div>
-        </div>
-
-        <!-- ===== SP NAV ===== -->
-        <div id="spGN">
-            <div id="navibar">
-                <ul id="navi12">
-                    <li><a href="" class="closd">TOP</a></li>
-                    <li><a href="#message" class="closd">ABOUT</a></li>
-                    <li><a href="#service" class="closd">BUSINESS</a></li>
-                    <li><a href="<?php echo get_post_type_archive_link('topics'); ?>">TOPICS</a></li>
-                    <li><a href="#info" class="closd">ABOUT US</a></li>
-                </ul>
-                <ul id="navi22">
-                    <li><a href="<?php echo home_url(); ?>/recruit">RECRUIT</a></li>
-                    <li><a href="<?php echo home_url(); ?>/company">COMPANY</a></li>
-                    <li><a href="<?php echo home_url(); ?>/contact">CONTACT</a></li>
-                </ul>
-                <p>FOLLOW ME</p>
-                <a href="https://twitter.com/laboratory_Riku" target="_blank"><i class="fab fa-twitter fa-4x"></i></a>
-                <a href="https://instagram.com/sekailabo" target="_blank"><i class="fab fa-instagram fa-4x"></i></a>
-            </div>
-        </div>
-
-        <!-- ===== PC NAV ===== -->
-        <div id="pcGN">
-            <div id="navi_icon">
-                <a href="<?php echo home_url(); ?>">
-                    <h1><span>SEKAILABO'</span></h1>
-                </a>
-                <div id="naviBox">
-                    <ul id="navi1">
-                        <li><a href="#message">ABOUT</a></li>
-                        <li><a href="#service">BUSINESS</a></li>
-                        <li><a href="#blog">TOPICS</a></li>
-                        <li><a href="#info">ABOUT US</a></li>
-                    </ul>
-                    <ul id="navi2">
-                        <li><a href="<?php echo home_url(); ?>/recruit">RECRUIT</a></li>
-                        <li><a href="<?php echo home_url(); ?>/company">COMPANY</a></li>
-                        <li><a href="<?php echo home_url(); ?>/contact">CONTACT</a></li>
-                    </ul>
-                    <p>FOLLOW ME</p>
-                    <a href="https://www.facebook.com" target="_blank" id="fbbtn"><span>facebook</span></a>
-                    <a href="https://instagram.com/sekailabo" target="_blank" id="isbtn"><span>instagram</span></a>
+        <main>
+            <section class="sl-hero" aria-labelledby="sl-hero-title">
+                <div class="sl-grid-signal sl-grid-signal-one" aria-hidden="true"></div>
+                <div class="sl-grid-signal sl-grid-signal-two" aria-hidden="true"></div>
+                <div class="sl-hero-copy" data-sl-reveal>
+                    <p class="sl-kicker"><span>01</span> CREATIVE BUSINESS STUDIO / FUKUOKA</p>
+                    <h1 id="sl-hero-title">現場の声を、<em>体験と仕組み</em>へ。</h1>
+                    <p class="sl-hero-lead">SEKAILABO' は、SNS・コンサルティング・AI/Web・運用設計をつなぎ、事業の体験とシステムをつくるチームです。</p>
+                    <a class="sl-text-link" href="#connect">HOW WE CONNECT <span aria-hidden="true">↓</span></a>
                 </div>
-                <div class="btnHamburger">
-                    <span class="line line_01"></span>
-                    <span class="line line_02"></span>
-                    <span class="line line_03"></span>
+                <figure class="sl-hero-visual" data-sl-reveal data-sl-delay="120">
+                    <img src="<?php echo esc_url(get_template_directory_uri()); ?>/img/hero-key-visual.jpg" alt="SEKAILABO' のチーム">
+                    <figcaption><span>FIELD NOTE / 01</span><span>TEAM IN MOTION</span></figcaption>
+                </figure>
+                <div class="sl-hero-stats" aria-label="SEKAILABO' の領域">
+                    <span>FIELD</span><span>DATA</span><span>CREATIVE</span><span>SYSTEM</span>
                 </div>
-            </div>
-        </div>
+            </section>
 
-        <!-- ===== ABOUT ===== -->
-        <section class="fp-section about-section" id="message">
-            <div class="fp-inner">
-                <div class="section-eyebrow" data-reveal>
-                    <span class="section-index">01</span>
-                    <span class="section-label">ABOUT</span>
+            <section class="sl-section sl-connect" id="connect" aria-labelledby="sl-connect-title">
+                <div class="sl-section-head" data-sl-reveal>
+                    <p class="sl-kicker"><span>02</span> WHAT WE CONNECT</p>
+                    <h2 id="sl-connect-title">観察した現実を、動く事業へ接続する。</h2>
+                    <p>ひとつの専門領域だけでは、事業の前進はつくれません。現場と数字、仮説と実装を往復しながら、伝わる体験と続く運用を設計します。</p>
                 </div>
-                <div class="about-layout" data-reveal data-reveal-delay="100">
-                    <div class="about-text">
-                        <h2 class="about-headline">現場を見て、<br>データでほどき、<br>表現と仕組みに<br class="about-headline-break">変える。</h2>
-                        <p class="about-lead">私たちの価値は、机上の企画だけで終わらせないこと。実際の現場で起きていることを観察し、声や行動をデータで理解し、伝わる表現と動き続けるシステムへ落とし込みます。</p>
-                        <span class="about-rule"></span>
-                        <p class="about-sub">グループで運営する MOGS も、飲食・ホスピタリティの現場感覚に触れ続ける代表的なプロジェクトのひとつです。そこで得た問いを、ブランドづくりや顧客体験、業務改善の設計へ自然につなげています。</p>
+                <div class="sl-connect-map" data-sl-reveal data-sl-delay="100" aria-label="FIELD TO SYSTEM の接続図">
+                    <div class="sl-map-inputs">
+                        <article class="sl-map-node sl-map-field"><span class="sl-node-index">INPUT / 01</span><h3>FIELD</h3><p>顧客の声 / 現場の違和感</p></article>
+                        <article class="sl-map-node sl-map-data"><span class="sl-node-index">INPUT / 02</span><h3>DATA</h3><p>KPI・導線 / 運用の記録</p></article>
                     </div>
-                    <img class="mogs-accent" src="<?php echo get_template_directory_uri(); ?>/img/mogs.png" alt="MOGS">
+                    <div class="sl-map-engine">
+                        <span>ENGINE</span>
+                        <strong>FIELD TO SYSTEM</strong>
+                        <i aria-hidden="true"></i><i aria-hidden="true"></i><i aria-hidden="true"></i>
+                    </div>
+                    <div class="sl-map-outputs">
+                        <article class="sl-map-node"><span class="sl-node-index">OUTPUT / 01</span><h3>CONTENT</h3><p>言葉・映像・SNS</p></article>
+                        <article class="sl-map-node"><span class="sl-node-index">OUTPUT / 02</span><h3>EXPERIENCE</h3><p>導線・体験・接点</p></article>
+                        <article class="sl-map-node"><span class="sl-node-index">OUTPUT / 03</span><h3>SYSTEM</h3><p>Web・AI・運用設計</p></article>
+                        <article class="sl-map-node"><span class="sl-node-index">OUTPUT / 04</span><h3>GROWTH</h3><p>EC・広告・データ活用</p></article>
+                    </div>
                 </div>
-            </div>
-        </section>
+            </section>
 
-        <!-- ===== APPROACH ===== -->
-        <section class="fp-section approach-section" id="approach" aria-labelledby="approach-title">
-            <div class="fp-inner">
-                <div class="section-eyebrow" data-reveal>
-                    <span class="section-index">02</span>
-                    <span class="section-label">APPROACH</span>
+            <section class="sl-section sl-method" id="method" aria-labelledby="sl-method-title">
+                <div class="sl-section-head sl-section-head--split" data-sl-reveal>
+                    <div><p class="sl-kicker"><span>03</span> METHOD</p><h2 id="sl-method-title">FIELD → DATA → EXPERIENCE → SYSTEM</h2></div>
+                    <p>見つける、読み解く、届ける、動かす。プロジェクトごとに最適な粒度で、この流れを前へ進めます。</p>
                 </div>
-                <div class="approach-intro" data-reveal data-reveal-delay="100">
-                    <h2 class="approach-headline" id="approach-title">FIELD / DATA / EXPERIENCE / SYSTEM</h2>
-                    <p class="approach-lead">現場から見つけた違和感を、整理された課題へ。課題を、伝わる体験へ。体験を、運用できる仕組みへ。SEKAILABO' はこの関係を往復しながら、実装まで進めます。</p>
-                </div>
-                <ol class="approach-list">
-                    <li class="approach-step" data-reveal>
-                        <span class="approach-num">01</span>
-                        <h3>FIELD</h3>
-                        <p>MOGS などの実プロジェクトを通じて、店頭・SNS・運用の現場で起きている声や行動を観察します。</p>
-                    </li>
-                    <li class="approach-step" data-reveal>
-                        <span class="approach-num">02</span>
-                        <h3>DATA</h3>
-                        <p>投稿反応、導線、業務フロー、顧客接点を構造化し、課題と優先順位を見える状態にします。</p>
-                    </li>
-                    <li class="approach-step" data-reveal>
-                        <span class="approach-num">03</span>
-                        <h3>EXPERIENCE</h3>
-                        <p>ブランドの言葉、SNS企画、店舗・サービスの顧客体験として、伝わり方と使われ方を設計します。</p>
-                    </li>
-                    <li class="approach-step" data-reveal>
-                        <span class="approach-num">04</span>
-                        <h3>SYSTEM</h3>
-                        <p>AI、Web、API、自動化を組み合わせ、制作物や施策が継続して動く運用基盤へ実装します。</p>
-                    </li>
+                <ol class="sl-method-flow" data-sl-reveal data-sl-delay="80">
+                    <li><span>01</span><h3>FIELD</h3><p>現場の声や顧客の行動を観察し、問いを見つけます。</p></li>
+                    <li><span>02</span><h3>DATA</h3><p>接点やKPIを整理し、優先すべき課題を定めます。</p></li>
+                    <li><span>03</span><h3>EXPERIENCE</h3><p>ブランド表現と顧客導線を、使われる体験に変えます。</p></li>
+                    <li><span>04</span><h3>SYSTEM</h3><p>Web・AI・運用の仕組みとして、継続できる形にします。</p></li>
                 </ol>
-            </div>
-        </section>
+            </section>
 
-        <!-- ===== BUSINESS ===== -->
-        <section class="fp-section biz-section" id="service">
-            <div class="fp-inner">
-                <div class="section-eyebrow" data-reveal>
-                    <span class="section-index">03</span>
-                    <span class="section-label">BUSINESS</span>
+            <section class="sl-section sl-projects" id="projects" aria-labelledby="sl-projects-title">
+                <div class="sl-section-head" data-sl-reveal>
+                    <p class="sl-kicker"><span>04</span> REPRESENTATIVE PROJECTS</p>
+                    <h2 id="sl-projects-title">現実の場で、試し続ける。</h2>
                 </div>
-                <ul class="biz-list">
-                    <li class="biz-row" data-reveal>
-                        <span class="biz-num">01</span>
-                        <div class="biz-content">
-                            <h3>Brand &amp; Content</h3>
-                            <p class="biz-ja">ブランド・SNS・ショート動画</p>
-                            <p class="biz-desc">ブランドの言葉、投稿企画、SNS運用、ショート動画制作を一貫して設計。伝えたい価値が顧客に届く表現へ整えます。</p>
-                        </div>
-                    </li>
-                    <li class="biz-row" data-reveal>
-                        <span class="biz-num">02</span>
-                        <div class="biz-content">
-                            <h3>Customer Experience</h3>
-                            <p class="biz-ja">店舗・飲食店の顧客体験設計</p>
-                            <p class="biz-desc">来店前後の導線、SNSプロモーション、再来店施策、運用伴走を設計。MOGPASS など、現場で使われる接点づくりにも取り組みます。</p>
-                        </div>
-                    </li>
-                    <li class="biz-row" data-reveal>
-                        <span class="biz-num">03</span>
-                        <div class="biz-content">
-                            <h3>Digital Operations</h3>
-                            <p class="biz-ja">Web・AI・API・自動化</p>
-                            <p class="biz-desc">Webサイト、AI活用、API連携、自動化を組み合わせ、軽量なサービスや業務システムを素早く実装します。</p>
-                        </div>
-                    </li>
-                    <li class="biz-row" data-reveal>
-                        <span class="biz-num">04</span>
-                        <div class="biz-content">
-                            <h3>Growth Strategy</h3>
-                            <p class="biz-ja">EC・広告・KPI / データ設計</p>
-                            <p class="biz-desc">EC、広告運用、KPI設計、データ分析を独立した専門領域として支援。売上と運用判断につながる改善サイクルをつくります。</p>
-                        </div>
-                    </li>
-                </ul>
-                <p class="biz-philosophy" data-reveal>現場で見つけた課題を、表現・体験・仕組みのどこからでも実装へ接続します。</p>
-                <div class="mogs-project" data-reveal>
-                    <div class="mogs-project-copy">
-                        <p class="mogs-project-kicker">REPRESENTATIVE PROJECT</p>
-                        <h3>MOGS</h3>
-                        <p>MOGS は、グループで運営するグルメSNSアカウントです。福岡の飲食店を紹介し、TikTok をはじめとするソーシャルプラットフォームで発信しています。旧名称は「味酒乱」。編集ルールを持って運営しながら、飲食店向けのシステムづくりにも取り組み、年内フォロワー1万人を目指しています。</p>
-                    </div>
-                    <a href="https://sekailabo.com/links/" class="mogs-project-link" target="_blank" rel="noopener noreferrer">MOGS LINKS</a>
+                <div class="sl-project-grid">
+                    <article class="sl-project sl-project-mogs" data-sl-reveal>
+                        <div class="sl-project-number">PROJECT / 01</div>
+                        <div class="sl-project-mark" aria-hidden="true">M</div>
+                        <div class="sl-project-content"><h3>MOGS</h3><p class="sl-project-subtitle">FUKUOKA GOURMET SNS / 旧名称 味酒乱</p><p>福岡の飲食店を紹介するグルメSNS。店の魅力を編集し、楽しい発見につながる発信を続けています。</p></div>
+                        <a class="sl-project-link" href="https://sekailabo.com/links/" target="_blank" rel="noopener noreferrer">MOGS LINKS <span aria-hidden="true">↗</span></a>
+                    </article>
+                    <article class="sl-project sl-project-mogpass" data-sl-reveal data-sl-delay="110">
+                        <div class="sl-project-number">PROJECT / 02</div>
+                        <div class="sl-project-content"><h3>MOGPASS</h3><p class="sl-project-subtitle">MENTION-LED RESTAURANT SERVICE</p><p>Instagramでのメンションを起点にクーポンを届け、プロフィール閲覧・口コミ・再訪へつながる体験と、店舗に寄り添う継続運用を設計するサービスです。</p></div>
+                        <a class="sl-project-link" href="https://mogpass.up.railway.app/mogpass" target="_blank" rel="noopener noreferrer">VISIT MOGPASS <span aria-hidden="true">↗</span></a>
+                    </article>
                 </div>
-            </div>
-        </section>
+            </section>
 
-        <!-- ===== REEL ===== -->
-        <section class="fp-section showcase-section" id="showcase">
-            <div class="fp-inner reel-layout">
-                <div class="reel-copy" data-reveal>
-                    <div class="section-eyebrow">
-                        <span class="section-index">04</span>
-                        <span class="section-label">REEL</span>
-                    </div>
-                    <h2 class="showcase-headline">映像で、<br>熱量の輪郭をつくる。</h2>
-                    <p class="showcase-lead">一瞬で心を動かす視点と、手触りのあるストーリー。SNSで生まれる熱量を、ブランドの体験として丁寧に編み直します。</p>
-                    <p class="reel-note">Sound off / Scroll to play</p>
+            <section class="sl-section sl-services" id="services" aria-labelledby="sl-services-title">
+                <div class="sl-section-head sl-section-head--split" data-sl-reveal>
+                    <div><p class="sl-kicker"><span>05</span> SERVICES</p><h2 id="sl-services-title">領域をまたぎ、実装まで。</h2></div>
+                    <p>構想だけ、制作だけで終わらせず、必要な専門を組み合わせて前に進めます。</p>
                 </div>
-                <div class="reel-media" data-reveal data-reveal-delay="120">
-                    <video class="reel-video" autoplay muted loop playsinline preload="metadata" poster="<?php echo get_template_directory_uri(); ?>/img/hero-reel-poster.jpg" aria-label="SEKAILABO' reel" data-reel-video>
-                        <source src="<?php echo get_template_directory_uri(); ?>/bg_mv.mp4" type="video/mp4">
-                    </video>
+                <div class="sl-service-grid">
+                    <article data-sl-reveal><span>01 / STRATEGY</span><h3>事業・ブランド設計</h3><p>事業の整理、ブランドの言葉、顧客との接点設計。</p></article>
+                    <article data-sl-reveal data-sl-delay="60"><span>02 / COMMUNICATION</span><h3>SNS・映像・コミュニケーション</h3><p>SNS運用、映像制作、ブランドの伝え方の設計。</p></article>
+                    <article data-sl-reveal data-sl-delay="120"><span>03 / PRODUCT</span><h3>Web・AI・運用システム</h3><p>Web・LP・採用サイト、AI/API/自動化の開発支援。</p></article>
+                    <article data-sl-reveal data-sl-delay="180"><span>04 / GROWTH</span><h3>EC・広告・データ活用</h3><p>複数モールを含むEC運用、広告、データを使う改善。</p></article>
                 </div>
-            </div>
-        </section>
+            </section>
 
-        <!-- ===== TOPICS ===== -->
-        <section class="fp-section topics-section" id="blog">
-            <div class="fp-inner">
-                <div class="section-eyebrow" data-reveal>
-                    <span class="section-index">05</span>
-                    <span class="section-label">TOPICS</span>
+            <section class="sl-section sl-journal" id="journal" aria-labelledby="sl-journal-title">
+                <div class="sl-section-head" data-sl-reveal>
+                    <p class="sl-kicker"><span>06</span> TEAM / INSIGHTS / NEWS</p>
+                    <h2 id="sl-journal-title">違う視点が、前進をつくる。</h2>
                 </div>
-                <div class="topics-grid" data-reveal>
-                <?php
-                $args = array(
-                    'posts_per_page' => 3,
-                    'post_status'    => 'publish',
-                    'post_type'      => 'topics',
-                    'orderby'        => 'date',
-                    'order'          => 'DESC',
-                );
-                $the_query = new WP_Query($args);
-                if ($the_query->have_posts()) :
-                    while ($the_query->have_posts()) : $the_query->the_post();
-                ?>
-                    <a href="<?php the_permalink(); ?>" class="topic-card animsition-link">
-                        <div class="topic-img">
-                            <?php if (has_post_thumbnail()) : ?>
-                                <?php the_post_thumbnail('medium'); ?>
-                            <?php else : ?>
-                                <img src="<?php echo get_template_directory_uri(); ?>/img/no-image.gif" alt="no-img">
-                            <?php endif; ?>
+                <div class="sl-journal-top">
+                    <article class="sl-team-card" data-sl-reveal>
+                        <p class="sl-card-label">INTERDISCIPLINARY TEAM</p>
+                        <div class="sl-team-roles"><span>STRATEGY</span><span>CREATIVE</span><span>PRODUCT</span><span>OPERATIONS</span></div>
+                        <p>戦略、制作、プロダクト、運用。それぞれの視点を行き来しながら、現場で使われる解決策をつくります。</p>
+                    </article>
+                    <div class="sl-insights" data-sl-reveal data-sl-delay="100">
+                        <p class="sl-card-label">INSIGHTS / IN PROGRESS</p>
+                        <div class="sl-insight-slots" aria-label="制作中のインサイト">
+                            <article><span>01</span><div class="sl-insight-shape sl-insight-shape--circle"></div><p>FIELD SIGNAL</p></article>
+                            <article><span>02</span><div class="sl-insight-shape sl-insight-shape--bars"></div><p>FLOW DESIGN</p></article>
+                            <article><span>03</span><div class="sl-insight-shape sl-insight-shape--grid"></div><p>SYSTEM NOTE</p></article>
                         </div>
-                        <div class="topic-body">
-                            <time class="topic-date" datetime="<?php echo get_the_date('Y-m-d'); ?>"><?php echo get_the_date('Y.m.d'); ?></time>
-                            <h3 class="topic-title"><?php the_title(); ?></h3>
-                            <p class="topic-excerpt"><?php echo na_trim_words(get_the_excerpt(), 60); ?></p>
-                        </div>
-                    </a>
-                <?php
-                    endwhile;
-                    wp_reset_postdata();
-                endif;
-                ?>
-                </div>
-                <a href="<?php echo get_post_type_archive_link('topics'); ?>" class="fp-more-link" data-reveal>VIEW MORE</a>
-            </div>
-        </section>
-
-        <!-- ===== ABOUT US ===== -->
-        <section class="fp-section info-section" id="info">
-            <div class="fp-inner">
-                <div class="section-eyebrow" data-reveal>
-                    <span class="section-index">06</span>
-                    <span class="section-label">ABOUT US</span>
-                </div>
-                <div class="info-grid" data-reveal>
-                    <div class="info-col">
-                        <p>[ 組織名 ]<br>SEKAILABO'</p>
-                        <p>[ 連絡先 ]<br>info@sekailabo.com</p>
-                        <p>[ 代表者名 ]<br>城谷　陸</p>
-                    </div>
-                    <div class="info-col">
-                        <p>[ 事業内容 ]<br>
-                            ・Brand &amp; Content<br>
-                            ・Customer Experience<br>
-                            ・Digital Operations<br>
-                            ・Growth Strategy
-                        </p>
                     </div>
                 </div>
-                <a href="<?php echo home_url(); ?>/contact/" class="fp-contact-btn" data-reveal>CONTACT</a>
-                <p class="fp-copyright">COPYRIGHT &copy; 2026– SEKAILABO'</p>
-            </div>
-        </section>
+                <div class="sl-news" data-sl-reveal>
+                    <div class="sl-news-heading"><p class="sl-card-label">LATEST NEWS</p><a href="<?php echo esc_url(get_post_type_archive_link('topics')); ?>">ALL TOPICS <span aria-hidden="true">↗</span></a></div>
+                    <div class="sl-news-list">
+                        <?php
+                        $args = array(
+                            'posts_per_page' => 3,
+                            'post_status'    => 'publish',
+                            'post_type'      => 'topics',
+                            'orderby'        => 'date',
+                            'order'          => 'DESC',
+                        );
+                        $the_query = new WP_Query($args);
+                        if ($the_query->have_posts()) :
+                            while ($the_query->have_posts()) : $the_query->the_post();
+                        ?>
+                            <a class="sl-news-item animsition-link" href="<?php the_permalink(); ?>">
+                                <time datetime="<?php echo esc_attr(get_the_date('Y-m-d')); ?>"><?php echo esc_html(get_the_date('Y.m.d')); ?></time>
+                                <span><?php the_title(); ?></span><b aria-hidden="true">↗</b>
+                            </a>
+                        <?php
+                            endwhile;
+                            wp_reset_postdata();
+                        else :
+                        ?>
+                            <p class="sl-news-empty">最新のお知らせは準備中です。</p>
+                        <?php endif; ?>
+                    </div>
+                </div>
+            </section>
 
-        <!-- BACK TO TOP -->
-        <div id="fixSocial" class="pc">
-            <li>
-                <span class="gotop">
-                    <img src="<?php echo get_template_directory_uri(); ?>/img/BTT.png" alt="BACK TO TOP">
-                </span>
-            </li>
-        </div>
+            <section class="sl-contact" aria-labelledby="sl-contact-title">
+                <div data-sl-reveal><p class="sl-kicker"><span>07</span> START A CONVERSATION</p><h2 id="sl-contact-title">次の現実を、一緒に動かそう。</h2></div>
+                <a href="<?php echo esc_url(home_url('/contact/')); ?>" data-sl-reveal data-sl-delay="100">CONTACT <span aria-hidden="true">↗</span></a>
+                <p class="sl-contact-meta">SNS / CONSULTING / AI-WEB / OPERATIONS DESIGN</p>
+            </section>
+        </main>
 
-    </div><!-- /.animsition -->
+        <footer class="sl-site-footer"><span>© SEKAILABO'</span><span>FIELD TO SYSTEM / 2026</span></footer>
+    </div>
 
     <?php get_footer(); ?>
