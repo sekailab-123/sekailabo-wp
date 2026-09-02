@@ -280,11 +280,29 @@
 					callback(videos[index]);
 				}
 			};
+			var setVideoPlaybackProperties = function(video) {
+				video.muted = true;
+				video.defaultMuted = true;
+				video.playsInline = true;
+			};
+			var updateControl = function(video) {
+				var figure = video.closest ? video.closest('.sl-project-reel') : video.parentNode;
+				var control = figure ? figure.querySelector('[data-reel-control]') : null;
+				if (!control) return;
+				if (video.paused) {
+					control.textContent = 'PLAY';
+					control.setAttribute('aria-label', '動画を再生');
+				} else {
+					control.textContent = 'PAUSE';
+					control.setAttribute('aria-label', '動画を一時停止');
+				}
+			};
 			var playVideo = function(video) {
+				setVideoPlaybackProperties(video);
 				try {
 					var playPromise = video.play();
 					if (playPromise && typeof playPromise.catch === 'function') {
-						playPromise.catch(function() {});
+						playPromise.catch(function() { updateControl(video); });
 					}
 				} catch (error) {}
 			};
@@ -293,9 +311,27 @@
 			};
 
 			if (!videos.length) return;
+			eachVideo(function(video) {
+				var figure = video.closest ? video.closest('.sl-project-reel') : video.parentNode;
+				var control = figure ? figure.querySelector('[data-reel-control]') : null;
+				setVideoPlaybackProperties(video);
+				video.addEventListener('play', function() { updateControl(video); });
+				video.addEventListener('pause', function() { updateControl(video); });
+				if (control) {
+					control.addEventListener('click', function() {
+						if (video.paused) {
+							video._reelManualPause = false;
+							playVideo(video);
+						} else {
+							video._reelManualPause = true;
+							pauseVideo(video);
+						}
+					});
+				}
+				updateControl(video);
+			});
 			if (reduceMotion) {
 				eachVideo(pauseVideo);
-				return;
 			}
 
 			if (!('IntersectionObserver' in window)) {
@@ -307,9 +343,9 @@
 						var visibleWidth = Math.max(0, Math.min(rect.right, viewportWidth) - Math.max(rect.left, 0));
 						var visibleHeight = Math.max(0, Math.min(rect.bottom, viewportHeight) - Math.max(rect.top, 0));
 						var visibleRatio = rect.width && rect.height ? (visibleWidth * visibleHeight) / (rect.width * rect.height) : 0;
-						if (visibleRatio >= 0.35) {
+						if (!reduceMotion && visibleRatio >= 0.2 && !video._reelManualPause) {
 							playVideo(video);
-						} else {
+						} else if (visibleRatio === 0) {
 							pauseVideo(video);
 						}
 					});
@@ -323,13 +359,13 @@
 
 			var videoObserver = new IntersectionObserver(function(entries) {
 				entries.forEach(function(entry) {
-					if (entry.isIntersecting && entry.intersectionRatio >= 0.35) {
+					if (!reduceMotion && entry.isIntersecting && entry.intersectionRatio >= 0.2 && !entry.target._reelManualPause) {
 						playVideo(entry.target);
-					} else {
+					} else if (!entry.isIntersecting || entry.intersectionRatio === 0) {
 						pauseVideo(entry.target);
 					}
 				});
-			}, { threshold: 0.35 });
+			}, { threshold: [0, 0.2] });
 
 			eachVideo(function(video) { videoObserver.observe(video); });
 		}

@@ -36,7 +36,7 @@
                     <a class="sl-text-link" href="#connect">HOW WE CONNECT <span aria-hidden="true">↓</span></a>
                 </div>
                 <figure class="sl-hero-visual" data-sl-reveal data-sl-delay="120">
-                    <img src="<?php echo esc_url(get_template_directory_uri()); ?>/img/hero-key-visual.jpg" alt="SEKAILABO' のチーム">
+                    <img src="<?php echo esc_url(get_template_directory_uri()); ?>/img/hero-key-visual-2026.jpg" alt="SEKAILABO' のキービジュアル">
                     <figcaption><span>FIELD NOTE / 01</span><span>TEAM IN MOTION</span></figcaption>
                 </figure>
                 <div class="sl-hero-stats" aria-label="SEKAILABO' の領域">
@@ -93,9 +93,10 @@
                         <div class="sl-project-mark" aria-hidden="true">M</div>
                         <div class="sl-project-content"><h3>MOGS</h3><p class="sl-project-subtitle">FUKUOKA GOURMET SNS / 旧名称 味酒乱</p><p>福岡の飲食店を紹介するグルメSNS。店の魅力を編集し、楽しい発見につながる発信を続けています。</p></div>
                         <figure class="sl-project-reel">
-                            <video muted loop playsinline preload="metadata" data-reel-video poster="<?php echo esc_url(get_template_directory_uri()); ?>/img/hero-reel-poster.jpg">
+                            <video autoplay muted loop playsinline preload="metadata" data-reel-video poster="<?php echo esc_url(get_template_directory_uri()); ?>/img/hero-reel-poster.jpg">
                                 <source src="<?php echo esc_url(get_template_directory_uri()); ?>/bg_mv.mp4" type="video/mp4">
                             </video>
+                            <button class="sl-reel-control" type="button" data-reel-control aria-label="動画を再生">PLAY</button>
                             <figcaption><span>MOGS / SHORT FORM</span><span>FUKUOKA FOOD NOTES</span></figcaption>
                         </figure>
                         <a class="sl-project-link" href="https://sekailabo.com/links/" target="_blank" rel="noopener noreferrer">MOGS LINKS <span aria-hidden="true">↗</span></a>
@@ -103,6 +104,17 @@
                     <article class="sl-project sl-project-mogpass" data-sl-reveal data-sl-delay="110">
                         <div class="sl-project-number">PROJECT / 02</div>
                         <div class="sl-project-content"><h3>MOGPASS</h3><p class="sl-project-subtitle">MENTION-LED RESTAURANT SERVICE</p><p>Instagramでのメンションを起点にクーポンを届け、プロフィール閲覧・口コミ・再訪へつながる体験と、店舗に寄り添う継続運用を設計するサービスです。</p></div>
+                        <figure class="sl-mogpass-visual" aria-labelledby="sl-mogpass-flow-caption">
+                            <div class="sl-mogpass-visual-head"><span>SERVICE FLOW</span><span>CONCEPT</span></div>
+                            <div class="sl-mogpass-flow">
+                                <div class="sl-mogpass-flow-step"><span>01</span><strong>INSTAGRAM MENTION</strong></div>
+                                <i aria-hidden="true"></i>
+                                <div class="sl-mogpass-flow-step sl-mogpass-flow-step--response"><span>02</span><strong>THANK YOU</strong><b>COUPON</b></div>
+                                <i aria-hidden="true"></i>
+                                <div class="sl-mogpass-flow-step"><span>03</span><strong>MENTION → REVISIT</strong></div>
+                            </div>
+                            <figcaption id="sl-mogpass-flow-caption">SERVICE FLOW / CONCEPT</figcaption>
+                        </figure>
                         <a class="sl-project-link" href="https://mogpass.up.railway.app/mogpass" target="_blank" rel="noopener noreferrer">VISIT MOGPASS <span aria-hidden="true">↗</span></a>
                     </article>
                 </div>
