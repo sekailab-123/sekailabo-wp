@@ -272,25 +272,66 @@
 		// ===== REEL VIDEO =====
 		// 縦動画は専用セクション内でのみ再生し、画面外では停止する。
 		function initReelVideo() {
-			var video = document.querySelector('[data-reel-video]');
-			if (!video || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+			var videos = document.querySelectorAll('[data-reel-video]');
+			var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+			var eachVideo = function(callback) {
+				var index;
+				for (index = 0; index < videos.length; index++) {
+					callback(videos[index]);
+				}
+			};
+			var playVideo = function(video) {
+				try {
+					var playPromise = video.play();
+					if (playPromise && typeof playPromise.catch === 'function') {
+						playPromise.catch(function() {});
+					}
+				} catch (error) {}
+			};
+			var pauseVideo = function(video) {
+				video.pause();
+			};
+
+			if (!videos.length) return;
+			if (reduceMotion) {
+				eachVideo(pauseVideo);
+				return;
+			}
 
 			if (!('IntersectionObserver' in window)) {
-				video.play().catch(function() {});
+				var updateVideoVisibility = function() {
+					var viewportWidth = window.innerWidth || document.documentElement.clientWidth;
+					var viewportHeight = window.innerHeight || document.documentElement.clientHeight;
+					eachVideo(function(video) {
+						var rect = video.getBoundingClientRect();
+						var visibleWidth = Math.max(0, Math.min(rect.right, viewportWidth) - Math.max(rect.left, 0));
+						var visibleHeight = Math.max(0, Math.min(rect.bottom, viewportHeight) - Math.max(rect.top, 0));
+						var visibleRatio = rect.width && rect.height ? (visibleWidth * visibleHeight) / (rect.width * rect.height) : 0;
+						if (visibleRatio >= 0.35) {
+							playVideo(video);
+						} else {
+							pauseVideo(video);
+						}
+					});
+				};
+
+				window.addEventListener('scroll', updateVideoVisibility);
+				window.addEventListener('resize', updateVideoVisibility);
+				updateVideoVisibility();
 				return;
 			}
 
 			var videoObserver = new IntersectionObserver(function(entries) {
 				entries.forEach(function(entry) {
-					if (entry.isIntersecting) {
-						video.play().catch(function() {});
+					if (entry.isIntersecting && entry.intersectionRatio >= 0.35) {
+						playVideo(entry.target);
 					} else {
-						video.pause();
+						pauseVideo(entry.target);
 					}
 				});
 			}, { threshold: 0.35 });
 
-			videoObserver.observe(video);
+			eachVideo(function(video) { videoObserver.observe(video); });
 		}
 		initReelVideo();
 

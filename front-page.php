@@ -92,6 +92,12 @@
                         <div class="sl-project-number">PROJECT / 01</div>
                         <div class="sl-project-mark" aria-hidden="true">M</div>
                         <div class="sl-project-content"><h3>MOGS</h3><p class="sl-project-subtitle">FUKUOKA GOURMET SNS / 旧名称 味酒乱</p><p>福岡の飲食店を紹介するグルメSNS。店の魅力を編集し、楽しい発見につながる発信を続けています。</p></div>
+                        <figure class="sl-project-reel">
+                            <video muted loop playsinline preload="metadata" data-reel-video poster="<?php echo esc_url(get_template_directory_uri()); ?>/img/hero-reel-poster.jpg">
+                                <source src="<?php echo esc_url(get_template_directory_uri()); ?>/bg_mv.mp4" type="video/mp4">
+                            </video>
+                            <figcaption><span>MOGS / SHORT FORM</span><span>FUKUOKA FOOD NOTES</span></figcaption>
+                        </figure>
                         <a class="sl-project-link" href="https://sekailabo.com/links/" target="_blank" rel="noopener noreferrer">MOGS LINKS <span aria-hidden="true">↗</span></a>
                     </article>
                     <article class="sl-project sl-project-mogpass" data-sl-reveal data-sl-delay="110">
