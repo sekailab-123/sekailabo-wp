@@ -25,16 +25,16 @@
     .lead { margin:0; }
     .guide { background:var(--soft); border-left:4px solid var(--accent); padding:12px 15px; margin:18px 0 24px; font-size:13px; }
     .guide strong { color:var(--accent); }
-    .job-picker { margin:0 0 30px; padding:18px; border:1px solid var(--line); border-radius:9px; background:#fff; }
+    .job-picker { margin:0 0 30px; padding:0; border:0; background:transparent; }
     .job-picker__top { display:flex; align-items:center; justify-content:space-between; gap:12px; margin-bottom:12px; }
     .job-picker h2 { margin:0; color:var(--accent); font-size:16px; }
     .job-picker__top p { margin:0; color:var(--muted); font-size:12px; }
-    .job-cards { display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:10px; }
-    .job-card { position:relative; border:1px solid var(--line); border-radius:7px; padding:13px 14px; background:#fff; cursor:pointer; transition:.15s; }
-    .job-card:hover { border-color:var(--accent); }
-    .job-card.is-active { border:2px solid var(--accent); background:#fff8f4; padding:12px 13px; }
+    .job-cards { display:flex; align-items:flex-end; gap:5px; overflow-x:auto; border-bottom:2px solid var(--accent); padding:0 4px; }
+    .job-card { position:relative; flex:1 0 190px; min-height:98px; border:1px solid var(--line); border-bottom:0; border-radius:8px 8px 0 0; padding:13px 14px; background:#eee9e2; color:var(--ink)!important; cursor:pointer; transition:.15s; }
+    .job-card:hover { background:#f7f1ea; border-color:var(--accent); color:var(--accent)!important; }
+    .job-card.is-active { border:2px solid var(--accent); border-bottom:0; background:var(--paper); color:var(--accent)!important; padding:12px 13px 14px; margin-bottom:-2px; }
     .job-card__title { display:block; font-weight:800; font-size:15px; }
-    .job-card__meta { display:block; color:var(--muted); font-size:12px; margin-top:3px; }
+    .job-card__meta { display:block; color:var(--muted)!important; font-size:12px; margin-top:3px; }
     .job-card__count { display:inline-block; margin-top:7px; color:var(--success); font-size:11px; font-weight:700; }
     button { appearance:none; border:0; background:var(--accent); color:#fff; border-radius:5px; padding:9px 13px; font:inherit; font-size:13px; font-weight:700; cursor:pointer; }
     button.secondary { background:#625e59; }
@@ -63,7 +63,7 @@
     .watch-note { display:none; margin:0 0 18px; padding:10px 13px; background:#edf7ef; border-left:4px solid var(--success); color:#245534; font-size:13px; }
     body.is-watch .watch-note { display:block; }
     body.is-watch .add-job,body.is-watch .watch-link { display:none; }
-    @media(max-width:680px) { .job-sheet { margin:0; padding:28px 20px 42px; } .job-sheet h1 { font-size:25px; } .grid2,.grid3 { grid-template-columns:1fr; } .job-picker__top { align-items:flex-start; flex-direction:column; } .actions { align-items:stretch; flex-direction:column; } .status { margin-right:0; } }
+    @media(max-width:680px) { .job-sheet { margin:0; padding:28px 20px 42px; } .job-sheet h1 { font-size:25px; } .grid2,.grid3 { grid-template-columns:1fr; } .job-picker__top { align-items:flex-start; flex-direction:column; } .job-cards { margin:0 -4px; } .job-card { flex-basis:165px; min-height:92px; } .actions { align-items:stretch; flex-direction:column; } .status { margin-right:0; } }
   </style>
 </head>
 <body <?php body_class('toraji-job-sheet'); ?>>
