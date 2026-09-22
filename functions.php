@@ -465,8 +465,12 @@ add_action('wp_ajax_nopriv_toraji_hearing_autosave', 'sekailabo_handle_toraji_he
 function sekailabo_toraji_kyushu_hearing_template($template)
 {
     $request_path = trim((string) parse_url($_SERVER['REQUEST_URI'] ?? '/', PHP_URL_PATH), '/');
+    $templates = array(
+        'toraji-kyushu-hearing' => 'page-toraji-kyushu-hearing.php',
+        'toraji-kyushu-job-sheets' => 'page-toraji-kyushu-job-sheets.php',
+    );
 
-    if ($request_path !== 'toraji-kyushu-hearing') {
+    if (!isset($templates[$request_path])) {
         return $template;
     }
 
@@ -476,7 +480,7 @@ function sekailabo_toraji_kyushu_hearing_template($template)
     }
     status_header(200);
 
-    return get_template_directory() . '/page-toraji-kyushu-hearing.php';
+    return get_template_directory() . '/' . $templates[$request_path];
 }
 add_filter('template_include', 'sekailabo_toraji_kyushu_hearing_template');
 ?>
