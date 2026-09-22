@@ -118,6 +118,24 @@
       <div class="question"><p class="question__title">電話受付の体制</p><div class="grid3"><div><label class="field-label">電話番号（掲載用）</label><input type="text" data-field="phone"></div><div><label class="field-label">受付時間</label><input type="text" data-field="phone_hours"></div><div><label class="field-label">対応者</label><input type="text" data-field="contact_person"></div></div></div>
       <div class="question"><p class="question__title">面接の場所・方法／選考フロー</p><textarea data-field="selection_flow" placeholder="例：天神店にて対面／電話応募→面接日程調整→面接→3日以内に結果連絡"></textarea></div>
     </section>
+
+    <section><h3><span class="number">7</span>公開条件・雇用条件の最終確認</h3><p class="section-note">求人原稿・求人媒体への掲載前に、職種ごとの労働条件を確認します。</p>
+      <div class="question"><p class="question__title">雇用形態・契約期間・試用期間</p><textarea data-field="employment_terms" placeholder="例：アルバイト／期間の定めなし／試用期間1か月（条件変更なし）"></textarea></div>
+      <div class="question"><p class="question__title">勤務地・オープン前研修時の勤務地</p><textarea data-field="work_location" placeholder="例：中洲新店舗（住所確定後に記載）／研修期間は天神店"></textarea></div>
+      <div class="question"><p class="question__title">休憩・残業・深夜勤務の条件</p><textarea data-field="breaks_overtime" placeholder="例：6時間を超える勤務は休憩45分／残業は原則なし／22時以降は深夜割増"></textarea></div>
+      <div class="question"><p class="question__title">給与の締日・支払日／正社員の休日・休暇</p><textarea data-field="payday_holidays" placeholder="例：月末締め翌月25日払い／正社員は月8日休み・有給休暇あり"></textarea></div>
+      <div class="question"><p class="question__title">就業環境・身だしなみの条件</p><div class="grid2"><div><label class="field-label">受動喫煙対策</label><input type="text" data-field="smoking_policy" placeholder="例：屋内禁煙／喫煙専用室あり"></div><div><label class="field-label">髪色・ネイル・ピアス等</label><input type="text" data-field="grooming_policy" placeholder="例：規定あり／清潔感があれば可"></div></div></div>
+    </section>
+
+    <section><h3><span class="number">8</span>この職種の訴求・採用運用メモ</h3><p class="section-note">求人原稿の見出し・写真選定・採用運用に活かす内部確認用の項目です。</p>
+      <div class="question"><p class="question__title">この職種で一番伝えたい魅力・他店との違い</p><textarea data-field="job_appeal" placeholder="例：新店舗を一緒に立ち上げられる／焼肉の専門知識が身につく"></textarea></div>
+      <div class="question"><p class="question__title">向いている人・活躍している人／避けたいミスマッチ</p><textarea data-field="candidate_fit" placeholder="例：接客が好きでチームで働くことを楽しめる方／深夜帯勤務が難しい方は要確認"></textarea></div>
+      <div class="question"><p class="question__title">大変な点と、そのフォロー・教育方法</p><textarea data-field="challenge_support" placeholder="例：ピーク帯は忙しいが、トレーナー制度と段階的な研修でフォロー"></textarea></div>
+      <div class="question"><p class="question__title">キャリアアップ・将来の役割</p><textarea data-field="career_path" placeholder="例：アルバイトリーダー→社員→店長候補／希望により商品開発にも参加可"></textarea></div>
+      <div class="question"><p class="question__title">求人に使える写真・スタッフの声・動画素材</p><textarea data-field="creative_assets" placeholder="例：天神店のホールスタッフ写真を使用可／スタッフインタビュー候補は○○さん"></textarea></div>
+      <div class="question"><p class="question__title">採用目標・運用体制</p><div class="grid2"><div><label class="field-label">いつまでに何名を採用したいか</label><input type="text" data-field="hiring_target" placeholder="例：3月末までに第1期10名"></div><div><label class="field-label">原稿確認者・最終承認者</label><input type="text" data-field="approver" placeholder="例：人事部○○様／店舗開発部○○様"></div></div></div>
+      <div class="question"><p class="question__title">面接可能な曜日・時間帯／応募者への初回連絡目標</p><textarea data-field="interview_operations" placeholder="例：平日14:00〜17:00、応募から24時間以内に初回連絡"></textarea></div>
+    </section>
     <div class="actions"><span class="status" id="job-save-status" aria-live="polite"></span><button type="button" class="secondary watch-link">確認用URLをコピー</button></div>
   </form>
   <footer>※入力内容はこの端末・サーバー・Firebaseへ自動保存され、確認用URLを開いた画面にもリアルタイムで反映されます。</footer>
