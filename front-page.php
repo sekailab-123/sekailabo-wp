@@ -29,6 +29,12 @@
             <section class="sl-hero" aria-labelledby="sl-hero-title">
                 <div class="sl-grid-signal sl-grid-signal-one" aria-hidden="true"></div>
                 <div class="sl-grid-signal sl-grid-signal-two" aria-hidden="true"></div>
+                <div class="sl-hero-geometry" aria-hidden="true">
+                    <span class="sl-hero-shape sl-hero-shape--circle"></span>
+                    <span class="sl-hero-shape sl-hero-shape--half"></span>
+                    <span class="sl-hero-shape sl-hero-shape--square"></span>
+                    <span class="sl-hero-shape sl-hero-shape--bar"></span>
+                </div>
                 <div class="sl-hero-copy" data-sl-reveal>
                     <p class="sl-kicker"><span>01</span> CREATIVE BUSINESS STUDIO / FUKUOKA</p>
                     <h1 id="sl-hero-title">現場の声を、<em>体験と仕組み</em>へ。</h1>
@@ -67,6 +73,31 @@
                         <article class="sl-map-node"><span class="sl-node-index">OUTPUT / 04</span><h3>GROWTH</h3><p>EC・広告・データ活用</p></article>
                     </div>
                 </div>
+                <figure class="sl-system-storyboard" data-sl-reveal data-sl-delay="140" aria-hidden="true">
+                    <svg viewBox="0 0 1200 270" role="presentation" focusable="false" data-system-svg>
+                        <g class="sl-system-stage sl-system-stage--field">
+                            <text x="18" y="28">01 / FIELD SIGNALS</text>
+                            <g data-system-dots>
+                                <circle cx="52" cy="95" r="7"></circle><circle cx="126" cy="69" r="5"></circle><circle cx="177" cy="144" r="8"></circle><circle cx="76" cy="202" r="5"></circle><circle cx="222" cy="222" r="6"></circle><circle cx="286" cy="102" r="5"></circle><circle cx="320" cy="175" r="8"></circle>
+                            </g>
+                        </g>
+                        <g class="sl-system-stage sl-system-stage--data">
+                            <text x="440" y="28">02 / ORDERED DATA</text>
+                            <g data-system-grid>
+                                <path d="M440 72H700M440 122H700M440 172H700M440 222H700M480 52V242M540 52V242M600 52V242M660 52V242"></path>
+                                <rect x="480" y="72" width="60" height="50"></rect><rect x="600" y="122" width="60" height="50"></rect><rect x="540" y="172" width="60" height="50"></rect>
+                            </g>
+                        </g>
+                        <g class="sl-system-stage sl-system-stage--system">
+                            <text x="842" y="28">03 / CONNECTED SYSTEM</text>
+                            <g data-system-network>
+                                <path d="M872 96L1005 67L1142 114L1060 213L900 198Z M1005 67L1060 213 M872 96L1060 213 M900 198L1142 114"></path>
+                                <circle cx="872" cy="96" r="8"></circle><circle cx="1005" cy="67" r="8"></circle><circle cx="1142" cy="114" r="8"></circle><circle cx="1060" cy="213" r="8"></circle><circle cx="900" cy="198" r="8"></circle>
+                            </g>
+                        </g>
+                        <path class="sl-system-arrow" d="M364 136H408M720 136H814"></path>
+                    </svg>
+                </figure>
             </section>
 
             <section class="sl-section sl-method" id="method" aria-labelledby="sl-method-title">
@@ -93,7 +124,7 @@
                         <div class="sl-project-mark" aria-hidden="true">M</div>
                         <div class="sl-project-content"><h3>MOGS</h3><p class="sl-project-subtitle">FUKUOKA GOURMET SNS / 旧名称 味酒乱</p><p>福岡の飲食店を紹介するグルメSNS。店の魅力を編集し、楽しい発見につながる発信を続けています。</p></div>
                         <figure class="sl-project-reel">
-                            <video autoplay muted loop playsinline preload="metadata" data-reel-video poster="<?php echo esc_url(get_template_directory_uri()); ?>/img/hero-reel-poster.jpg">
+                            <video muted loop playsinline preload="metadata" controls data-reel-video poster="<?php echo esc_url(get_template_directory_uri()); ?>/img/hero-reel-poster.jpg">
                                 <source src="<?php echo esc_url(get_template_directory_uri()); ?>/bg_mv.mp4" type="video/mp4">
                             </video>
                             <button class="sl-reel-control" type="button" data-reel-control aria-label="動画を再生">PLAY</button>
@@ -103,6 +134,7 @@
                     </article>
                     <article class="sl-project sl-project-mogpass" data-sl-reveal data-sl-delay="110">
                         <div class="sl-project-number">PROJECT / 02</div>
+                        <span class="sl-project-symbol" aria-hidden="true"></span>
                         <div class="sl-project-content"><h3>MOGPASS</h3><p class="sl-project-subtitle">MENTION-LED RESTAURANT SERVICE</p><p>Instagramでのメンションを起点にクーポンを届け、プロフィール閲覧・口コミ・再訪へつながる体験と、店舗に寄り添う継続運用を設計するサービスです。</p></div>
                         <figure class="sl-mogpass-visual" aria-labelledby="sl-mogpass-flow-caption">
                             <div class="sl-mogpass-visual-head"><span>SERVICE FLOW</span><span>CONCEPT</span></div>
@@ -126,10 +158,10 @@
                     <p>構想だけ、制作だけで終わらせず、必要な専門を組み合わせて前に進めます。</p>
                 </div>
                 <div class="sl-service-grid">
-                    <article data-sl-reveal><span>01 / STRATEGY</span><h3>事業・ブランド設計</h3><p>事業の整理、ブランドの言葉、顧客との接点設計。</p></article>
-                    <article data-sl-reveal data-sl-delay="60"><span>02 / COMMUNICATION</span><h3>SNS・映像・コミュニケーション</h3><p>SNS運用、映像制作、ブランドの伝え方の設計。</p></article>
-                    <article data-sl-reveal data-sl-delay="120"><span>03 / PRODUCT</span><h3>Web・AI・運用システム</h3><p>Web・LP・採用サイト、AI/API/自動化の開発支援。</p></article>
-                    <article data-sl-reveal data-sl-delay="180"><span>04 / GROWTH</span><h3>EC・広告・データ活用</h3><p>複数モールを含むEC運用、広告、データを使う改善。</p></article>
+                    <article data-sl-reveal><span>01 / STRATEGY</span><i class="sl-service-symbol sl-service-symbol--circle" aria-hidden="true"></i><h3>事業・ブランド設計</h3><p>事業の整理、ブランドの言葉、顧客との接点設計。</p></article>
+                    <article data-sl-reveal data-sl-delay="60"><span>02 / COMMUNICATION</span><i class="sl-service-symbol sl-service-symbol--line" aria-hidden="true"></i><h3>SNS・映像・コミュニケーション</h3><p>SNS運用、映像制作、ブランドの伝え方の設計。</p></article>
+                    <article data-sl-reveal data-sl-delay="120"><span>03 / PRODUCT</span><i class="sl-service-symbol sl-service-symbol--square" aria-hidden="true"></i><h3>Web・AI・運用システム</h3><p>Web・LP・採用サイト、AI/API/自動化の開発支援。</p></article>
+                    <article data-sl-reveal data-sl-delay="180"><span>04 / GROWTH</span><i class="sl-service-symbol sl-service-symbol--half" aria-hidden="true"></i><h3>EC・広告・データ活用</h3><p>複数モールを含むEC運用、広告、データを使う改善。</p></article>
                 </div>
             </section>
 
@@ -184,6 +216,7 @@
             </section>
 
             <section class="sl-contact" aria-labelledby="sl-contact-title">
+                <span class="sl-contact-symbol sl-contact-symbol--square" aria-hidden="true"></span><span class="sl-contact-symbol sl-contact-symbol--disc" aria-hidden="true"></span>
                 <div data-sl-reveal><p class="sl-kicker"><span>07</span> START A CONVERSATION</p><h2 id="sl-contact-title">次の現実を、一緒に動かそう。</h2></div>
                 <a href="<?php echo esc_url(home_url('/contact/')); ?>" data-sl-reveal data-sl-delay="100">CONTACT <span aria-hidden="true">↗</span></a>
                 <p class="sl-contact-meta">SNS / CONSULTING / AI-WEB / OPERATIONS DESIGN</p>

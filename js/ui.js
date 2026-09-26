@@ -369,54 +369,12 @@
 
 			eachVideo(function(video) { videoObserver.observe(video); });
 		}
-		initReelVideo();
-
-		// ===== SEKAILABO' FRONT PAGE =====
-		// Kept separate from the legacy interactions above so other templates retain
-		// their existing behavior. The mobile navigation remains usable without JS.
-		function initSekailaboHome() {
-			var home = document.querySelector('.sl-home');
-			if (!home) return;
-
-			var revealItems = home.querySelectorAll('[data-sl-reveal]');
-			var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-			var reveal = function(item) {
-				var delay = parseInt(item.getAttribute('data-sl-delay') || '0', 10);
-				if (delay && !reduceMotion) {
-					item.style.transitionDelay = delay + 'ms';
-				}
-				item.classList.add('is-sl-revealed');
-			};
-
-			if (reduceMotion || !('IntersectionObserver' in window)) {
-				revealItems.forEach(reveal);
-			} else {
-				home.classList.add('sl-motion-ready');
-				var revealObserver = new IntersectionObserver(function(entries) {
-					entries.forEach(function(entry) {
-						if (entry.isIntersecting) {
-							reveal(entry.target);
-							revealObserver.unobserve(entry.target);
-						}
-					});
-				}, { threshold: 0.12, rootMargin: '0px 0px -24px 0px' });
-				revealItems.forEach(function(item) {
-					revealObserver.observe(item);
-					var rect = item.getBoundingClientRect();
-					if (rect.top < window.innerHeight && rect.bottom > 0) {
-						reveal(item);
-					}
-				});
-			}
-
-			var mobileNav = home.querySelector('.sl-mobile-nav');
-			if (mobileNav) {
-				mobileNav.querySelectorAll('a').forEach(function(link) {
-					link.addEventListener('click', function() { mobileNav.removeAttribute('open'); });
-				});
-			}
+		// The homepage owns its reel lifecycle in front-motion.js. This keeps legacy
+		// jQuery failures or timing from competing with the standalone controller.
+		if (!document.body.classList.contains('home')) {
+			initReelVideo();
 		}
-		initSekailaboHome();
+
 	    jQuery(".animsition").animsition({
 	        inClass: 'fade-in',
 	        outClass: 'fade-out',
