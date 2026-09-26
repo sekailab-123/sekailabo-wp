@@ -27,7 +27,7 @@
     />
     <meta
       name="description"
-      content="SEKAILABO' は、福岡を拠点に全国的に展開するWEB制作のフリーランスすです。飲食、美容、建設会社などをメインに多種多様な業界のホームページを作ります。"
+      content="SEKAILABO' は、福岡のグルメSNS「MOGS」を運営するクリエイティブチームです。SNS・ショート動画、飲食店の集客・運用、EC・広告、ブランド・Web制作まで、発信から来店・購入につながる流れを一緒につくります。"
     />
     <meta name="author" content="SEKAILABO' | SIROTANI RIKU" />
 
@@ -37,7 +37,7 @@
     <!--<title>と同じにする。以下同じ-->
     <meta
       property="og:description"
-      content="SEKAILABO' は、福岡を拠点に展開するWEB制作のフリーランスすです。飲食、美容、建設会社などをメインに多種多様な業界のホームページを作ります。"
+      content="SEKAILABO' は、福岡のグルメSNS「MOGS」を運営するクリエイティブチームです。SNS・ショート動画、飲食店の集客・運用、EC・広告、ブランド・Web制作まで、発信から来店・購入につながる流れを一緒につくります。"
     />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://sekailabo.com" />
@@ -112,6 +112,14 @@
     <link
       rel="stylesheet"
       href="<?php echo esc_url(get_template_directory_uri() . '/css/front-page.css?ver=' . filemtime(get_template_directory() . '/css/front-page.css')); ?>"
+    />
+    <link
+      rel="stylesheet"
+      href="<?php echo esc_url(get_template_directory_uri() . '/css/front-motion.css?ver=' . filemtime(get_template_directory() . '/css/front-motion.css')); ?>"
+    />
+    <link
+      rel="stylesheet"
+      href="<?php echo esc_url(get_template_directory_uri() . '/css/front-mogpass.css?ver=' . filemtime(get_template_directory() . '/css/front-mogpass.css')); ?>"
     />
     <?php endif; ?>
 

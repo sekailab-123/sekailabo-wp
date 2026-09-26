@@ -13,78 +13,190 @@
 
     var media = window.matchMedia ? window.matchMedia('(prefers-reduced-motion: reduce)') : null;
     var reduced = media ? media.matches : false;
-    var scheduled = false;
+    var finePointer = window.matchMedia ? window.matchMedia('(pointer: fine)').matches : false;
     var hero = home.querySelector('.sl-hero');
     var storyboard = home.querySelector('[data-system-svg]');
     var dots = home.querySelector('[data-system-dots]');
     var grid = home.querySelector('[data-system-grid]');
     var network = home.querySelector('[data-system-network]');
-    var shapes = home.querySelectorAll('.sl-hero-shape');
+    var shapes = home.querySelectorAll('[data-sl-depth]');
+    var meter = home.querySelector('[data-sl-meter]');
+    var marquee = home.querySelector('[data-sl-marquee]');
+    var mogsCard = home.querySelector('.sl-project-mogs');
+    var mogsMark = home.querySelector('.sl-project-mark');
+    var contact = home.querySelector('.sl-contact');
+    var contactSymbols = home.querySelectorAll('.sl-contact-symbol');
+    var revealItems = home.querySelectorAll('[data-sl-reveal]');
 
-    function clamp(value) { return Math.max(0, Math.min(1, value)); }
+    function clamp(value, min, max) { return Math.max(min, Math.min(max, value)); }
+    function viewportHeight() { return window.innerHeight || document.documentElement.clientHeight; }
     function rangeProgress(element) {
       if (!element) return 0;
       var rect = element.getBoundingClientRect();
-      var viewport = window.innerHeight || document.documentElement.clientHeight;
-      return clamp((viewport - rect.top) / (viewport + rect.height));
+      var viewport = viewportHeight();
+      return clamp((viewport - rect.top) / (viewport + rect.height), 0, 1);
     }
-    function setTransform(element, value) { if (element) element.style.transform = value; }
-    function resetDecorations() {
-      Array.prototype.forEach.call(shapes, function (shape) { shape.style.transform = ''; });
-      [dots, grid, network].forEach(function (part) { if (part) { part.style.transform = ''; part.style.opacity = ''; } });
-    }
-    function paint() {
-      scheduled = false;
-      if (reduced) { resetDecorations(); return; }
-      var heroProgress = rangeProgress(hero);
-      if (shapes[0]) setTransform(shapes[0], 'translate3d(0,' + Math.round(heroProgress * -34) + 'px,0) rotate(' + Math.round(heroProgress * 38) + 'deg)');
-      if (shapes[1]) setTransform(shapes[1], 'translate3d(' + Math.round(heroProgress * 48) + 'px,0,0) rotate(' + Math.round(-28 + heroProgress * 32) + 'deg)');
-      if (shapes[2]) setTransform(shapes[2], 'translate3d(0,' + Math.round(heroProgress * 28) + 'px,0) rotate(' + Math.round(18 + heroProgress * 90) + 'deg)');
-      if (shapes[3]) setTransform(shapes[3], 'translate3d(' + Math.round(heroProgress * -38) + 'px,0,0) rotate(-35deg)');
-      var p = rangeProgress(storyboard);
-      setTransform(dots, 'translate(' + Math.round(p * 105) + 'px,' + Math.round(p * -10) + 'px)');
-      setTransform(grid, 'translate(' + Math.round((1 - p) * -35) + 'px,0)');
-      setTransform(network, 'translate(' + Math.round((1 - p) * 45) + 'px,0)');
-      if (dots) dots.style.opacity = String(1 - p * 0.32);
-      if (grid) grid.style.opacity = String(0.45 + p * 0.55);
-      if (network) network.style.opacity = String(0.45 + p * 0.55);
-    }
-    function schedulePaint() {
-      if (!scheduled && !reduced) { scheduled = true; window.requestAnimationFrame(paint); }
-    }
-    window.addEventListener('scroll', schedulePaint, { passive: true });
-    window.addEventListener('resize', schedulePaint, { passive: true });
-    schedulePaint();
 
-    function reveal(item) {
-      if (item.dataset.slEntranceDone || reduced) return;
-      item.dataset.slEntranceDone = 'true';
-      if (!item.animate) return;
-      var delay = Number(item.getAttribute('data-sl-delay') || 0);
-      var animation = item.animate([
-        { opacity: 0.01, transform: 'translate3d(0, 18px, 0)' },
-        { opacity: 1, transform: 'translate3d(0, 0, 0)' }
-      ], { duration: 520, delay: delay, easing: 'cubic-bezier(.2,.8,.2,1)', fill: 'both' });
-      entranceAnimations.push(animation);
+    // Split the hero headline into characters for the kinetic entrance.
+    // Screen readers get the original sentence through aria-label.
+    var PUNCTUATION = /[、。，．！？」』）]/;
+    function splitHeadline(heading) {
+      if (!heading || heading.dataset.slSplitDone) return;
+      heading.dataset.slSplitDone = 'true';
+      heading.setAttribute('aria-label', heading.textContent.replace(/\s+/g, ' ').trim());
+      var index = 0;
+      (function walk(node) {
+        Array.prototype.slice.call(node.childNodes).forEach(function (child) {
+          if (child.nodeType === 1) { child.setAttribute('aria-hidden', 'true'); walk(child); return; }
+          if (child.nodeType !== 3) return;
+          var fragment = document.createDocumentFragment();
+          var previous = null;
+          Array.prototype.forEach.call(child.textContent, function (character) {
+            if (!character.trim()) { fragment.appendChild(document.createTextNode(character)); previous = null; return; }
+            if (previous && PUNCTUATION.test(character)) { previous.textContent += character; return; }
+            var span = document.createElement('span');
+            span.className = 'sl-char';
+            span.setAttribute('aria-hidden', 'true');
+            span.style.setProperty('--sl-i', String(index++));
+            span.textContent = character;
+            fragment.appendChild(span);
+            previous = span;
+          });
+          node.replaceChild(fragment, child);
+        });
+      }(heading));
     }
-    var revealItems = home.querySelectorAll('[data-sl-reveal]');
-    var entranceAnimations = [];
-    function cancelEntrances() {
-      entranceAnimations.forEach(function (animation) { animation.cancel(); });
-      entranceAnimations = [];
+
+    // Scroll-linked reveal: CSS owns the animation, JS only flags visibility.
+    var revealObserver = null;
+    function markAllRevealed() { Array.prototype.forEach.call(revealItems, function (item) { item.classList.add('is-sl-in'); }); }
+    function startReveals() {
+      if (!('IntersectionObserver' in window)) { markAllRevealed(); return; }
       Array.prototype.forEach.call(revealItems, function (item) {
-        item.style.opacity = '';
-        item.style.transform = '';
+        var delay = Number(item.getAttribute('data-sl-delay') || 0);
+        if (delay) item.style.setProperty('--sl-delay', delay + 'ms');
       });
-    }
-    if (reduced || !('IntersectionObserver' in window)) {
-      Array.prototype.forEach.call(revealItems, function (item) { item.dataset.slEntranceDone = 'true'; });
-    } else {
-      var revealObserver = new IntersectionObserver(function (entries) {
-        entries.forEach(function (entry) { if (entry.isIntersecting) { reveal(entry.target); revealObserver.unobserve(entry.target); } });
-      }, { threshold: 0.08, rootMargin: '0px 0px -5% 0px' });
+      revealObserver = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) { entry.target.classList.add('is-sl-in'); revealObserver.unobserve(entry.target); }
+        });
+      }, { threshold: 0.12, rootMargin: '0px 0px -6% 0px' });
       Array.prototype.forEach.call(revealItems, function (item) { revealObserver.observe(item); });
     }
+
+    // One rAF loop drives the marquee, scroll meter and parallax layers.
+    var pointer = { x: 0, y: 0, tx: 0, ty: 0 };
+    var lastScrollY = window.pageYOffset;
+    var scrollVelocity = 0;
+    var marqueeOffset = 0;
+    var marqueeDirection = 1;
+    var marqueeWidth = 0;
+    var marqueeVisible = true;
+    var lastTime = 0;
+    var frame = 0;
+
+    function measureMarquee() {
+      var set = marquee && marquee.firstElementChild;
+      marqueeWidth = set ? set.offsetWidth : 0;
+    }
+    function paintMarquee(delta) {
+      if (!marquee || !marqueeWidth || !marqueeVisible) return;
+      var speed = 70 + Math.min(Math.abs(scrollVelocity) * 26, 900);
+      marqueeOffset = (marqueeOffset + marqueeDirection * speed * delta) % marqueeWidth;
+      if (marqueeOffset < 0) marqueeOffset += marqueeWidth;
+      marquee.style.transform = 'translate3d(' + (-marqueeOffset).toFixed(1) + 'px,0,0) skewX(' + clamp(scrollVelocity * -0.35, -10, 10).toFixed(2) + 'deg)';
+    }
+    function paintParallax() {
+      var scrollY = window.pageYOffset;
+      var heroHeight = hero ? hero.offsetHeight : 0;
+      var heroScroll = Math.min(scrollY, heroHeight);
+      pointer.x += (pointer.tx - pointer.x) * 0.08;
+      pointer.y += (pointer.ty - pointer.y) * 0.08;
+      if (scrollY < heroHeight + 200) {
+        Array.prototype.forEach.call(shapes, function (shape) {
+          var depth = Number(shape.getAttribute('data-sl-depth')) || 1;
+          var x = pointer.x * depth * 22;
+          var y = pointer.y * depth * 22 + heroScroll * depth * 0.2;
+          shape.style.translate = x.toFixed(1) + 'px ' + y.toFixed(1) + 'px';
+        });
+      }
+      if (meter) {
+        var max = document.documentElement.scrollHeight - viewportHeight();
+        meter.style.transform = 'scaleX(' + (max > 0 ? clamp(scrollY / max, 0, 1) : 0).toFixed(4) + ')';
+      }
+      if (mogsMark && mogsCard) {
+        var mogs = rangeProgress(mogsCard);
+        mogsMark.style.translate = '0 ' + ((mogs - 0.5) * -120).toFixed(1) + 'px';
+        mogsMark.style.rotate = ((mogs - 0.5) * -14).toFixed(2) + 'deg';
+      }
+      if (contact) {
+        var c = rangeProgress(contact);
+        Array.prototype.forEach.call(contactSymbols, function (symbol, i) {
+          symbol.style.translate = '0 ' + ((c - 0.5) * (i ? 160 : -110)).toFixed(1) + 'px';
+        });
+      }
+      if (storyboard) {
+        var p = rangeProgress(storyboard);
+        if (dots) { dots.style.transform = 'translate(' + Math.round(p * 105) + 'px,' + Math.round(p * -10) + 'px)'; dots.style.opacity = String(1 - p * 0.32); }
+        if (grid) { grid.style.transform = 'translate(' + Math.round((1 - p) * -35) + 'px,0)'; grid.style.opacity = String(0.45 + p * 0.55); }
+        if (network) { network.style.transform = 'translate(' + Math.round((1 - p) * 45) + 'px,0)'; network.style.opacity = String(0.45 + p * 0.55); }
+      }
+    }
+    function tick(time) {
+      frame = 0;
+      if (reduced) return;
+      var delta = lastTime ? Math.min((time - lastTime) / 1000, 0.05) : 0;
+      lastTime = time;
+      var scrollY = window.pageYOffset;
+      var instant = scrollY - lastScrollY;
+      lastScrollY = scrollY;
+      if (instant) marqueeDirection = instant > 0 ? 1 : -1;
+      scrollVelocity += (instant - scrollVelocity) * 0.18;
+      paintMarquee(delta);
+      paintParallax();
+      frame = window.requestAnimationFrame(tick);
+    }
+    function startLoop() { if (!frame && !reduced) { lastTime = 0; frame = window.requestAnimationFrame(tick); } }
+    function stopLoop() { if (frame) window.cancelAnimationFrame(frame); frame = 0; }
+
+    function resetDecorations() {
+      Array.prototype.forEach.call(shapes, function (shape) { shape.style.translate = ''; });
+      Array.prototype.forEach.call(contactSymbols, function (symbol) { symbol.style.translate = ''; });
+      if (mogsMark) { mogsMark.style.translate = ''; mogsMark.style.rotate = ''; }
+      if (marquee) marquee.style.transform = '';
+      if (meter) meter.style.transform = '';
+      [dots, grid, network].forEach(function (part) { if (part) { part.style.transform = ''; part.style.opacity = ''; } });
+    }
+
+    if (hero && finePointer) {
+      hero.addEventListener('pointermove', function (event) {
+        var rect = hero.getBoundingClientRect();
+        pointer.tx = (event.clientX - rect.left) / rect.width - 0.5;
+        pointer.ty = (event.clientY - rect.top) / rect.height - 0.5;
+      }, { passive: true });
+      hero.addEventListener('pointerleave', function () { pointer.tx = 0; pointer.ty = 0; }, { passive: true });
+    }
+    if (marquee && 'IntersectionObserver' in window) {
+      new IntersectionObserver(function (entries) { marqueeVisible = entries[0].isIntersecting; }).observe(marquee);
+    }
+    window.addEventListener('resize', measureMarquee, { passive: true });
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(measureMarquee);
+
+    function enableMotion() {
+      splitHeadline(home.querySelector('[data-sl-split]'));
+      measureMarquee();
+      startReveals();
+      home.classList.add('sl-motion-on');
+      startLoop();
+    }
+    function disableMotion() {
+      stopLoop();
+      if (revealObserver) { revealObserver.disconnect(); revealObserver = null; }
+      markAllRevealed();
+      home.classList.remove('sl-motion-on');
+      resetDecorations();
+    }
+    if (reduced) markAllRevealed(); else enableMotion();
 
     var videos = home.querySelectorAll('[data-reel-video]');
     function controlFor(video) { var figure = video.closest('.sl-project-reel'); return figure && figure.querySelector('[data-reel-control]'); }
@@ -145,8 +257,8 @@
 
     function motionPreferenceChanged(event) {
       reduced = event.matches;
-      if (reduced) { cancelEntrances(); resetDecorations(); pauseAll(); }
-      else { schedulePaint(); syncVideos(); }
+      if (reduced) { disableMotion(); pauseAll(); }
+      else { enableMotion(); syncVideos(); }
     }
     if (media) {
       if (media.addEventListener) media.addEventListener('change', motionPreferenceChanged);
