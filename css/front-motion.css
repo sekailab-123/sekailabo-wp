@@ -44,7 +44,19 @@ body.home {
 .sl-connect, .sl-services { --sl-wipe: var(--sl-blue); }
 .sl-method, .sl-contact, .sl-journal { --sl-wipe: var(--sl-yellow); }
 .sl-map-engine::before { position: absolute; right: -55%; bottom: -55%; width: 120%; aspect-ratio: 1; border-radius: 50%; background: conic-gradient(var(--sl-yellow) 0 25%, transparent 0 50%, var(--sl-red) 0 75%, transparent 0); content: ""; opacity: .92; }
+body.home .sl-home .sl-map-node h3 { margin-top: 18px !important; font-family: "Noto Sans JP", sans-serif; font-size: clamp(18px, 1.65vw, 25px); font-weight: 700; letter-spacing: -.02em; line-height: 1.45; }
+.sl-node-index b { display: inline-block; margin-left: 8px; padding: 2px 6px; background: var(--sl-ink); color: var(--sl-paper); font-weight: 600; letter-spacing: .1em; }
+.sl-map-field .sl-node-index b, .sl-map-data .sl-node-index b { background: var(--sl-blue); }
+body.home .sl-home .sl-map-engine strong { font: 700 clamp(28px, 2.9vw, 42px)/1.28 "Noto Sans JP", sans-serif; letter-spacing: -.03em; }
 .sl-method-flow li { position: relative; }
+/* The connecting line is drawn per step (under each number box) so step animations can't lift it above the numbers. */
+.sl-method-flow::before { display: none; }
+.sl-method-flow li::before { position: absolute; z-index: 0; top: 51px; right: -1px; left: 0; height: 2px; content: ""; transform-origin: left; }
+.sl-method-flow li:nth-child(1)::before { background: var(--sl-yellow); }
+.sl-method-flow li:nth-child(2)::before { background: var(--sl-red); }
+.sl-method-flow li:nth-child(3)::before { background: var(--sl-blue); }
+.sl-method-flow li:nth-child(4)::before { background: var(--sl-paper); }
+.sl-method-flow li > span { color: #fff; font-weight: 600; font-size: 12px !important; }
 .sl-method-flow li::after { position: absolute; top: 30px; right: 26px; width: 44px; aspect-ratio: 1; content: ""; transition: rotate .6s var(--sl-ease-spring); }
 .sl-method-flow li:nth-child(1)::after { border-radius: 50%; background: var(--sl-yellow); }
 .sl-method-flow li:nth-child(2)::after { background: var(--sl-red); }
@@ -176,8 +188,12 @@ body.home .sl-home.sl-motion-on [data-sl-reveal] h2 { position: relative; }
 .sl-motion-on .sl-system-storyboard.is-sl-in .sl-system-stage--system circle:nth-of-type(5) { animation-delay: 2.3s, 4.2s; }
 
 /* Method: progress line draws, steps and shapes drop in */
-.sl-motion-on .sl-method-flow::before { transform: scaleX(0); }
-.sl-motion-on .sl-method-flow.is-sl-in::before { animation: sl-grow-x 1.6s var(--sl-ease-snap) .2s both; }
+.sl-motion-on .sl-method-flow li::before { transform: scaleX(0); }
+.sl-motion-on .sl-method-flow.is-sl-in li::before { animation: sl-grow-x .45s linear both; }
+.sl-motion-on .sl-method-flow.is-sl-in li:nth-child(1)::before { animation-delay: .35s; }
+.sl-motion-on .sl-method-flow.is-sl-in li:nth-child(2)::before { animation-delay: .8s; }
+.sl-motion-on .sl-method-flow.is-sl-in li:nth-child(3)::before { animation-delay: 1.25s; }
+.sl-motion-on .sl-method-flow.is-sl-in li:nth-child(4)::before { animation-delay: 1.7s; animation-timing-function: var(--sl-ease-out); }
 .sl-motion-on .sl-method-flow li { opacity: 0; }
 .sl-motion-on .sl-method-flow.is-sl-in li { opacity: 1; animation: sl-rise .8s var(--sl-ease-out) both; }
 .sl-motion-on .sl-method-flow li::after { scale: 0; }
@@ -208,13 +224,17 @@ body.home .sl-home.sl-motion-on [data-sl-reveal] h2 { position: relative; }
   .sl-hero-shape--bar { top: auto; bottom: 30%; left: -4%; width: 90px; height: 9px; }
   .sl-hero-shape--dots { display: none; }
   body.home .sl-home .sl-hero h1 { font-size: clamp(36px, 10.6vw, 56px); }
+  body.home .sl-home .sl-map-node h3 { margin-top: 14px !important; font-size: 16px; }
+  .sl-node-index b { display: table; margin: 7px 0 0; }
+  body.home .sl-home .sl-map-engine strong { font-size: 32px; }
   body.home .sl-home .sl-contact h2 { font-size: clamp(32px, 9.2vw, 52px); line-height: 1.12; }
   .sl-grid-signal-one { display: none; }
   .sl-contact::before { top: auto; right: -38vw; bottom: -38vw; width: 86vw; height: 86vw; border-width: 16px; }
   .sl-hero-visual { box-shadow: 10px 10px 0 var(--sl-ink); }
   .sl-method-flow li::after { top: 10px; right: 0; bottom: auto; width: 26px; }
-  .sl-motion-on .sl-method-flow::before { transform: scaleY(0); }
-  .sl-motion-on .sl-method-flow.is-sl-in::before { animation-name: sl-grow-y; }
+  .sl-method-flow li::before { top: 0; right: auto; bottom: 0; left: 25px; width: 2px; height: auto; transform-origin: top; }
+  .sl-motion-on .sl-method-flow li::before { transform: scaleY(0); }
+  .sl-motion-on .sl-method-flow.is-sl-in li::before { animation-name: sl-grow-y; }
   .sl-map-engine::before { right: -18%; bottom: -60%; width: 60%; }
 }
 

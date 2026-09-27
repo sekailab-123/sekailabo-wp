@@ -1,6 +1,21 @@
 <?php get_header(); ?>
 
 <body <?php body_class(); ?> data-rsssl="1">
+    <script>document.documentElement.className += ' sl-js';</script>
+    <div class="sl-loader" aria-hidden="true" data-sl-loader>
+        <div class="sl-loader-stage">
+            <div class="sl-loader-shapes">
+                <span class="sl-loader-shape sl-loader-shape--circle"></span>
+                <span class="sl-loader-shape sl-loader-shape--square"></span>
+                <span class="sl-loader-shape sl-loader-shape--triangle"></span>
+            </div>
+            <p class="sl-loader-word">SEKAILABO<span>'</span></p>
+            <div class="sl-loader-meter"><i data-sl-loader-bar></i></div>
+            <p class="sl-loader-count"><span data-sl-loader-count>000</span> / 100</p>
+            <p class="sl-loader-note">CREATIVE STUDIO / FUKUOKA</p>
+        </div>
+        <div class="sl-loader-panels"><i></i><i></i><i></i><i></i></div>
+    </div>
     <div class="sl-home">
         <div class="sl-scroll-meter" aria-hidden="true"><i data-sl-meter></i></div>
         <header class="sl-site-header">
@@ -73,19 +88,19 @@
                 </div>
                 <div class="sl-connect-map" data-sl-reveal data-sl-delay="100" aria-label="お客さんの声と数字から、発信・体験・運用・成果につなげる図">
                     <div class="sl-map-inputs">
-                        <article class="sl-map-node sl-map-field"><span class="sl-node-index">INPUT / 01</span><h3>FIELD</h3><p>お客さんの声・現場の気づき</p></article>
-                        <article class="sl-map-node sl-map-data"><span class="sl-node-index">INPUT / 02</span><h3>DATA</h3><p>反応・来店・売上の数字</p></article>
+                        <article class="sl-map-node sl-map-field"><span class="sl-node-index">INPUT / 01 <b>FIELD</b></span><h3>お客さんの声と、<br>現場の気づき</h3></article>
+                        <article class="sl-map-node sl-map-data"><span class="sl-node-index">INPUT / 02 <b>DATA</b></span><h3>反応・来店・<br>売上の数字</h3></article>
                     </div>
                     <div class="sl-map-engine">
-                        <span>OUR TEAM</span>
-                        <strong>MAKE &amp; KEEP</strong>
+                        <span>OUR TEAM / MAKE &amp; KEEP</span>
+                        <strong>つくって、<br>続ける。</strong>
                         <i aria-hidden="true"></i><i aria-hidden="true"></i><i aria-hidden="true"></i>
                     </div>
                     <div class="sl-map-outputs">
-                        <article class="sl-map-node"><span class="sl-node-index">OUTPUT / 01</span><h3>CONTENT</h3><p>ショート動画・写真・言葉</p></article>
-                        <article class="sl-map-node"><span class="sl-node-index">OUTPUT / 02</span><h3>EXPERIENCE</h3><p>来店・購入までの体験</p></article>
-                        <article class="sl-map-node"><span class="sl-node-index">OUTPUT / 03</span><h3>OPERATION</h3><p>Web・LINE・自動化ツール</p></article>
-                        <article class="sl-map-node"><span class="sl-node-index">OUTPUT / 04</span><h3>GROWTH</h3><p>EC・広告・改善の積み重ね</p></article>
+                        <article class="sl-map-node"><span class="sl-node-index">OUTPUT / 01 <b>CONTENT</b></span><h3>ショート動画・<br>写真・言葉</h3></article>
+                        <article class="sl-map-node"><span class="sl-node-index">OUTPUT / 02 <b>EXPERIENCE</b></span><h3>来店・購入までの<br>体験づくり</h3></article>
+                        <article class="sl-map-node"><span class="sl-node-index">OUTPUT / 03 <b>OPERATION</b></span><h3>Web・LINE・<br>自動化ツール</h3></article>
+                        <article class="sl-map-node"><span class="sl-node-index">OUTPUT / 04 <b>GROWTH</b></span><h3>EC・広告と<br>改善の積み重ね</h3></article>
                     </div>
                 </div>
                 <figure class="sl-system-storyboard" data-sl-reveal data-sl-delay="140" aria-hidden="true">
@@ -131,7 +146,7 @@
             <section class="sl-section sl-projects" id="projects" aria-labelledby="sl-projects-title">
                 <div class="sl-section-head" data-sl-reveal>
                     <p class="sl-kicker"><span>04</span> REPRESENTATIVE PROJECTS</p>
-                    <h2 id="sl-projects-title">自分たちの現場で、試しています。</h2>
+                    <h2 id="sl-projects-title">自分たちの現場で、<span class="sl-nowrap">試しています。</span></h2>
                 </div>
                 <div class="sl-project-grid">
                     <article class="sl-project sl-project-mogs" data-sl-reveal>

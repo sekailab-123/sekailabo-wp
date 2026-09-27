@@ -196,7 +196,47 @@
       home.classList.remove('sl-motion-on');
       resetDecorations();
     }
-    if (reduced) markAllRevealed(); else enableMotion();
+    // Loading screen: progress eases toward 100 once the page has loaded (min 1.4s, max ~4s),
+    // then colour panels sweep over it and the page's own entrance motion starts underneath.
+    var LOADER_MIN_MS = 1400;
+    var LOADER_MAX_MS = 4000;
+    var LOADER_EXIT_MS = 1400;
+    var LOADER_REVEAL_MS = 520;
+    function runLoader(done) {
+      var loader = document.querySelector('[data-sl-loader]');
+      if (!loader) { done(); return; }
+      if (reduced) { loader.parentNode.removeChild(loader); done(); return; }
+      var bar = loader.querySelector('[data-sl-loader-bar]');
+      var count = loader.querySelector('[data-sl-loader-count]');
+      var root = document.documentElement;
+      var start = window.performance ? performance.now() : Date.now();
+      var loaded = document.readyState === 'complete';
+      var progress = 0;
+      var previousOverflow = root.style.overflow;
+      root.style.overflow = 'hidden';
+      if (!loaded) window.addEventListener('load', function () { loaded = true; }, { once: true });
+
+      function finish() {
+        loader.classList.add('is-sl-leaving');
+        root.style.overflow = previousOverflow;
+        window.setTimeout(done, LOADER_REVEAL_MS);
+        window.setTimeout(function () { if (loader.parentNode) loader.parentNode.removeChild(loader); }, LOADER_EXIT_MS);
+      }
+      function step(now) {
+        var elapsed = now - start;
+        var ready = loaded || elapsed > LOADER_MAX_MS;
+        var target = ready ? 100 : 88;
+        progress = Math.min(target, progress + (target - progress) * 0.08 + 0.4);
+        var shown = Math.min(progress, (elapsed / LOADER_MIN_MS) * 100);
+        if (bar) bar.style.transform = 'scaleX(' + (shown / 100).toFixed(3) + ')';
+        if (count) count.textContent = ('00' + Math.floor(shown)).slice(-3);
+        if (shown >= 100) { finish(); return; }
+        window.requestAnimationFrame(step);
+      }
+      window.requestAnimationFrame(step);
+    }
+
+    runLoader(function () { if (reduced) markAllRevealed(); else enableMotion(); });
 
     var videos = home.querySelectorAll('[data-reel-video]');
     function controlFor(video) { var figure = video.closest('.sl-project-reel'); return figure && figure.querySelector('[data-reel-control]'); }

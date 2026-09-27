@@ -121,6 +121,10 @@
       rel="stylesheet"
       href="<?php echo esc_url(get_template_directory_uri() . '/css/front-mogpass.css?ver=' . filemtime(get_template_directory() . '/css/front-mogpass.css')); ?>"
     />
+    <link
+      rel="stylesheet"
+      href="<?php echo esc_url(get_template_directory_uri() . '/css/front-loader.css?ver=' . filemtime(get_template_directory() . '/css/front-loader.css')); ?>"
+    />
     <?php endif; ?>
 
     <link
