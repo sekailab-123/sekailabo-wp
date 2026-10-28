@@ -89,10 +89,10 @@
                         <table class="c-table">
                             <tr>
                                 <th>
-                                    <p>会社名</p>
+                                    <p>屋号</p>
                                 </th>
                                 <td>
-                                    <p>SEKAILABO'株式会社</p>
+                                    <p>SEKAILABO'</p>
                                 </td>
                             </tr>
                             <tr>

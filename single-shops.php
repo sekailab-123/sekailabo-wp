@@ -137,8 +137,8 @@
         <h2 class="a_c">ABOUT US</h2>
         <ul id="aboutUl">
             <li>
-                <p>[ 会社名 ]
-                    <br>SEKAILABO'株式会社
+                <p>[ 屋号 ]
+                    <br>SEKAILABO'
                     <br class="sp-f-only">[ 連絡先 ]
                     <br>info@sekailabo.com
                     <br>[ 代表者名 ]
