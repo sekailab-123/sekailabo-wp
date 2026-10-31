@@ -132,6 +132,12 @@
       href="<?php echo esc_url(get_template_directory_uri() . '/css/contact.css?ver=' . filemtime(get_template_directory() . '/css/contact.css')); ?>"
     />
     <?php endif; ?>
+    <?php if ( is_post_type_archive('topics') || is_tax('topics_cat') || is_singular('topics') || is_page_template('single-topics.php') ) : ?>
+    <link
+      rel="stylesheet"
+      href="<?php echo esc_url(get_template_directory_uri() . '/css/topics.css?ver=' . filemtime(get_template_directory() . '/css/topics.css')); ?>"
+    />
+    <?php endif; ?>
 
     <link
       rel="stylesheet"

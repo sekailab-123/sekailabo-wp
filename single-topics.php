@@ -1,180 +1,56 @@
 <?php
-
 /**
  * Template Name: トピックス
- * Template Post Type:product,post,page,topics
+ * Template Post Type: product,post,page,topics
  */
+get_header();
 ?>
 
-<?php get_header(); ?>
-
-<body data-rsssl=1>
-    <div class="animsition">
-        <!--heddaer-スマホ------------------------------------------------------------->
-        <div id="spGN">
-            <div id="navibar">
-                <ul id="navi12">
-                    <li><a href="<?php echo home_url(); ?>" class="closd">TOP</a>
-                    </li>
-                    <li><a href="#message" class="closd">MESSAGE</a>
-                    </li>
-                    <li><a href="#service" class="closd">SERVICE</a>
-                    </li>
-                    <li><a href="<?php echo get_post_type_archive_link('topics'); ?>">TOPICS</a>
-                    </li>
-                    <li><a href="#aboutUl" class="closd">ABOUT</a>
-                    </li>
-                </ul>
-                <ul id="navi22">
-                    <li><a href="<?php echo home_url(); ?>/recruit">RECRUIT</a>
-                    </li>
-                    <li><a href="<?php echo home_url(); ?>/company">ABOUT</a>
-                    </li>
-                    <li><a href="<?php echo home_url(); ?>/contact/">CONTACT</a>
-                    </li>
-                </ul>
-                <p>FOLLOW ME</p>
-                <a href="https://www.facebook.com" target="_blank" id="fbbtn"><span>facebook</span></a>
-                <a href="https://instagram.com/sekailabo" target="_blank" id="isbtn"><span>instagram</span></a>
-            </div>
-        </div>
-        <!--heddaer-スマホ------------------------------------------------------------->
-        <!--heddaer-PC---------------------------------------------------------------->
-
-        <div id="pcGN">
-            <div id="navi_icon">
-                <a href="<?php echo home_url(); ?>">
-                    <h1><span>SEKAILABO'</span></h1>
-                </a>
-                <div id="naviBox">
-                    <ul id="navi1">
-                        <li><a href="#message">MESSAGE</a>
-                        </li>
-                        <li><a href="#service">SERVICE</a>
-                        </li>
-                        <li><a href="<?php echo get_post_type_archive_link('topics'); ?>">TOPICS</a>
-                        </li>
-                        <li><a href="#aboutUl" class="closd">ABOUT</a>
-                        </li>
-                    </ul>
-
-                    <ul id="navi2">
-                        <li><a href="<?php echo home_url(); ?>/recruit">RECRUIT</a>
-                        </li>
-                        <li><a href="<?php echo home_url(); ?>/company">ABOUT</a>
-                        </li>
-                        <li><a href="<?php echo home_url(); ?>/contact/">CONTACT</a>
-                        </li>
-                    </ul>
-                    <p>FOLLOW ME</p>
-                    <a href="https://www.facebook.com" target="_blank" id="fbbtn"><span>facebook</span></a>
-                    <a href="https://www.instagram.com/sekailabo" target="_blank" id="isbtn"><span>instagram</span></a>
-                </div>
-
-                <!---heddaer-PC--------------------------------------------------------------->
-
-                <div class="btnHamburger">
-                    <span class="line line_01"></span>
-                    <span class="line line_02"></span>
-                    <span class="line line_03"></span>
-                </div>
-            </div>
-        </div>
-
-        <!------投稿記事----------------------------------------------------------->
-        <div class="topics_block">
-            <div class="page">
-                <h2 id="topics_h2">TOPICS</h2>
-                <?php while (have_posts()) : the_post(); ?>
-                    <div class="news__body">
-                        <div class="news__title"><?php the_title(); ?></div>
-                        <div class="news__info">
-                            <dl>
-                                <dt>Category：</dt>
-                                <dd>
-                                    <ul class="styles">
-                                        <li>
-                                            <a href="" rel="tag"><?php echo get_the_term_list($post->ID, 'topics_cat'); ?></a>
-                                        </li>
-                                    </ul>
-                                </dd>
-                            </dl>
-                            <dl>
-                                <dt>Post：</dt>
-                                <dd><time datetime="<?php echo get_the_date('Y.m.d'); ?>">
-                                        <?php echo get_the_date(); ?>
-                                    </time>
-                                </dd>
-                            </dl>
+<body <?php body_class('sl-topics-page sl-topics-single-page'); ?> data-rsssl="1">
+    <div class="sl-topics-shell">
+        <?php get_template_part('template-parts/topics', 'header'); ?>
+        <main class="sl-topics-main">
+            <?php while (have_posts()) : the_post(); ?>
+                <?php $topics_terms = get_the_terms(get_the_ID(), 'topics_cat'); ?>
+                <article class="sl-topic-article" id="post-<?php the_ID(); ?>">
+                    <header class="sl-topic-article-head">
+                        <p class="sl-kicker"><span>TOPICS</span> FIELD NOTE</p>
+                        <div class="sl-topic-meta">
+                            <time datetime="<?php echo esc_attr(get_the_date('c')); ?>"><?php echo esc_html(get_the_date()); ?></time>
+                            <?php if ($topics_terms && ! is_wp_error($topics_terms)) : ?>
+                                <span aria-hidden="true">/</span>
+                                <span class="sl-topic-terms">
+                                    <?php foreach ($topics_terms as $topics_term) : ?>
+                                        <?php $topics_term_link = get_term_link($topics_term); ?>
+                                        <?php if (! is_wp_error($topics_term_link)) : ?><a href="<?php echo esc_url($topics_term_link); ?>"><?php echo esc_html($topics_term->name); ?></a><?php endif; ?>
+                                    <?php endforeach; ?>
+                                </span>
+                            <?php endif; ?>
                         </div>
-                        <div class="news__blk">
-                            <p>
-                                <?php the_content(); ?>
-                            </p>
-                        </div>
+                        <h1><?php echo esc_html(get_the_title()); ?></h1>
+                    </header>
+
+                    <?php if (has_post_thumbnail()) : ?>
+                        <figure class="sl-topic-featured-image"><?php the_post_thumbnail('large'); ?></figure>
+                    <?php endif; ?>
+
+                    <div class="sl-topic-content">
+                        <?php the_content(); ?>
                     </div>
-                    <div class="page__sns">
-                        <ul>
-                            <li>
-                                <a href="https://www.instagram.com/sekailabo/" rel="nofollow" target="_blank">
-                                    <i class="fab fa-instagram fa-4x"></i>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="https://twitter.com/laboratory_Riku" rel="nofollow" target="_blank">
-                                    <i class="fab fa-twitter fa-4x"></i>
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="btn_back">
-                        <a href="https://sannoni.jp/march/">
-                            <noscript>
-                                <img src="https://sannoni.jp/wp-content/themes/sannoni/img/ico_back.png" alt="">
-                            </noscript>
-                            <!--<img class="lazyload" src='data:image/svg+xml,%3Csvg%20xmlns=%22http://www.w3.org/2000/svg%22%20viewBox=%220%200%20210%20140%22%3E%3C/svg%3E' data-src="https://sannoni.jp/wp-content/themes/sannoni/img/ico_back.png" alt="">-->
-                        </a>
-                    </div>
-            </div>
-        <?php endwhile; ?>
-        </div>
+                </article>
 
-
-        <!------投稿記事----------------------------------------------------------->
-
+                <?php $topics_previous = get_previous_post(false, '', 'topics_cat'); ?>
+                <?php $topics_next = get_next_post(false, '', 'topics_cat'); ?>
+                <?php $topics_archive_url = get_post_type_archive_link('topics'); ?>
+                <nav class="sl-topic-post-nav" aria-label="トピックスの投稿ナビゲーション">
+                    <?php if ($topics_previous) : ?><a href="<?php echo esc_url(get_permalink($topics_previous)); ?>"><span>← PREVIOUS</span><strong><?php echo esc_html(get_the_title($topics_previous)); ?></strong></a><?php else : ?><span></span><?php endif; ?>
+                    <?php if ($topics_archive_url) : ?><a class="sl-topic-post-nav-all" href="<?php echo esc_url($topics_archive_url); ?>">ALL TOPICS</a><?php endif; ?>
+                    <?php if ($topics_next) : ?><a href="<?php echo esc_url(get_permalink($topics_next)); ?>"><span>NEXT →</span><strong><?php echo esc_html(get_the_title($topics_next)); ?></strong></a><?php else : ?><span></span><?php endif; ?>
+                </nav>
+            <?php endwhile; ?>
+            <?php get_template_part('template-parts/topics', 'contact'); ?>
+        </main>
+        <?php get_template_part('template-parts/topics', 'footer'); ?>
     </div>
 
-    <div class="about_block">
-        <h2 class="a_c">ABOUT US</h2>
-        <ul id="aboutUl">
-            <li>
-                <p>[ 屋号 ]
-                    <br>SEKAILABO'
-                    <br class="sp-f-only">[ 連絡先 ]
-                    <br>info@sekailabo.com
-                </p>
-            </li>
-            <li id="sp-padding">
-                <p>[ 事業内容 ]
-                    <br>SNS・ショート動画 / 飲食店の集客・運用
-                    <br>EC・広告運用 / ブランド・Web制作
-                </p>
-            </li>
-        </ul>
-
-        <a href="<?php echo home_url(); ?>/contact/" class="btn">CONTACT</a>
-
-        <p id="copyright">COPYRIGHT &copy; 2022- SEKAILABO'</p>
-    </div>
-
-    <!--back to top (トップに戻る)-->
-    <div id="fixSocial" class="pc">
-        <li>
-            <span class="gotop">
-                <img src="<?php echo get_template_directory_uri(); ?>/img/BTT.png" alt="BACK TO TOP"></span>
-        </li>
-    </div>
-    <!--back to top 終わり-->
-    </div>
-
-    <?php get_footer(); ?>
+<?php get_footer(); ?>
