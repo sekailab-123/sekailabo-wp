@@ -1,6 +1,8 @@
 <?php
 add_action('wp_enqueue_scripts', 'theme_enqueue_styles');
 
+require_once get_template_directory() . '/inc/privacy.php';
+
 function theme_enqueue_styles()
 {
     wp_enqueue_style('parent-style', get_template_directory_uri() . '/style.css');

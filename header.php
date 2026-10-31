@@ -20,27 +20,31 @@
     <meta name="format-detection" content="telephone=no" />
 
     <!--SEO対策-->
-    <title>SEKAILABO'</title>
+    <?php $sl_is_privacy_policy = function_exists('sekailabo_is_privacy_policy_page') && sekailabo_is_privacy_policy_page(); ?>
+    <title><?php echo $sl_is_privacy_policy ? "プライバシーポリシー | SEKAILABO'" : "SEKAILABO'"; ?></title>
     <meta
       name="keywords"
       content="SEKAILABO',福岡,東京,ウェブ制作,ウェブ,WEB,デザイン,広告,ホームページ,コンサルティング"
     />
     <meta
       name="description"
-      content="SEKAILABO' は、福岡のグルメSNS「MOGS」を運営するクリエイティブチームです。SNS・ショート動画、飲食店の集客・運用、EC・広告、ブランド・Web制作まで、発信から来店・購入につながる流れを一緒につくります。"
+      content="<?php echo esc_attr($sl_is_privacy_policy ? "SEKAILABO' のプライバシーポリシーです。" : "SEKAILABO' は、福岡のグルメSNS「MOGS」を運営するクリエイティブチームです。SNS・ショート動画、飲食店の集客・運用、EC・広告、ブランド・Web制作まで、発信から来店・購入につながる流れを一緒につくります。"); ?>"
     />
     <meta name="author" content="SEKAILABO' | SIROTANI RIKU" />
 
     <!--OPG対策-->
     <meta property="og:site_name" content="SEKAILABO'" />
-    <meta property="og:title" content="SEKAILABO'" />
+    <meta property="og:title" content="<?php echo esc_attr($sl_is_privacy_policy ? "プライバシーポリシー | SEKAILABO'" : "SEKAILABO'"); ?>" />
     <!--<title>と同じにする。以下同じ-->
     <meta
       property="og:description"
-      content="SEKAILABO' は、福岡のグルメSNS「MOGS」を運営するクリエイティブチームです。SNS・ショート動画、飲食店の集客・運用、EC・広告、ブランド・Web制作まで、発信から来店・購入につながる流れを一緒につくります。"
+      content="<?php echo esc_attr($sl_is_privacy_policy ? "SEKAILABO' のプライバシーポリシーです。" : "SEKAILABO' は、福岡のグルメSNS「MOGS」を運営するクリエイティブチームです。SNS・ショート動画、飲食店の集客・運用、EC・広告、ブランド・Web制作まで、発信から来店・購入につながる流れを一緒につくります。"); ?>"
     />
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://sekailabo.com" />
+    <meta property="og:url" content="<?php echo esc_url($sl_is_privacy_policy ? home_url('/privacy-policy/') : home_url('/')); ?>" />
+    <?php if ($sl_is_privacy_policy) : ?>
+    <link rel="canonical" href="<?php echo esc_url(home_url('/privacy-policy/')); ?>" />
+    <?php endif; ?>
     <meta property="og:image" content="  " />
 
     <!--ウェブサイトのシンボルマークイメージとして配置するアイコン(今回なし)-->
@@ -126,10 +130,16 @@
       href="<?php echo esc_url(get_template_directory_uri() . '/css/front-loader.css?ver=' . filemtime(get_template_directory() . '/css/front-loader.css')); ?>"
     />
     <?php endif; ?>
-    <?php if ( is_page_template('page-contact.php') || is_page('contact') ) : ?>
+    <?php if ( is_page_template('page-contact.php') || is_page('contact') || $sl_is_privacy_policy ) : ?>
     <link
       rel="stylesheet"
       href="<?php echo esc_url(get_template_directory_uri() . '/css/contact.css?ver=' . filemtime(get_template_directory() . '/css/contact.css')); ?>"
+    />
+    <?php endif; ?>
+    <?php if ( $sl_is_privacy_policy ) : ?>
+    <link
+      rel="stylesheet"
+      href="<?php echo esc_url(get_template_directory_uri() . '/css/privacy.css?ver=' . filemtime(get_template_directory() . '/css/privacy.css')); ?>"
     />
     <?php endif; ?>
     <?php if ( is_post_type_archive('topics') || is_tax('topics_cat') || is_singular('topics') || is_page_template('single-topics.php') ) : ?>

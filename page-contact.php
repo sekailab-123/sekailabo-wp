@@ -44,7 +44,7 @@
                 <div class="sl-contact-form-intro">
                     <p class="sl-kicker"><span>02</span> YOUR MESSAGE</p>
                     <h2 id="contact-form-title">お問い合わせ</h2>
-                    <p>入力内容をご確認のうえ送信してください。入力を修正する場合は、確認画面の「戻る」から戻れます。</p>
+                    <p>入力内容をご確認のうえ送信してください。入力を修正する場合は、確認画面の「戻る」から戻れます。お送りいただく前に<a href="<?php echo esc_url(home_url('/privacy-policy/')); ?>" target="_blank" rel="noopener noreferrer">プライバシーポリシー（新しいタブで開きます）</a>をご確認ください。</p>
                 </div>
                 <div class="sl-contact-form-wrap">
                     <?php echo do_shortcode('[mwform_formkey key="170"]'); ?>
