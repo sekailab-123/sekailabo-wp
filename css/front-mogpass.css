@@ -56,7 +56,7 @@ body.home .sl-project-mogpass .sl-project-link { grid-row: 4; }
 @keyframes sl-mp-bar { 0% { transform: scaleX(0); } 40%, 100% { transform: scaleX(1); } }
 @keyframes sl-mp-mention { 0%, 8% { opacity: 0; scale: .3; } 14% { opacity: 1; scale: 1.15; } 18%, 92% { opacity: 1; scale: 1; } 100% { opacity: 0; scale: 1; } }
 @keyframes sl-mp-send { 0%, 38% { opacity: 0; transform: translateX(-12px); } 42% { opacity: 1; } 52% { opacity: 1; transform: translateX(30px); } 56%, 100% { opacity: 0; transform: translateX(30px); } }
-@keyframes sl-mp-in-1 { 0%, 50% { opacity: 0; transform: translateY(10px); } 54%, 94% { opacity: 1; transform: none; } 100% { opacity: 0; } }
+@keyframes sl-mp-in-1 { 0%, 12% { opacity: 0; transform: translateY(10px); } 16%, 94% { opacity: 1; transform: none; } 100% { opacity: 0; } }
 @keyframes sl-mp-in-2 { 0%, 58% { opacity: 0; transform: translateY(10px); } 62%, 94% { opacity: 1; transform: none; } 100% { opacity: 0; } }
 @keyframes sl-mp-in-3 { 0%, 66% { opacity: 0; transform: translateY(14px) scale(.85); } 71% { opacity: 1; transform: scale(1.06); } 74%, 94% { opacity: 1; transform: none; } 100% { opacity: 0; } }
 @keyframes sl-mp-in-4 { 0%, 80% { opacity: 0; transform: translateY(10px); } 84%, 94% { opacity: 1; transform: none; } 100% { opacity: 0; } }
@@ -67,8 +67,8 @@ body.home .sl-project-mogpass .sl-project-link { grid-row: 4; }
 .sl-motion-on .sl-mogpass-demo .sl-story-mention { animation: sl-mp-mention var(--sl-mp-loop) var(--sl-ease-out) infinite; }
 .sl-motion-on .sl-mogpass-demo .sl-mogpass-arrow i::after { animation: sl-mp-send var(--sl-mp-loop) var(--sl-ease-snap) infinite; }
 .sl-motion-on .sl-mogpass-demo .sl-phone--dm { animation: sl-mp-ring var(--sl-mp-loop) ease-out infinite; }
-.sl-motion-on .sl-mogpass-demo .sl-dm-mention, .sl-motion-on .sl-mogpass-demo .sl-dm-bubble:nth-of-type(3) { animation: sl-mp-in-1 var(--sl-mp-loop) var(--sl-ease-out) infinite; }
-.sl-motion-on .sl-mogpass-demo .sl-dm-bubble:nth-of-type(4) { animation: sl-mp-in-2 var(--sl-mp-loop) var(--sl-ease-out) infinite; }
+.sl-motion-on .sl-mogpass-demo .sl-dm-mention, .sl-motion-on .sl-mogpass-demo .sl-dm-bubble--thanks { animation: sl-mp-in-1 var(--sl-mp-loop) var(--sl-ease-out) infinite; }
+.sl-motion-on .sl-mogpass-demo .sl-dm-bubble:not(.sl-dm-bubble--thanks) { animation: sl-mp-in-2 var(--sl-mp-loop) var(--sl-ease-out) infinite; }
 .sl-motion-on .sl-mogpass-demo .sl-dm-coupon { animation: sl-mp-in-3 var(--sl-mp-loop) var(--sl-ease-out) infinite; }
 .sl-motion-on .sl-mogpass-demo .sl-dm-reply { animation: sl-mp-in-4 var(--sl-mp-loop) var(--sl-ease-out) infinite; }
 .sl-motion-on .sl-project-mogpass:not(.is-sl-in) .sl-mogpass-demo * { animation-play-state: paused; }

@@ -20,7 +20,7 @@
                 <ul id="navi22">
                     <li><a href="<?php echo home_url(); ?>/recruit">RECRUIT</a>
                     </li>
-                    <li><a href="<?php echo home_url(); ?>/company">COMPANY</a>
+                    <li><a href="<?php echo home_url(); ?>/company">ABOUT</a>
                     </li>
                     <li><a href="<?php echo home_url(); ?>/contact/">CONTACT</a>
                     </li>
@@ -54,7 +54,7 @@
                     <ul id="navi2">
                         <li><a href="<?php echo home_url(); ?>/recruit">RECRUIT</a>
                         </li>
-                        <li><a href="<?php echo home_url(); ?>/company">COMPANY</a>
+                        <li><a href="<?php echo home_url(); ?>/company">ABOUT</a>
                         </li>
                         <li><a href="<?php echo home_url(); ?>/contact/">CONTACT</a>
                         </li>
@@ -162,23 +162,12 @@
                     <br>SEKAILABO'
                     <br class="sp-f-only">[ 連絡先 ]
                     <br>info@sekailabo.com
-                    <br>[ 代表者名 ]
-                    <br>代表取締役兼CEO 金本　健二郎
-                    <br>取締役兼COO 城谷　陸
-                    <br>[ 所在地 ]
-                    <br>東京都新宿区西新宿三丁目3番13号 西新宿水間ビル6階
                 </p>
             </li>
             <li id="sp-padding">
-                <p>[ 資本金 ]
-                    <br>200万
-                    <!-- <br />[ 設立日 ]
-                        <br>令和4年9月16日 -->
-                    <br>[ 事業内容 ]
-                    <br> WEBコンサルタント事業
-                    <br>・Webサイト、Web広告、各種印刷物の企画・制作・運用
-                    <br>・各種コンサルティング
-                    <br>・各種マーケティング
+                <p>[ 事業内容 ]
+                    <br>SNS・ショート動画 / 飲食店の集客・運用
+                    <br>EC・広告運用 / ブランド・Web制作
                 </p>
             </li>
         </ul>

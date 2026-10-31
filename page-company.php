@@ -20,7 +20,7 @@
                 <ul id="navi22">
                     <li><a href="<?php echo home_url(); ?>/recruit">RECRUIT</a>
                     </li>
-                    <li><a href="<?php echo home_url(); ?>/company">COMPANY</a>
+                    <li><a href="<?php echo home_url(); ?>/company">ABOUT</a>
                     </li>
                     <li><a href="<?php echo home_url(); ?>/contact/">CONTACT</a>
                     </li>
@@ -52,7 +52,7 @@
                 <ul id="navi2">
                     <li><a href="<?php echo home_url(); ?>/recruit">RECRUIT</a>
                     </li>
-                    <li><a href="<?php echo home_url(); ?>/company">COMPANY</a>
+                        <li><a href="<?php echo home_url(); ?>/company">ABOUT</a>
                     </li>
                     <li><a href="<?php echo home_url(); ?>/contact/">CONTACT</a>
                     </li>
@@ -76,8 +76,8 @@
             <section class="p_inquirement">
                 <div class="o_c_s-wrap__inner_1080">
                     <div class="o_c_title__center">
-                        <p class="o_c_title__en f_f-cardo">cmpany</p>
-                        <p class="o_c_title__jp">会社概要</p>
+                        <p class="o_c_title__en f_f-cardo">ABOUT</p>
+                        <p class="o_c_title__jp">事業概要</p>
                     </div>
                 </div>
                 <div class="l_header--1080"></div>
@@ -93,14 +93,6 @@
                                 </th>
                                 <td>
                                     <p>SEKAILABO'</p>
-                                </td>
-                            </tr>
-                            <tr>
-                                <th>
-                                    <p>所在地</p>
-                                </th>
-                                <td>
-                                    <p>東京都新宿区西新宿三丁目3番13号<br>西新宿水間ビル6階</p>
                                 </td>
                             </tr>
                             <tr>
@@ -123,60 +115,14 @@
                             </tr>
                             <tr>
                                 <th>
-                                    <p>取締役</p>
-                                </th>
-                                <td>
-                                    <ul class="c-list">
-                                        <li>代表取締役兼CEO : 金本 健二郎</li>
-                                        <li>取締役兼COO : 城谷 陸</li>
-                                    </ul>
-                                </td>
-                            </tr>
-                            <tr>
-                                <th>
-                                    <p>設立</p>
-                                </th>
-                                <td>
-                                    <p>令和4年9月16日</p>
-                                </td>
-                            </tr>
-                            <tr>
-                                <th>
-                                    <p>資本金</p>
-                                </th>
-                                <td>
-                                    <p>200万</p>
-                                </td>
-                            </tr>
-                            <tr>
-                                <th>
-                                    <p>所属団体</p>
-                                </th>
-                                <td>
-                                    <ul class="c-list">
-                                        <li>ワクセル (ソーシャルビジネスコミュニティー)</li>
-                                        <li>THE HUMAN STORY</li>
-                                    </ul>
-                                </td>
-                            </tr>
-                            <!-- <tr>
-                                <th>
-                                    <p>受賞歴</p>
-                                </th>
-                                <td>
-                                    <p>株式会社オンデーズ主催CMコンテスト優勝</p>
-                                </td>
-                            </tr> -->
-                            <tr>
-                                <th>
                                     <p>事業内容</p>
                                 </th>
                                 <td>
                                     <ul class="c-list">
-                                        <li>WEBコンサルタント事業</li>
-                                        <li>・Webサイト、Web広告、各種印刷物の企画・制作・運用</li>
-                                        <li>・各種コンサルティング</li>
-                                        <li>・各種マーケティング</li>
+                                        <li>SNS・ショート動画</li>
+                                        <li>飲食店の集客・運用</li>
+                                        <li>EC・広告運用</li>
+                                        <li>ブランド・Web制作</li>
                                     </ul>
                                 </td>
                             </tr>

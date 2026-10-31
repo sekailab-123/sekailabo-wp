@@ -126,6 +126,12 @@
       href="<?php echo esc_url(get_template_directory_uri() . '/css/front-loader.css?ver=' . filemtime(get_template_directory() . '/css/front-loader.css')); ?>"
     />
     <?php endif; ?>
+    <?php if ( is_page_template('page-contact.php') || is_page('contact') ) : ?>
+    <link
+      rel="stylesheet"
+      href="<?php echo esc_url(get_template_directory_uri() . '/css/contact.css?ver=' . filemtime(get_template_directory() . '/css/contact.css')); ?>"
+    />
+    <?php endif; ?>
 
     <link
       rel="stylesheet"

@@ -188,7 +188,7 @@
                             <div class="sl-phone sl-phone--dm" aria-hidden="true">
                                 <div class="sl-phone-user sl-phone-user--dm"><b></b><span>your_restaurant</span></div>
                                 <div class="sl-dm-mention">あなたがストーリーズでメンションしました</div>
-                                <div class="sl-dm-bubble">メンションありがとうございます！🙌</div>
+                                <div class="sl-dm-bubble sl-dm-bubble--thanks">メンションありがとうございます！🙌</div>
                                 <div class="sl-dm-bubble">今すぐ使えるドリンク1杯無料券です🎁</div>
                                 <div class="sl-dm-coupon"><small>THANK YOU COUPON</small><strong>DRINK FREE</strong><span>スタッフにこの画面を見せてね</span></div>
                                 <div class="sl-dm-reply">ありがとうございます！さっそく使います🍺</div>

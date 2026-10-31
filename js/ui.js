@@ -195,7 +195,7 @@
 	    });
 
 	    //ページ内リンクのスクロール
-	    jQuery('a[href^=#]').click(function() {
+	    jQuery('a[href^="#"]').click(function() {
 	        var speed = 600;
 	        var href = jQuery(this).attr("href");
 	        var target = jQuery(href == "#" || href == "" ? 'html' : href);
@@ -205,10 +205,11 @@
 	    });
 
 	    //ページ内リンクのスクロール
-	    jQuery('a[href^=/#]').click(function() {
+	    jQuery('body.home a[href^="/#"]').click(function() {
 	        var speed = 600;
 	        var href = jQuery(this).attr("href");
-	        var target = jQuery(href == "#" || href == "" ? 'html' : href);
+	        var target = jQuery(href == "/#" || href == "" ? 'html' : href.substring(1));
+	        if (!target.length) return;
 	        var position = target.offset().top - 100;
 	        jQuery("html, body").not(":animated").animate({ scrollTop: position }, speed, "swing");
 	        return false;
