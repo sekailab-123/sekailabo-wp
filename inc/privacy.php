@@ -105,6 +105,16 @@ function sekailabo_add_privacy_consent_field($content)
         . '<p class="sl-privacy-consent__choice">[mwform_checkbox name="sekailabo_privacy_consent" class="sl-privacy-consent__checkbox" children="同意する"]</p>'
         . '</div>';
 
+    // Insert at the verified form-170 button wrapper boundary, not inside a
+    // table, paragraph, or shortcode. This works for input and confirm views.
+    $button_wrapper = '~<div\b[^>]*\bclass\s*=\s*([\'"])[^\'"]*\bp_inquirement__submit_back\b[^\'"]*\1[^>]*>~i';
+    if (preg_match($button_wrapper, $content, $match, PREG_OFFSET_CAPTURE)) {
+        $offset = $match[0][1];
+        return substr($content, 0, $offset) . $agreement . "\n" . substr($content, $offset);
+    }
+
+    // If the administrator changes the form layout, keep consent available
+    // rather than silently dropping a field that is required server-side.
     return $agreement . "\n" . $content;
 }
 add_filter('mwform_post_content_raw_mw-wp-form-170', 'sekailabo_add_privacy_consent_field', 10, 1);
